@@ -14,14 +14,19 @@ public class Room : MonoBehaviour
     
     [Header("Tilemap Settings")]
     public Tilemap floorTilemap;
+    public TileBase floorTile;
     public Tilemap wallTilemap;
     public TileBase wallTile;
     public Transform[] doors;
+    
+    PolygonCollider2D polygon;
 
     private void Awake()
     {
         roomSize = new SizeSettings();
         wallTilemap = GameObject.FindGameObjectWithTag("Wall").GetComponent<Tilemap>();
+        floorTilemap = GameObject.FindGameObjectWithTag("Floor").GetComponent<Tilemap>();
+        polygon = GetComponent<PolygonCollider2D>();
         _furnitureManager = GetComponent<FurnitureManager>();
     }
 
@@ -127,5 +132,35 @@ public class Room : MonoBehaviour
             }
         }
         
+        Vector2[] points = new Vector2[5];
+
+        float minX = roomSize.Position.x;
+        float minY = roomSize.Position.y;
+        float maxX = roomSize.Position.x + roomSize.XSize;
+        float maxY = roomSize.Position.y + roomSize.YSize;
+
+        points[0] = new Vector2(minX, minY);
+        points[1] = new Vector2(minX, maxY);
+        points[2] = new Vector2(maxX, maxY);
+        points[3] = new Vector2(maxX, minY);
+        points[4] = points[0]; // Close the loop
+
+        polygon.pathCount = 1;
+        polygon.SetPath(0, points);
+
+        GenerateFloors();
+    }
+    
+
+    private void GenerateFloors()
+    {
+        for (int x = 0; x < roomSize.XSize; x++)
+        {
+            for (int y = 0; y < roomSize.YSize; y++)
+            {
+                // 바닥 타일 생성
+                floorTilemap.SetTile(new Vector3Int((int)roomSize.Position.x + x, (int)roomSize.Position.y + y, 0), floorTile);
+            }
+        }
     }
 }

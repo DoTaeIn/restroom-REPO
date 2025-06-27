@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6659823834163270394}
   - component: {fileID: 8053119990415237}
   - component: {fileID: 4715192475238474597}
+  - component: {fileID: 7373491492263683316}
   m_Layer: 0
   m_Name: DefaultRoom
   m_TagString: Untagged
@@ -46,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 0
+  _furnitureManager: {fileID: 0}
   floorTilemap: {fileID: 0}
+  floorTile: {fileID: 11400000, guid: abafd2e6190b143619db92d08d48b932, type: 2}
   wallTilemap: {fileID: 0}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
   doors: []
@@ -67,3 +70,55 @@ MonoBehaviour:
   - {fileID: 1328287171719389571, guid: ab617dc108ad0a9498d83351ade1509c, type: 3}
   - {fileID: 1608453245069368038, guid: 0dd8871304db4ef4ea9467c7c8bc1980, type: 3}
   - {fileID: 5156960584279649569, guid: c4f9498d3b32d7146a6bf0535a16e234, type: 3}
+  placed: []
+--- !u!60 &7373491492263683316
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566207188384190252}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+  m_UseDelaunayMesh: 0
