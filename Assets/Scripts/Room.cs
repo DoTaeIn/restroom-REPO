@@ -42,7 +42,7 @@ public class Room : MonoBehaviour
                 furniture.FurnitureSize.Rotation);
             if (furnitureSettings != null)
             {
-                GameObject gm = Instantiate(furniture.gameObject, furniture.transform.position, furniture.transform.rotation);
+                GameObject gm = Instantiate(furniture.gameObject, GetRandomPos(), GetRandomRotation());
                 gm.transform.SetParent(transform);
             }
             
