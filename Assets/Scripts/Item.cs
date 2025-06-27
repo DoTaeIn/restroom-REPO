@@ -1,16 +1,22 @@
 using UnityEngine;
 
+public enum ItemType
+{
+    Key,
+    Weapon,
+    Heal
+}
+
 public class Item : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("References")]
+    private int _id;
+    [SerializeField] private string name;
+    public ItemType type;
+    
+    [Header("Settings")]
+    public float damage;
+    public float healAmount;
+    public int keyPos; //_XXX -> 1st => 0
+    public int keyId; //key Num.
 }
