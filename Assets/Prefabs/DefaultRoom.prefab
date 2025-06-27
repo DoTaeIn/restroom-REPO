@@ -52,7 +52,8 @@ MonoBehaviour:
   floorTile: {fileID: 11400000, guid: abafd2e6190b143619db92d08d48b932, type: 2}
   wallTilemap: {fileID: 0}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
-  doors: []
+  doorPrefab: []
+  doorSprite: {fileID: -4344762378372388292, guid: 2a9dd722bbc2f4a11aa981e6a29a67c1, type: 3}
 --- !u!114 &4715192475238474597
 MonoBehaviour:
   m_ObjectHideFlags: 0

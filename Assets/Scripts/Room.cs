@@ -10,15 +10,15 @@ public class Room : MonoBehaviour
     private bool _hasKey;
     public SizeSettings roomSize;
     //SizeSettings _furnitureSize;
-    [SerializeField]FurnitureManager _furnitureManager;
-    
+    [SerializeField] FurnitureManager _furnitureManager;
+
     [Header("Tilemap Settings")]
     public Tilemap floorTilemap;
     public TileBase floorTile;
     public Tilemap wallTilemap;
     public TileBase wallTile;
-    public Transform[] doors;
-    
+    public GameObject[] doorPrefab;
+
     PolygonCollider2D polygon;
 
     private void Awake()
@@ -43,7 +43,7 @@ public class Room : MonoBehaviour
         return new Vector2(x, y);
     }
 
-    
+
     private Quaternion GetRandomRotation()
     {
         float ranValue = Random.Range(0f, 4);
@@ -71,6 +71,8 @@ public class Room : MonoBehaviour
 
         GenerateWalls(startX, startY);
         this._id = id;
+        Vector3Int asdasd = new Vector3Int(startX, startY, 0);
+        GenerateDoors(startX, startY, Mathf.RoundToInt(roomSize.XSize), Mathf.RoundToInt(roomSize.YSize));
 
         foreach (Furniture furniturePrefab in _furnitureManager.furnitures)
         {
@@ -100,7 +102,7 @@ public class Room : MonoBehaviour
                         break;
                     }
                 }
-                
+
 
                 if (!interferes)
                 {
@@ -116,7 +118,7 @@ public class Room : MonoBehaviour
 
     }
 
-    
+
     public void GenerateWalls(int startx, int starty)
     {
         Debug.Log($"Generating walls for room {_id} at position ({startx}, {starty}) with size ({roomSize.XSize}x{roomSize.YSize})");
@@ -131,7 +133,7 @@ public class Room : MonoBehaviour
                 }
             }
         }
-        
+
         Vector2[] points = new Vector2[5];
 
         float minX = roomSize.Position.x;
@@ -150,7 +152,7 @@ public class Room : MonoBehaviour
 
         GenerateFloors();
     }
-    
+
 
     private void GenerateFloors()
     {
@@ -163,4 +165,60 @@ public class Room : MonoBehaviour
             }
         }
     }
+    public Sprite doorSprite;
+    private void GenerateDoors(int startX, int startY, int width, int height)
+    {
+        // 아래쪽(Bottom) 벽에서 랜덤 x
+        int bottomX = Random.Range(startX + 1, startX + width - 1);
+        Vector3Int bottomDoor = new Vector3Int(bottomX, startY, 0);
+        CreateDoorObject("LeftDoor", bottomDoor);
+
+        // 위쪽(Top) 벽에서 랜덤 x
+        int topX = Random.Range(startX + 1, startX + width - 1);
+        Vector3Int topDoor = new Vector3Int(topX, startY + height - 1, 0);
+        CreateDoorObject("TopDoor", topDoor);
+
+        // 왼쪽(Left) 벽에서 랜덤 y
+        int leftY = Random.Range(startY + 1, startY + height - 1);
+        Vector3Int leftDoor = new Vector3Int(startX, leftY, 0);
+        CreateDoorObject("LeftDoor", leftDoor);
+
+        // 오른쪽(Right) 벽에서 랜덤 y
+        int rightY = Random.Range(startY + 1, startY + height - 1);
+        Vector3Int rightDoor = new Vector3Int(startX + width - 1, rightY, 0);
+        CreateDoorObject("RightDoor", rightDoor);
+
+        CreateDoorAt(bottomDoor);
+        CreateDoorAt(topDoor);
+        CreateDoorAt(leftDoor);
+        CreateDoorAt(rightDoor);
+
+    }
+
+    void CreateDoorAt(Vector3Int Door)
+    {
+        wallTilemap.SetTile(Door, null);
+        floorTilemap.SetTile(Door, floorTile);
+    }
+
+    public void CreateDoorObject(string name, Vector3 worldPosition)
+    {
+        GameObject door = new GameObject(name);
+        door.transform.position = worldPosition;
+        door.transform.parent = this.transform; // 방 내부 구조로 귀속
+
+        // 스프라이트 렌더러 추가
+        SpriteRenderer sr = door.AddComponent<SpriteRenderer>();
+        sr.sprite = doorSprite;
+        sr.sortingOrder = 10; // 배경 위에 뜨게 하고 싶으면 정렬 순서 설정
+
+        // 충돌 박스 추가
+        BoxCollider2D col = door.AddComponent<BoxCollider2D>();
+        col.isTrigger = true;
+
+        // 태그 지정
+        door.tag = "Door";
+    }
+
+
 }
