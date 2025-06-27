@@ -24,7 +24,6 @@ public class RoomManager : MonoBehaviour
     {
         if (allRooms.TryGetValue(targetRoomID, out RoomEX room))
         {
-            // 방 활성화 + 플레이어 위치 이동
             currentRoom.gameObject.SetActive(false);
             room.gameObject.SetActive(true);
             currentRoom = room;
