@@ -37,7 +37,14 @@ public class Room : MonoBehaviour
     {
         foreach (Furniture furniture in _furnitureManager.furnitures)
         {
-            //if(_furnitureManager.AddFurniture(furniture)){}
+            FurnitureSettings furnitureSettings = _furnitureManager.AddFurniture(furniture,
+                furniture.FurnitureSize.Position,
+                furniture.FurnitureSize.Rotation);
+            if (furnitureSettings != null)
+            {
+                GameObject gm = Instantiate(furniture.gameObject, furniture.transform.position, furniture.transform.rotation);
+                gm.transform.SetParent(transform);
+            }
             
         }
     }

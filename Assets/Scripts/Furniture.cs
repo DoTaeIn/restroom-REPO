@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SizeSettings
@@ -10,7 +11,12 @@ public class SizeSettings
 
 public class Furniture : MonoBehaviour
 {
+    private int _id;
+    private string _name;
+    //public GameObject furniturePrefab;
     public SizeSettings FurnitureSize;
+    [SerializeField]private Sprite[] animationSprites;
+    GameObject _item;
 
     public bool IsInterfering(SizeSettings position)
     {
