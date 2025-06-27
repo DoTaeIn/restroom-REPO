@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7566207188384190252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6659823834163270394}
+  - component: {fileID: 8053119990415237}
+  - component: {fileID: 4715192475238474597}
+  m_Layer: 0
+  m_Name: DefaultRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6659823834163270394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566207188384190252}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8053119990415237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566207188384190252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de55401789894a0ab20f73cc2426fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 0
+  floorTilemap: {fileID: 0}
+  wallTilemap: {fileID: 0}
+  wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
+  doors: []
+--- !u!114 &4715192475238474597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566207188384190252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb67d55f33fc457f85f4358d7ffda07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitures:
+  - {fileID: 9132183557024106933, guid: 5ec4d455617a1a7479e215b7c0b7f1b2, type: 3}
+  - {fileID: 1328287171719389571, guid: ab617dc108ad0a9498d83351ade1509c, type: 3}
+  - {fileID: 1608453245069368038, guid: 0dd8871304db4ef4ea9467c7c8bc1980, type: 3}
+  - {fileID: 5156960584279649569, guid: c4f9498d3b32d7146a6bf0535a16e234, type: 3}

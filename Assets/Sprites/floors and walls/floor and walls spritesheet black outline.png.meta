@@ -511,7 +511,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -525,7 +525,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -549,7 +549,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -578,9 +578,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 145
-        width: 9
-        height: 10
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -599,10 +599,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 145
-        width: 10
-        height: 10
+        x: 9
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -621,10 +621,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 145
-        width: 10
-        height: 10
+        x: 18
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -643,10 +643,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_3
       rect:
         serializedVersion: 2
-        x: 26
-        y: 145
-        width: 10
-        height: 10
+        x: 27
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -665,10 +665,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_4
       rect:
         serializedVersion: 2
-        x: 26
-        y: 136
-        width: 10
-        height: 10
+        x: 36
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -687,10 +687,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_5
       rect:
         serializedVersion: 2
-        x: 35
-        y: 145
-        width: 10
-        height: 10
+        x: 45
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -709,10 +709,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_6
       rect:
         serializedVersion: 2
-        x: 35
-        y: 136
-        width: 10
-        height: 10
+        x: 54
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -731,10 +731,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_7
       rect:
         serializedVersion: 2
-        x: 44
-        y: 145
-        width: 10
-        height: 10
+        x: 63
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -753,10 +753,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_8
       rect:
         serializedVersion: 2
-        x: 44
-        y: 136
-        width: 10
-        height: 10
+        x: 72
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -775,10 +775,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_9
       rect:
         serializedVersion: 2
-        x: 53
-        y: 145
-        width: 10
-        height: 10
+        x: 81
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -797,10 +797,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_10
       rect:
         serializedVersion: 2
-        x: 53
-        y: 136
-        width: 10
-        height: 10
+        x: 90
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -819,10 +819,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_11
       rect:
         serializedVersion: 2
-        x: 62
-        y: 145
-        width: 10
-        height: 10
+        x: 99
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -841,10 +841,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_12
       rect:
         serializedVersion: 2
-        x: 62
-        y: 136
-        width: 10
-        height: 10
+        x: 108
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -863,10 +863,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_13
       rect:
         serializedVersion: 2
-        x: 71
-        y: 145
-        width: 10
-        height: 10
+        x: 117
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -885,10 +885,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_14
       rect:
         serializedVersion: 2
-        x: 71
-        y: 136
-        width: 10
-        height: 10
+        x: 126
+        y: 146
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -907,10 +907,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_15
       rect:
         serializedVersion: 2
-        x: 80
-        y: 145
-        width: 10
-        height: 10
+        x: 27
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -929,10 +929,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_16
       rect:
         serializedVersion: 2
-        x: 80
-        y: 136
-        width: 10
-        height: 10
+        x: 36
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -951,10 +951,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_17
       rect:
         serializedVersion: 2
-        x: 89
-        y: 145
-        width: 10
-        height: 10
+        x: 45
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -973,10 +973,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_18
       rect:
         serializedVersion: 2
-        x: 89
-        y: 136
-        width: 10
-        height: 10
+        x: 54
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -995,10 +995,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_19
       rect:
         serializedVersion: 2
-        x: 98
-        y: 145
-        width: 10
-        height: 10
+        x: 63
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1017,10 +1017,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_20
       rect:
         serializedVersion: 2
-        x: 98
-        y: 136
-        width: 10
-        height: 10
+        x: 72
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1039,10 +1039,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_21
       rect:
         serializedVersion: 2
-        x: 107
-        y: 145
-        width: 10
-        height: 10
+        x: 81
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1061,10 +1061,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_22
       rect:
         serializedVersion: 2
-        x: 107
-        y: 136
-        width: 10
-        height: 10
+        x: 90
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1083,10 +1083,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_23
       rect:
         serializedVersion: 2
-        x: 116
-        y: 145
-        width: 10
-        height: 10
+        x: 99
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1105,10 +1105,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_24
       rect:
         serializedVersion: 2
-        x: 116
-        y: 136
-        width: 10
-        height: 10
+        x: 108
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1127,10 +1127,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_25
       rect:
         serializedVersion: 2
-        x: 125
-        y: 145
-        width: 10
-        height: 10
+        x: 117
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1149,10 +1149,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_26
       rect:
         serializedVersion: 2
-        x: 125
-        y: 136
-        width: 10
-        height: 10
+        x: 126
+        y: 137
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1171,10 +1171,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_27
       rect:
         serializedVersion: 2
-        x: 26
-        y: 127
-        width: 10
-        height: 10
+        x: 27
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1193,10 +1193,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_28
       rect:
         serializedVersion: 2
-        x: 26
-        y: 118
-        width: 10
-        height: 10
+        x: 36
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1215,10 +1215,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_29
       rect:
         serializedVersion: 2
-        x: 35
-        y: 127
-        width: 10
-        height: 10
+        x: 45
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1237,10 +1237,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_30
       rect:
         serializedVersion: 2
-        x: 35
-        y: 118
-        width: 10
-        height: 10
+        x: 54
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1259,10 +1259,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_31
       rect:
         serializedVersion: 2
-        x: 44
-        y: 127
-        width: 10
-        height: 10
+        x: 63
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1281,10 +1281,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_32
       rect:
         serializedVersion: 2
-        x: 44
-        y: 118
-        width: 10
-        height: 10
+        x: 72
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1303,10 +1303,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_33
       rect:
         serializedVersion: 2
-        x: 53
-        y: 127
-        width: 10
-        height: 10
+        x: 81
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1325,10 +1325,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_34
       rect:
         serializedVersion: 2
-        x: 53
-        y: 118
-        width: 10
-        height: 10
+        x: 90
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1347,10 +1347,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_35
       rect:
         serializedVersion: 2
-        x: 62
-        y: 127
-        width: 10
-        height: 10
+        x: 99
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1369,10 +1369,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_36
       rect:
         serializedVersion: 2
-        x: 62
-        y: 118
-        width: 10
-        height: 10
+        x: 108
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1391,10 +1391,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_37
       rect:
         serializedVersion: 2
-        x: 71
-        y: 127
-        width: 10
-        height: 10
+        x: 117
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1413,10 +1413,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_38
       rect:
         serializedVersion: 2
-        x: 71
-        y: 118
-        width: 10
-        height: 10
+        x: 126
+        y: 128
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1435,10 +1435,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_39
       rect:
         serializedVersion: 2
-        x: 80
-        y: 127
-        width: 10
-        height: 10
+        x: 27
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1457,10 +1457,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_40
       rect:
         serializedVersion: 2
-        x: 80
-        y: 118
-        width: 10
-        height: 10
+        x: 36
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1479,10 +1479,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_41
       rect:
         serializedVersion: 2
-        x: 89
-        y: 127
-        width: 10
-        height: 10
+        x: 45
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1501,10 +1501,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_42
       rect:
         serializedVersion: 2
-        x: 89
-        y: 118
-        width: 10
-        height: 10
+        x: 54
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1523,10 +1523,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_43
       rect:
         serializedVersion: 2
-        x: 98
-        y: 127
-        width: 10
-        height: 10
+        x: 63
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1545,10 +1545,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_44
       rect:
         serializedVersion: 2
-        x: 98
-        y: 118
-        width: 10
-        height: 10
+        x: 72
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1567,10 +1567,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_45
       rect:
         serializedVersion: 2
-        x: 107
-        y: 127
-        width: 10
-        height: 10
+        x: 81
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1589,10 +1589,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_46
       rect:
         serializedVersion: 2
-        x: 107
-        y: 118
-        width: 10
-        height: 10
+        x: 90
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1611,10 +1611,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_47
       rect:
         serializedVersion: 2
-        x: 116
-        y: 127
-        width: 10
-        height: 10
+        x: 99
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1633,10 +1633,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_48
       rect:
         serializedVersion: 2
-        x: 116
-        y: 118
-        width: 10
-        height: 10
+        x: 108
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1655,10 +1655,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_49
       rect:
         serializedVersion: 2
-        x: 125
-        y: 127
-        width: 10
-        height: 10
+        x: 117
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1677,10 +1677,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_50
       rect:
         serializedVersion: 2
-        x: 125
-        y: 118
-        width: 10
-        height: 10
+        x: 126
+        y: 119
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1699,10 +1699,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_51
       rect:
         serializedVersion: 2
-        x: 26
-        y: 109
-        width: 10
-        height: 10
+        x: 27
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1721,10 +1721,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_52
       rect:
         serializedVersion: 2
-        x: 26
-        y: 100
-        width: 10
-        height: 10
+        x: 36
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1743,10 +1743,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_53
       rect:
         serializedVersion: 2
-        x: 35
-        y: 109
-        width: 10
-        height: 10
+        x: 45
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1765,10 +1765,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_54
       rect:
         serializedVersion: 2
-        x: 35
-        y: 100
-        width: 10
-        height: 10
+        x: 54
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1787,10 +1787,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_55
       rect:
         serializedVersion: 2
-        x: 44
-        y: 109
-        width: 10
-        height: 10
+        x: 63
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1809,10 +1809,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_56
       rect:
         serializedVersion: 2
-        x: 44
-        y: 100
-        width: 10
-        height: 10
+        x: 72
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1831,10 +1831,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_57
       rect:
         serializedVersion: 2
-        x: 53
-        y: 109
-        width: 10
-        height: 10
+        x: 81
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1853,10 +1853,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_58
       rect:
         serializedVersion: 2
-        x: 53
-        y: 100
-        width: 10
-        height: 10
+        x: 90
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1875,10 +1875,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_59
       rect:
         serializedVersion: 2
-        x: 62
-        y: 109
-        width: 10
-        height: 10
+        x: 99
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1897,10 +1897,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_60
       rect:
         serializedVersion: 2
-        x: 62
-        y: 100
-        width: 10
-        height: 10
+        x: 108
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1919,10 +1919,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_61
       rect:
         serializedVersion: 2
-        x: 71
-        y: 109
-        width: 10
-        height: 10
+        x: 117
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1941,10 +1941,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_62
       rect:
         serializedVersion: 2
-        x: 71
-        y: 100
-        width: 10
-        height: 10
+        x: 126
+        y: 110
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1963,10 +1963,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_63
       rect:
         serializedVersion: 2
-        x: 80
-        y: 109
-        width: 10
-        height: 10
+        x: 27
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1985,10 +1985,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_64
       rect:
         serializedVersion: 2
-        x: 80
-        y: 100
-        width: 10
-        height: 10
+        x: 36
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2007,10 +2007,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_65
       rect:
         serializedVersion: 2
-        x: 89
-        y: 109
-        width: 10
-        height: 10
+        x: 45
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2029,10 +2029,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_66
       rect:
         serializedVersion: 2
-        x: 89
-        y: 100
-        width: 10
-        height: 10
+        x: 54
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2051,10 +2051,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_67
       rect:
         serializedVersion: 2
-        x: 98
-        y: 109
-        width: 10
-        height: 10
+        x: 63
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2073,10 +2073,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_68
       rect:
         serializedVersion: 2
-        x: 98
-        y: 100
-        width: 10
-        height: 10
+        x: 72
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2095,10 +2095,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_69
       rect:
         serializedVersion: 2
-        x: 107
-        y: 109
-        width: 10
-        height: 10
+        x: 81
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2117,10 +2117,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_70
       rect:
         serializedVersion: 2
-        x: 107
-        y: 100
-        width: 10
-        height: 10
+        x: 90
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2139,10 +2139,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_71
       rect:
         serializedVersion: 2
-        x: 116
-        y: 109
-        width: 10
-        height: 10
+        x: 99
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2161,10 +2161,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_72
       rect:
         serializedVersion: 2
-        x: 116
-        y: 100
-        width: 10
-        height: 10
+        x: 108
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2183,10 +2183,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_73
       rect:
         serializedVersion: 2
-        x: 125
-        y: 109
-        width: 10
-        height: 10
+        x: 117
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2205,10 +2205,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_74
       rect:
         serializedVersion: 2
-        x: 125
-        y: 100
-        width: 10
-        height: 10
+        x: 126
+        y: 101
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2227,10 +2227,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_75
       rect:
         serializedVersion: 2
-        x: 26
-        y: 91
-        width: 10
-        height: 10
+        x: 27
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2249,10 +2249,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_76
       rect:
         serializedVersion: 2
-        x: 26
-        y: 82
-        width: 10
-        height: 10
+        x: 36
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2271,10 +2271,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_77
       rect:
         serializedVersion: 2
-        x: 35
-        y: 91
-        width: 10
-        height: 10
+        x: 45
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2293,10 +2293,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_78
       rect:
         serializedVersion: 2
-        x: 35
-        y: 82
-        width: 10
-        height: 10
+        x: 54
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2315,10 +2315,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_79
       rect:
         serializedVersion: 2
-        x: 44
-        y: 91
-        width: 10
-        height: 10
+        x: 63
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2337,10 +2337,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_80
       rect:
         serializedVersion: 2
-        x: 44
-        y: 82
-        width: 10
-        height: 10
+        x: 72
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2359,10 +2359,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_81
       rect:
         serializedVersion: 2
-        x: 53
-        y: 91
-        width: 10
-        height: 10
+        x: 81
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2381,10 +2381,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_82
       rect:
         serializedVersion: 2
-        x: 53
-        y: 82
-        width: 10
-        height: 10
+        x: 90
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2403,10 +2403,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_83
       rect:
         serializedVersion: 2
-        x: 62
-        y: 91
-        width: 10
-        height: 10
+        x: 99
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2425,10 +2425,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_84
       rect:
         serializedVersion: 2
-        x: 62
-        y: 82
-        width: 10
-        height: 10
+        x: 117
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2447,10 +2447,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_85
       rect:
         serializedVersion: 2
-        x: 71
-        y: 91
-        width: 10
-        height: 10
+        x: 126
+        y: 92
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2469,10 +2469,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_86
       rect:
         serializedVersion: 2
-        x: 71
-        y: 82
-        width: 10
-        height: 10
+        x: 27
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2491,10 +2491,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_87
       rect:
         serializedVersion: 2
-        x: 80
-        y: 91
-        width: 10
-        height: 10
+        x: 36
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2513,10 +2513,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_88
       rect:
         serializedVersion: 2
-        x: 80
-        y: 82
-        width: 10
-        height: 10
+        x: 45
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2535,10 +2535,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_89
       rect:
         serializedVersion: 2
-        x: 89
-        y: 91
-        width: 10
-        height: 10
+        x: 54
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2557,10 +2557,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_90
       rect:
         serializedVersion: 2
-        x: 89
-        y: 82
-        width: 10
-        height: 10
+        x: 63
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2579,10 +2579,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_91
       rect:
         serializedVersion: 2
-        x: 98
-        y: 91
-        width: 10
-        height: 10
+        x: 72
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2601,10 +2601,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_92
       rect:
         serializedVersion: 2
-        x: 98
-        y: 82
-        width: 10
-        height: 10
+        x: 81
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2623,10 +2623,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_93
       rect:
         serializedVersion: 2
-        x: 116
-        y: 91
-        width: 10
-        height: 10
+        x: 90
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2645,10 +2645,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_94
       rect:
         serializedVersion: 2
-        x: 116
-        y: 82
-        width: 10
-        height: 10
+        x: 99
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2667,10 +2667,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_95
       rect:
         serializedVersion: 2
-        x: 125
-        y: 91
-        width: 10
-        height: 10
+        x: 117
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2689,10 +2689,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_96
       rect:
         serializedVersion: 2
-        x: 125
-        y: 82
-        width: 10
-        height: 10
+        x: 126
+        y: 83
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2711,10 +2711,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_97
       rect:
         serializedVersion: 2
-        x: 26
-        y: 73
-        width: 10
-        height: 10
+        x: 27
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2733,10 +2733,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_98
       rect:
         serializedVersion: 2
-        x: 26
-        y: 64
-        width: 10
-        height: 10
+        x: 36
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2755,10 +2755,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_99
       rect:
         serializedVersion: 2
-        x: 35
-        y: 73
-        width: 10
-        height: 10
+        x: 45
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2777,10 +2777,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_100
       rect:
         serializedVersion: 2
-        x: 35
-        y: 64
-        width: 10
-        height: 10
+        x: 54
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2799,10 +2799,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_101
       rect:
         serializedVersion: 2
-        x: 44
-        y: 73
-        width: 10
-        height: 10
+        x: 63
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2821,10 +2821,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_102
       rect:
         serializedVersion: 2
-        x: 44
-        y: 64
-        width: 10
-        height: 10
+        x: 72
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2843,10 +2843,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_103
       rect:
         serializedVersion: 2
-        x: 53
-        y: 73
-        width: 10
-        height: 10
+        x: 81
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2865,10 +2865,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_104
       rect:
         serializedVersion: 2
-        x: 53
-        y: 64
-        width: 10
-        height: 10
+        x: 90
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2887,10 +2887,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_105
       rect:
         serializedVersion: 2
-        x: 62
-        y: 73
-        width: 10
-        height: 10
+        x: 99
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2909,10 +2909,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_106
       rect:
         serializedVersion: 2
-        x: 62
-        y: 64
-        width: 10
-        height: 10
+        x: 117
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2931,10 +2931,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_107
       rect:
         serializedVersion: 2
-        x: 71
-        y: 73
-        width: 10
-        height: 10
+        x: 126
+        y: 74
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2953,10 +2953,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_108
       rect:
         serializedVersion: 2
-        x: 71
-        y: 64
-        width: 10
-        height: 10
+        x: 27
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2975,10 +2975,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_109
       rect:
         serializedVersion: 2
-        x: 80
-        y: 73
-        width: 10
-        height: 10
+        x: 36
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2997,10 +2997,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_110
       rect:
         serializedVersion: 2
-        x: 80
-        y: 64
-        width: 10
-        height: 10
+        x: 45
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3019,10 +3019,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_111
       rect:
         serializedVersion: 2
-        x: 89
-        y: 73
-        width: 10
-        height: 10
+        x: 54
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3041,10 +3041,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_112
       rect:
         serializedVersion: 2
-        x: 89
-        y: 64
-        width: 10
-        height: 10
+        x: 63
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3063,10 +3063,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_113
       rect:
         serializedVersion: 2
-        x: 98
-        y: 73
-        width: 10
-        height: 10
+        x: 72
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3085,10 +3085,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_114
       rect:
         serializedVersion: 2
-        x: 98
-        y: 64
-        width: 10
-        height: 10
+        x: 81
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3107,10 +3107,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_115
       rect:
         serializedVersion: 2
-        x: 107
-        y: 64
-        width: 10
-        height: 10
+        x: 90
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3129,10 +3129,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_116
       rect:
         serializedVersion: 2
-        x: 116
-        y: 73
-        width: 10
-        height: 10
+        x: 99
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3151,10 +3151,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_117
       rect:
         serializedVersion: 2
-        x: 125
-        y: 73
-        width: 10
-        height: 10
+        x: 108
+        y: 65
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3173,10 +3173,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_118
       rect:
         serializedVersion: 2
-        x: 26
-        y: 46
-        width: 10
-        height: 10
+        x: 36
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3195,10 +3195,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_119
       rect:
         serializedVersion: 2
-        x: 35
-        y: 55
-        width: 10
-        height: 10
+        x: 45
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3217,10 +3217,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_120
       rect:
         serializedVersion: 2
-        x: 35
-        y: 46
-        width: 10
-        height: 10
+        x: 54
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3239,10 +3239,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_121
       rect:
         serializedVersion: 2
-        x: 44
-        y: 55
-        width: 10
-        height: 10
+        x: 81
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3261,10 +3261,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_122
       rect:
         serializedVersion: 2
-        x: 44
-        y: 46
-        width: 10
-        height: 10
+        x: 90
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3283,10 +3283,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_123
       rect:
         serializedVersion: 2
-        x: 53
-        y: 55
-        width: 10
-        height: 10
+        x: 99
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3305,10 +3305,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_124
       rect:
         serializedVersion: 2
-        x: 53
-        y: 46
-        width: 10
-        height: 10
+        x: 27
+        y: 47
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3327,10 +3327,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_125
       rect:
         serializedVersion: 2
-        x: 62
-        y: 46
-        width: 10
-        height: 10
+        x: 36
+        y: 47
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3349,10 +3349,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_126
       rect:
         serializedVersion: 2
-        x: 71
-        y: 40
-        width: 12
-        height: 16
+        x: 45
+        y: 47
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3371,10 +3371,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_127
       rect:
         serializedVersion: 2
-        x: 80
-        y: 55
-        width: 10
-        height: 10
+        x: 54
+        y: 47
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3393,10 +3393,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_128
       rect:
         serializedVersion: 2
-        x: 82
-        y: 40
-        width: 12
-        height: 16
+        x: 63
+        y: 47
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3415,10 +3415,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_129
       rect:
         serializedVersion: 2
-        x: 89
-        y: 55
+        x: 72
+        y: 41
         width: 10
-        height: 10
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3437,10 +3437,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_130
       rect:
         serializedVersion: 2
-        x: 98
-        y: 55
+        x: 83
+        y: 41
         width: 10
-        height: 10
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3459,10 +3459,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_131
       rect:
         serializedVersion: 2
-        x: 26
-        y: 37
-        width: 10
-        height: 10
+        x: 27
+        y: 38
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3481,10 +3481,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_132
       rect:
         serializedVersion: 2
-        x: 26
-        y: 28
-        width: 10
-        height: 10
+        x: 36
+        y: 38
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3503,10 +3503,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_133
       rect:
         serializedVersion: 2
-        x: 35
-        y: 37
-        width: 10
-        height: 10
+        x: 45
+        y: 38
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3525,10 +3525,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_134
       rect:
         serializedVersion: 2
-        x: 35
-        y: 28
-        width: 10
-        height: 10
+        x: 54
+        y: 38
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3547,10 +3547,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_135
       rect:
         serializedVersion: 2
-        x: 44
-        y: 37
-        width: 10
-        height: 10
+        x: 63
+        y: 38
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3569,10 +3569,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_136
       rect:
         serializedVersion: 2
-        x: 44
-        y: 28
-        width: 10
-        height: 10
+        x: 72
+        y: 33
+        width: 8
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3591,10 +3591,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_137
       rect:
         serializedVersion: 2
-        x: 53
-        y: 37
-        width: 10
-        height: 10
+        x: 81
+        y: 33
+        width: 8
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3613,10 +3613,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_138
       rect:
         serializedVersion: 2
-        x: 53
-        y: 28
-        width: 10
-        height: 10
+        x: 90
+        y: 33
+        width: 8
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3635,10 +3635,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_139
       rect:
         serializedVersion: 2
-        x: 62
-        y: 37
-        width: 10
-        height: 10
+        x: 27
+        y: 29
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3657,10 +3657,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_140
       rect:
         serializedVersion: 2
-        x: 62
-        y: 28
-        width: 10
-        height: 10
+        x: 36
+        y: 29
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3679,10 +3679,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_141
       rect:
         serializedVersion: 2
-        x: 71
-        y: 32
-        width: 10
-        height: 9
+        x: 45
+        y: 29
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3701,10 +3701,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_142
       rect:
         serializedVersion: 2
-        x: 80
-        y: 32
-        width: 10
-        height: 9
+        x: 54
+        y: 29
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3723,10 +3723,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_143
       rect:
         serializedVersion: 2
-        x: 89
-        y: 32
-        width: 10
-        height: 9
+        x: 63
+        y: 29
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3745,10 +3745,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_144
       rect:
         serializedVersion: 2
-        x: 26
-        y: 19
-        width: 10
-        height: 10
+        x: 72
+        y: 24
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3767,10 +3767,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_145
       rect:
         serializedVersion: 2
-        x: 35
-        y: 19
-        width: 10
-        height: 10
+        x: 81
+        y: 24
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3789,10 +3789,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_146
       rect:
         serializedVersion: 2
-        x: 44
-        y: 19
-        width: 10
-        height: 10
+        x: 27
+        y: 20
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3811,10 +3811,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_147
       rect:
         serializedVersion: 2
-        x: 53
-        y: 19
-        width: 10
-        height: 10
+        x: 36
+        y: 20
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3833,10 +3833,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_148
       rect:
         serializedVersion: 2
-        x: 62
-        y: 19
-        width: 10
-        height: 10
+        x: 45
+        y: 20
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3855,10 +3855,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_149
       rect:
         serializedVersion: 2
-        x: 71
-        y: 23
-        width: 10
-        height: 10
+        x: 54
+        y: 20
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3877,10 +3877,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_150
       rect:
         serializedVersion: 2
-        x: 80
-        y: 23
-        width: 10
-        height: 10
+        x: 63
+        y: 20
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3899,10 +3899,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_151
       rect:
         serializedVersion: 2
-        x: 26
-        y: 10
-        width: 10
-        height: 10
+        x: 27
+        y: 11
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3921,10 +3921,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_152
       rect:
         serializedVersion: 2
-        x: 35
-        y: 10
-        width: 10
-        height: 10
+        x: 36
+        y: 11
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3943,10 +3943,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_153
       rect:
         serializedVersion: 2
-        x: 35
-        y: 1
-        width: 10
-        height: 10
+        x: 45
+        y: 11
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3965,10 +3965,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_154
       rect:
         serializedVersion: 2
-        x: 44
-        y: 10
-        width: 10
-        height: 10
+        x: 54
+        y: 11
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3987,10 +3987,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_155
       rect:
         serializedVersion: 2
-        x: 44
-        y: 1
-        width: 10
-        height: 10
+        x: 63
+        y: 11
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4009,10 +4009,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_156
       rect:
         serializedVersion: 2
-        x: 53
-        y: 10
-        width: 10
-        height: 10
+        x: 36
+        y: 2
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4031,10 +4031,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_157
       rect:
         serializedVersion: 2
-        x: 53
-        y: 1
-        width: 10
-        height: 10
+        x: 45
+        y: 2
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4053,10 +4053,10 @@ TextureImporter:
       name: floor and walls spritesheet black outline_158
       rect:
         serializedVersion: 2
-        x: 62
-        y: 10
-        width: 10
-        height: 10
+        x: 54
+        y: 2
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4075,7 +4075,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3e129bfb75c06415dbf54974ba470cfe
     internalID: 0
     vertices: []
     indices: 
@@ -4083,7 +4083,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       floor and walls spritesheet black outline_0: -1453531599893220639
       floor and walls spritesheet black outline_1: 3112847207996063490

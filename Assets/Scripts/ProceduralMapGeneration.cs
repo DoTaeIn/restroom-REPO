@@ -10,6 +10,13 @@ public class ProceduralMapGeneration : MonoBehaviour
     public GameObject[] roomPrefabs;
     public TileBase wallTile;
     public int numberOfRooms = 10;
+    
+    RoomManager roomManager;
+
+    private void Awake()
+    {
+        roomManager = FindFirstObjectByType<RoomManager>();
+    }
 
     void Start()
     {
@@ -19,18 +26,15 @@ public class ProceduralMapGeneration : MonoBehaviour
             GameObject roomGO = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], position, Quaternion.identity);
 
 
-            RoomEX room = roomGO.GetComponent<RoomEX>();
-
-            string roomID = $"{i}";
-
-
+            Room room = roomGO.GetComponent<Room>();
+            
 
             int x = (i % 5)*20 + 5;
             int y = Mathf.FloorToInt(i/5)*20 + 5;
-
-
-            room.Initialize(roomID, x, y);
-            Debug.Log($"Room {roomID} position: {x}x{y}");
+            
+            room.InitRoom(i, x, y);
+            roomManager.RegisterRoom(i, room);
+            Debug.Log($"Room {i} position: {x}x{y}");
 
         }
     }

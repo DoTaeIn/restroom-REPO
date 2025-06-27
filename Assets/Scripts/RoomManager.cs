@@ -6,23 +6,23 @@ public class RoomManager : MonoBehaviour
 {
     public static RoomManager Instance;
 
-    public Dictionary<string, RoomEX> allRooms = new();
-    public RoomEX currentRoom;
+    public Dictionary<int, Room> allRooms = new();
+    public Room currentRoom;
 
     void Awake()
     {
         Instance = this;
     }
 
-    public void RegisterRoom(string id, RoomEX room)
+    public void RegisterRoom(int id, Room room)
     {
         if (!allRooms.ContainsKey(id))
             allRooms.Add(id, room);
     }
 
-    public void WarpToRoom(string targetRoomID, Vector3 targetPosition)
+    public void WarpToRoom(int targetRoomID, Vector3 targetPosition)
     {
-        if (allRooms.TryGetValue(targetRoomID, out RoomEX room))
+        if (allRooms.TryGetValue(targetRoomID, out Room room))
         {
             currentRoom.gameObject.SetActive(false);
             room.gameObject.SetActive(true);

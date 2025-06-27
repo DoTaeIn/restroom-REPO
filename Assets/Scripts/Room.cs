@@ -1,19 +1,43 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 public class Room : MonoBehaviour
 {
-    private int _id;
+    public int _id;
     private bool _hasKey;
-    SizeSettings _furnitureSize;
-    FurnitureManager _furnitureManager;
+    public SizeSettings roomSize;
+    //SizeSettings _furnitureSize;
+    [SerializeField]FurnitureManager _furnitureManager;
+    
+    [Header("Tilemap Settings")]
+    public Tilemap floorTilemap;
+    public Tilemap wallTilemap;
+    public TileBase wallTile;
+    public Transform[] doors;
+
+    private void Awake()
+    {
+        roomSize = new SizeSettings();
+        wallTilemap = GameObject.FindGameObjectWithTag("Wall").GetComponent<Tilemap>();
+        _furnitureManager = GetComponent<FurnitureManager>();
+    }
 
     private Vector2 GetRandomPos()
     {
-        Vector2 randomPos;
-        randomPos.x = Random.Range(_furnitureSize.XSize, _furnitureSize.Position.x + _furnitureSize.XSize);
-        randomPos.y = Random.Range(_furnitureSize.YSize, _furnitureSize.Position.y + _furnitureSize.YSize);
-        return randomPos;
+        float minX = roomSize.Position.x + 2;  // 방 내부 1칸 여유
+        float maxX = roomSize.Position.x + roomSize.XSize - 2;
+        float minY = roomSize.Position.y + 2;
+        float maxY = roomSize.Position.y + roomSize.YSize - 2;
+
+        float x = Random.Range(minX, maxX);
+        float y = Random.Range(minY, maxY);
+
+        return new Vector2(x, y);
     }
+
     
     private Quaternion GetRandomRotation()
     {
@@ -33,19 +57,75 @@ public class Room : MonoBehaviour
         }
     }
 
-    private void InitRoom()
+    public void InitRoom(int id, int startX, int startY)
     {
-        foreach (Furniture furniture in _furnitureManager.furnitures)
+        roomSize.XSize = Random.Range(10, 15);
+        roomSize.YSize = Random.Range(10, 15);
+        roomSize.Position = new Vector2(startX, startY);
+        roomSize.Rotation = Quaternion.identity;
+
+        GenerateWalls(startX, startY);
+        this._id = id;
+
+        foreach (Furniture furniturePrefab in _furnitureManager.furnitures)
         {
-            FurnitureSettings furnitureSettings = _furnitureManager.AddFurniture(furniture,
-                furniture.FurnitureSize.Position,
-                furniture.FurnitureSize.Rotation);
-            if (furnitureSettings != null)
+            bool placed = false;
+            int attempts = 0;
+
+            while (!placed && attempts < 10)
             {
-                GameObject gm = Instantiate(furniture.gameObject, GetRandomPos(), GetRandomRotation());
-                gm.transform.SetParent(transform);
+                Vector2 randomPos = GetRandomPos();
+                Quaternion randomRot = GetRandomRotation();
+
+                SizeSettings proposed = new SizeSettings
+                {
+                    XSize = furniturePrefab.FurnitureSize?.XSize ?? 1,
+                    YSize = furniturePrefab.FurnitureSize?.YSize ?? 1,
+                    Position = randomPos,
+                    Rotation = randomRot
+                };
+
+
+                bool interferes = false;
+                foreach (Furniture obj in _furnitureManager.placed)
+                {
+                    if (obj.IsInterfering(proposed))
+                    {
+                        interferes = true;
+                        break;
+                    }
+                }
+                
+
+                if (!interferes)
+                {
+                    GameObject gm = Instantiate(furniturePrefab.gameObject, randomPos, randomRot);
+                    gm.transform.SetParent(transform);
+                    _furnitureManager.AddFurniture(gm.GetComponent<Furniture>());
+                    placed = true;
+                }
+
+                attempts++;
             }
-            
         }
+
+    }
+
+    
+    public void GenerateWalls(int startx, int starty)
+    {
+        Debug.Log($"Generating walls for room {_id} at position ({startx}, {starty}) with size ({roomSize.XSize}x{roomSize.YSize})");
+        for (int x = startx; x < startx + roomSize.XSize; x++)
+        {
+            for (int y = starty; y < starty + roomSize.YSize; y++)
+            {
+                // 외곽선만 벽 생성
+                if (x == startx || y == starty || x == startx + roomSize.XSize - 1 || y == starty + roomSize.YSize - 1)
+                {
+                    wallTilemap.SetTile(new Vector3Int(x, y, 0), wallTile);
+                }
+            }
+        }
+        
     }
 }

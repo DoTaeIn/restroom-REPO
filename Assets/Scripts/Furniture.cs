@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,11 @@ public class SizeSettings
     public float YSize;
     public Vector3 Position;
     public Quaternion Rotation;
+    
+    public float Left => Position.x - 1;
+    public float Right => Position.x + XSize + 1 ;
+    public float Bottom => Position.y - 1;
+    public float Top => Position.y + YSize + 1;
 }
 
 public class Furniture : MonoBehaviour
@@ -17,15 +23,27 @@ public class Furniture : MonoBehaviour
     public SizeSettings FurnitureSize;
     [SerializeField] private Sprite[] animationSprites;
     GameObject _item;
+    BoxCollider2D _collider;
 
-    public bool IsInterfering(SizeSettings position)
+    private void Awake()
     {
-        // Check if the furniture's position and size interfere with the given position and size
-        float xDistance = Mathf.Abs(FurnitureSize.XSize - position.XSize);
-        float yDistance = Mathf.Abs(FurnitureSize.YSize - position.YSize);
-        
-        // Assuming a simple bounding box check for interference
-        return xDistance < (FurnitureSize.XSize / 2 + position.XSize / 2) &&
-               yDistance < (FurnitureSize.YSize / 2 + position.YSize / 2);
+        _collider = GetComponent<BoxCollider2D>();
+        FurnitureSize = new SizeSettings
+        {
+            XSize = _collider.size.x,
+            YSize = _collider.size.y,
+            Position = this.transform.position,
+            Rotation = this.transform.rotation
+        };
     }
+
+    public bool IsInterfering(SizeSettings other)
+    {
+        bool xOverlap = FurnitureSize.Left < other.Right && FurnitureSize.Right > other.Left;
+        bool yOverlap = FurnitureSize.Bottom < other.Top && FurnitureSize.Top > other.Bottom;
+
+        return xOverlap && yOverlap;
+    }
+
+
 }

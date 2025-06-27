@@ -6,6 +6,6 @@ public class Door : MonoBehaviour
     public Vector3 destinationPosition;
     public void Doorwarp()
     {
-            RoomManager.Instance.WarpToRoom(destinationRoomID, destinationPosition);
+        //RoomManager.Instance.WarpToRoom(destinationRoomID, destinationPosition);
     }
 }
