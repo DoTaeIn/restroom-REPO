@@ -11,7 +11,14 @@ public class RoomManager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // 중복 방지
+        }
     }
 
     public void RegisterRoom(int id, Room room)
