@@ -11,19 +11,26 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider staminaBar;
 
     [SerializeField] private GameObject inventoryPanel; // 인벤토리 UI 오브젝트
+    [SerializeField] private GameObject lockPanel; // 인벤토리 UI 오브젝트
+
     private bool isInventoryOpen = false;
+    private bool isLockOpen = false;
 
     public InventoryManager inventoryManager;
+    public LockSystem locksystem;
 
     void Awake()
     {
         playerCtrl = FindFirstObjectByType<PlayerCtrl>();
         inventoryManager = GetComponent<InventoryManager>();
+        locksystem = GetComponent<LockSystem>();
     }
 
     void Start()
     {
         inventoryPanel.SetActive(isInventoryOpen);
+        lockPanel.SetActive(isLockOpen);
+
     }
 
     void OnEnable()
@@ -35,7 +42,7 @@ public class UIManager : MonoBehaviour
     {
         inventoryManager.AddItem(item);
     }
-    
+
     public void staminaplus(bool isPlus)
     {
         playerCtrl.stamina += 20f * Time.deltaTime;
@@ -52,11 +59,10 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             ToggleInventory();
-
         }
 
         staminaminus(true);
-        
+
         staminaBar.value = playerCtrl.stamina / maxStamina;
 
     }
@@ -65,6 +71,14 @@ public class UIManager : MonoBehaviour
     {
         isInventoryOpen = !isInventoryOpen;
         inventoryPanel.SetActive(isInventoryOpen);
+    }
+    public void LockShow()
+    {
+        lockPanel.SetActive(true);
+    }
+    public void LockHide()
+    {
+        lockPanel.SetActive(false);
     }
 
 }

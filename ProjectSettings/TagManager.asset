@@ -12,6 +12,7 @@ TagManager:
   - WallTilemap
   - DoorTilemap
   - Door
+  - Toilet
   layers:
   - Default
   - TransparentFX

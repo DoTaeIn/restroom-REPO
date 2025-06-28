@@ -334,8 +334,8 @@ public class Room : MonoBehaviour
 
         GameObject toiletObj = Instantiate(toiletFurniture.gameObject, centerPos, rot);
         toiletObj.transform.SetParent(transform);
+        toiletObj.tag = "Toilet";
         _furnitureManager.AddFurniture(toiletObj.GetComponent<Furniture>());
-
 
     }
 
