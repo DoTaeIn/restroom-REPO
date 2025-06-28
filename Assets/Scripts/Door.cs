@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public string destinationRoomID;
+    public int destinationRoomID;
     public Vector3 destinationPosition;
     public int roomID;
     public Room parentRoom;
     public string direction; // "Top", "Bottom", "Left", "Right"
     public Door connectedDoor; // 워프할 대상 문
     public Vector3 doorpos;
+    public PlayerCtrl player;
+
+    void Awake()
+    {
+        player = FindFirstObjectByType<PlayerCtrl>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -18,13 +24,14 @@ public class Door : MonoBehaviour
         {
             Vector3 offset = Vector3.zero;
 
+
             switch (direction)
             {
                 case "Top":
                     offset = Vector3.up * 1.5f;
                     break;
                 case "Bottom":
-                    offset = Vector3.down * 1.5f;
+                    offset = Vector3.down * 3f;
                     break;
                 case "Left":
                     offset = Vector3.left * 1.5f;
@@ -34,8 +41,11 @@ public class Door : MonoBehaviour
                     break;
             }
 
+            player.currentRoom = connectedDoor.parentRoom;
+
             Debug.Log($"Player entered door: {gameObject.name}, warping to {connectedDoor.gameObject.name}");
             collision.transform.position = connectedDoor.transform.position + offset;
+
         }
     }
 }

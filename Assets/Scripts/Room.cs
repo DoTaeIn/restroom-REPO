@@ -5,6 +5,7 @@ using System.Data;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using Unity.AI.Navigation;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -188,11 +189,9 @@ public class Room : MonoBehaviour
 
     public void GenerateWalls(int startx, int starty)
     {
-
         int x, y;
         for (x = startx-1; x < startx + roomSize.XSize+1; x++) //위아래 벽타일 생성
         {
-
             y = starty + (int)roomSize.YSize+3;  //top 채우기
             if (x == startx-1)
             {
@@ -334,7 +333,7 @@ public class Room : MonoBehaviour
     private Door d;
     private void GenerateDoors(int startX, int startY, int width, int height)
     {
-        if ((startX - 5) / 20 != 0)
+        if ((startX - 5) / mapGeneration.roomGap != 0)
         {
             // 왼쪽(Left) 벽에서 랜덤 y
             int leftY = Random.Range(startY + 1, startY + height - 1);
@@ -347,7 +346,7 @@ public class Room : MonoBehaviour
             doors.Add(d);
             CreateDoorAt(leftDoor,"Left");
         }
-        if ((startX - 5) / 20 != 4)
+        if ((startX - 5) / mapGeneration.roomGap != 4)
         {
 
             // 오른쪽(Right) 벽에서 랜덤 y
@@ -361,7 +360,7 @@ public class Room : MonoBehaviour
             d.doorpos = rightDoormid;
             CreateDoorAt(rightDoor,"Right");
         }
-        if (((startY - 5) / 20 != 0) || ((startX -5)/20 == 2))
+        if (((startY - 5) / mapGeneration.roomGap != 0) || ((startX -5)/mapGeneration.roomGap == 2))
         {
             // 아래쪽(Bottom) 벽에서 랜덤 x
             int bottomX = Random.Range(startX + 1, startX + width - 1);
@@ -375,7 +374,7 @@ public class Room : MonoBehaviour
             CreateDoorAt(bottomDoor,"Bottom");
 
         }
-        if ((startY - 5) / 20 != mapGeneration.numberOfRooms / 5 - 1)
+        if ((startY - 5) / mapGeneration.roomGap != mapGeneration.numberOfRooms / 5 - 1)
         {
             // 위쪽(Top) 벽에서 랜덤 x
             int topX = Random.Range(startX + 1, startX + width - 1);
@@ -476,8 +475,6 @@ public class Room : MonoBehaviour
                 break;
         }
 
-
-
         return doorComponent;
     }
 
@@ -487,10 +484,12 @@ public class Room : MonoBehaviour
         Dictionary<Vector2Int, Room> allRooms;
         allRooms = RoomManager.Instance.allRoomsV;
         foreach (var pair in allRooms)
-        {            
+        {
+            Vector2Int roomkey = pair.Key;
             Room room = pair.Value;
             foreach (Door door in room.doors)
             {
+                door.destinationRoomID = room._id;
                 Vector2Int targetPos = room.gridPosition;
                 switch (door.direction)
                 {
