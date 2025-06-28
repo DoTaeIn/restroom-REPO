@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2312293280919832769
+--- !u!1 &4529628605665132944
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3195554257852397126}
-  - component: {fileID: 4041185478944953035}
-  - component: {fileID: 4924089352343308967}
-  - component: {fileID: 4708195742669136062}
-  - component: {fileID: 6772063380177693481}
-  - component: {fileID: -5489402725748945290}
+  - component: {fileID: 9157871956495198708}
+  - component: {fileID: 8944352472731051514}
+  - component: {fileID: 1060430453014697995}
+  - component: {fileID: 1540984770419761304}
+  - component: {fileID: 4653856389853035363}
   m_Layer: 0
-  m_Name: drawer
-  m_TagString: Untagged
+  m_Name: topDoor
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3195554257852397126
+--- !u!4 &9157871956495198708
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2312293280919832769}
+  m_GameObject: {fileID: 4529628605665132944}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4771855, y: -2.8781574, z: 0}
+  m_LocalPosition: {x: 67.53626, y: 17.53531, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4041185478944953035
+--- !u!212 &8944352472731051514
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2312293280919832769}
+  m_GameObject: {fileID: 4529628605665132944}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,41 +78,71 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 5974040451558427908, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 4469646481956872474, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.9375}
+  m_Size: {x: 2, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4924089352343308967
+--- !u!50 &1060430453014697995
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4529628605665132944}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1540984770419761304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2312293280919832769}
+  m_GameObject: {fileID: 4529628605665132944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0259773a862018c498e015b0c511d7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSprites:
-  - {fileID: 5974040451558427908, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
-  - {fileID: 1986860472453765919, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
-  parent: {fileID: 0}
---- !u!61 &4708195742669136062
+  destinationRoomID: 
+  destinationPosition: {x: 0, y: 0, z: 0}
+  roomID: 0
+  parentRoom: {fileID: 0}
+  direction: 
+  connectedDoor: {fileID: 0}
+  doorpos: {x: 0, y: 0, z: 0}
+--- !u!61 &4653856389853035363
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2312293280919832769}
+  m_GameObject: {fileID: 4529628605665132944}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -145,54 +174,11 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1.875}
-    newSize: {x: 1, y: 0.9375}
+    oldSize: {x: 2, y: 4}
+    newSize: {x: 2, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 1.875}
+  m_Size: {x: 2, y: 4}
   m_EdgeRadius: 0
---- !u!50 &6772063380177693481
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2312293280919832769}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &-5489402725748945290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2312293280919832769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff

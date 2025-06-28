@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4309509884217554647}
   - component: {fileID: 1970812397098811763}
   m_Layer: 0
-  m_Name: minitable
+  m_Name: minitable 1
   m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -8481880856094818693, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -180,6 +180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefabs:
   - {fileID: 7566207188384190252, guid: c95cf2f66632b4faa9218852f6c94be0, type: 3}
+  - {fileID: 6488453967714028512, guid: 257b10b16b38099469daff019ad13c2e, type: 3}
+  - {fileID: 7566207188384190252, guid: 1b59cac32e1a4c04eb1ba2bcd953faeb, type: 3}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
   numberOfRooms: 45
 --- !u!1 &466581645
@@ -215,24 +217,26 @@ MonoBehaviour:
   _furnitureManager: {fileID: 0}
   floorTilemap: {fileID: 0}
   floorTile: {fileID: 0}
+  floorTile2: {fileID: 0}
   wallTilemap: {fileID: 0}
   wallTile: {fileID: 0}
   wallLeftCornerTile: {fileID: 0}
   WallRightCornerTile: {fileID: 0}
-  wallBottomTile: {fileID: 0}
   topWallTile: {fileID: 0}
   leftWallTile: {fileID: 0}
   leftnoWallTile: {fileID: 0}
   rightWallTile: {fileID: 0}
-  rightnoWallTile: {fileID: 0}
-  bottomWallTile: {fileID: 0}
   leftTopWallTile: {fileID: 0}
   rightTopWallTile: {fileID: 0}
-  leftBottomWallTile: {fileID: 0}
+  rightnoWallTile: {fileID: 0}
+  bottomWallTile: {fileID: 0}
   rightBottomWallTile: {fileID: 0}
+  leftBottomWallTile: {fileID: 0}
+  wallBottomTile: {fileID: 0}
   doorPrefab: {fileID: 0}
   gridPosition: {x: 0, y: 0}
   doorSprite: {fileID: 0}
+  sideDoorSprite: {fileID: 0}
   doors: []
 --- !u!4 &466581647
 Transform:
@@ -608,6 +612,7 @@ MonoBehaviour:
   moveSpeed: 5
   slowSpeed: 2
   stamina: 100
+  caught: 0
   holdingPoint: {fileID: 0}
   requiredHoldDuration: 3
   throwForce: 10
