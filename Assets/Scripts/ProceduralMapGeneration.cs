@@ -60,6 +60,10 @@ public class ProceduralMapGeneration : MonoBehaviour
         livingRoom.GenerateLivingRoom(35, -20, 30, 20);
         roomManager.RegisterRoom(-3, livingRoom);
         livingRoom.SetupDoors();
+        
+        NavMeshSurface surface = FindFirstObjectByType<NavMeshSurface>();
+        surface.BuildNavMesh();
+        OnMapGenerated?.Invoke();
     }
 
     
