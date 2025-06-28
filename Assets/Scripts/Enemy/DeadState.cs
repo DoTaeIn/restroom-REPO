@@ -14,6 +14,7 @@ public class DeadState : IState
     public void Enter()
     {
         //animator trigger dead
+        _anim.SetBool("isMad", false);
     }
     public void Update()
     {
