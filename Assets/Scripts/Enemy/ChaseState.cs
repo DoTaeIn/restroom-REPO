@@ -6,7 +6,7 @@ public class ChaseState : IState
     EnemyCtrl _enemyCtrl;
     private Animator _anim;
     private NavMeshAgent _agent;
-    Transform _playerCtrl;
+    PlayerCtrl _playerCtrl;
     
     public ChaseState(EnemyCtrl enemyCtrl)
     {
@@ -24,7 +24,7 @@ public class ChaseState : IState
 
     public void Update()
     {
-        float dist = Vector2.Distance(_enemyCtrl.transform.position, _playerCtrl.position);
+        float dist = Vector2.Distance(_enemyCtrl.transform.position, _playerCtrl.transform.position);
         //Debug.Log(dist);
         if (dist > _enemyCtrl.detectRange)
         {
@@ -33,7 +33,7 @@ public class ChaseState : IState
         }
         else if (dist <= _enemyCtrl.detectRange && dist > _enemyCtrl.attackRange)
         {
-            _agent.SetDestination(_playerCtrl.position);
+            _agent.SetDestination(_playerCtrl.transform.position);
         }
         else if (dist <= _enemyCtrl.attackRange)
         {

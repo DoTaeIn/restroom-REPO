@@ -26,7 +26,8 @@ public class PlayerCtrl : MonoBehaviour
     Furniture furniture;
     public float stamina = 100f;
     public bool caught = false;
-
+    public EnemyCtrl Enemy;
+    
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
@@ -58,6 +59,11 @@ public class PlayerCtrl : MonoBehaviour
             Move();
             PickupFurniture();
             InvestigateFurniture();
+        }
+
+        if (caught)
+        {
+            Shake();
         }
         
 
@@ -179,6 +185,20 @@ public class PlayerCtrl : MonoBehaviour
         }
 
         _holdingFurniture = null;
+    }
+
+    void Shake()
+    {
+        if (caught)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if(Enemy != null)
+                    Enemy.DecreaseGrab(10);
+                else
+                    Debug.Log("Enemy is null, cannot shake off!");
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)

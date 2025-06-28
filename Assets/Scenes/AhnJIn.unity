@@ -1443,6 +1443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefabs:
   - {fileID: 7566207188384190252, guid: c95cf2f66632b4faa9218852f6c94be0, type: 3}
+  - {fileID: 6488453967714028512, guid: 257b10b16b38099469daff019ad13c2e, type: 3}
+  - {fileID: 7566207188384190252, guid: 1b59cac32e1a4c04eb1ba2bcd953faeb, type: 3}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
   numberOfRooms: 45
 --- !u!156049354 &999243689

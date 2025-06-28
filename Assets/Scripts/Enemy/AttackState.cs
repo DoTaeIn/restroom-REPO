@@ -11,7 +11,7 @@ public abstract class AttackState : IState
         _animator = enemyCtrl.animator;
     }
     
-    public void Enter()
+    public virtual void Enter()
     {
         // Trigger attack animation
         if(_animator.GetParameter(0).name == "isMad")
@@ -22,9 +22,9 @@ public abstract class AttackState : IState
         _enemyCtrl.agent.velocity = Vector3.zero;
     }
     
-    public void Update()
+    public virtual void Update()
     {
-        if (Vector2.Distance(_enemyCtrl.transform.position, _enemyCtrl.player.position) > _enemyCtrl.attackRange && !_enemyCtrl.isAttacking)
+        if (Vector2.Distance(_enemyCtrl.transform.position, _enemyCtrl.player.transform.position) > _enemyCtrl.attackRange && !_enemyCtrl.isAttacking)
         {
             _enemyCtrl.ChangeState(new ChaseState(_enemyCtrl));
             return;
@@ -33,7 +33,7 @@ public abstract class AttackState : IState
         PerformAttack();
     }
     
-    public void Exit()
+    public virtual void Exit()
     {
         // Reset attack state if needed
         _animator.SetBool("isAttacking", false);

@@ -15,7 +15,7 @@ public class EnemyCtrl : MonoBehaviour
 {
     public bool playerDetected = false;
     public bool caught = false;
-    public Transform player;
+    public PlayerCtrl player;
     public float chaseRange = 5f;
     public float coneAngle = 60f; // Total angle of the cone
     public int rayCount = 10;     // Number of rays in the cone
@@ -26,7 +26,7 @@ public class EnemyCtrl : MonoBehaviour
     public float stamina = 100f;
     public float grabStrength = 10f;
     public float concussionDuration = 2f;
-    [SerializeField] Transform grabPoint;
+    public Transform grabPoint;
     
     public EnemyAttackType attackType; 
     private Dictionary<EnemyAttackType, Func<AttackState>> attackStateFactory;
@@ -46,7 +46,7 @@ public class EnemyCtrl : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         agent = GetComponent<NavMeshAgent>();
-        player = FindFirstObjectByType<PlayerCtrl>().transform;
+        player = FindFirstObjectByType<PlayerCtrl>();
         attackStateFactory = new Dictionary<EnemyAttackType, Func<AttackState>>()
         {
             { EnemyAttackType.Owner, () => new OwnerAttack(this) },
@@ -65,12 +65,12 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Update()
     {
-        player = FindFirstObjectByType<PlayerCtrl>().transform;
+        player = FindFirstObjectByType<PlayerCtrl>();
         currentState?.Update();
 
         if (caught)
         {
-            player = grabPoint;
+            player.transform.position = grabPoint.position;
         }
 
         bool temp = agent.velocity.magnitude > 0.01f;

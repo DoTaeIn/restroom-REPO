@@ -6,7 +6,7 @@ public class IdleState : IState
     EnemyCtrl _enemyCtrl;
     Animator _anim;
     NavMeshAgent _agent;
-    private Transform playerCtrl;
+    private PlayerCtrl playerCtrl;
     
     private float _coneAngle = 60f; // Total angle of the cone
     private int _rayCount = 10;     // Number of rays in the cone

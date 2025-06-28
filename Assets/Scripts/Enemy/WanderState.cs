@@ -87,6 +87,7 @@ public class WanderState : IState
                 if(hit.collider.CompareTag("Player"))
                 {
                     _enemyCtrl.playerDetected = true;
+                    _enemyCtrl.player.Enemy = _enemyCtrl;
                     break;
                 }
                 Debug.Log(hit.collider.name);
