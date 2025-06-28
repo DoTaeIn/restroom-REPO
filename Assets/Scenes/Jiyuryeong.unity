@@ -184,6 +184,7 @@ MonoBehaviour:
   - {fileID: 7566207188384190252, guid: 1b59cac32e1a4c04eb1ba2bcd953faeb, type: 3}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
   numberOfRooms: 45
+  roomGap: 25
 --- !u!1 &466581645
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +614,8 @@ MonoBehaviour:
   slowSpeed: 2
   stamina: 100
   caught: 0
+  currentRoom: {fileID: 0}
+  Enemy: {fileID: 0}
   holdingPoint: {fileID: 0}
   requiredHoldDuration: 3
   throwForce: 10
