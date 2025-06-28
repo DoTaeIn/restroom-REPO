@@ -1,5 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class RoomEvent : UnityEvent<Room>
+{
+    
+}
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -23,6 +30,8 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float requiredHoldDuration = 3.0f;
     [SerializeField] float throwForce = 10f;
 
+    public RoomEvent onMoveToOtherRoom;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,6 +44,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         Move();
         PickupFurniture();
+        
 
         if (_holdingFurniture != null && isHoldingFurniture)
             _holdingFurniture.transform.localPosition = new Vector3(0, 0, 1);
