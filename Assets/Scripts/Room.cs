@@ -5,6 +5,7 @@ using System.Data;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using Unity.AI.Navigation;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -112,6 +113,8 @@ public class Room : MonoBehaviour
 
     public void PlaceFurnitureRandomly()
     {
+        int maxFurnitureCount = 4; // 최대 배치할 가구 수
+        int placedFurnitureCount = 0;
         var shuffledFurnitures = new List<Furniture>(_furnitureManager.furnitures);
         for (int i = 0; i < shuffledFurnitures.Count; i++)
         {
@@ -121,6 +124,10 @@ public class Room : MonoBehaviour
 
         foreach (Furniture furniturePrefab in shuffledFurnitures)
         {
+
+            if (placedFurnitureCount >= maxFurnitureCount)
+                break;
+
             bool placed = false;
             int attempts = 0;
 
@@ -153,6 +160,7 @@ public class Room : MonoBehaviour
                     gm.transform.SetParent(transform);
                     _furnitureManager.AddFurniture(gm.GetComponent<Furniture>());
                     placed = true;
+                    placedFurnitureCount++;
                 }
 
                 attempts++;
@@ -162,12 +170,16 @@ public class Room : MonoBehaviour
 
     public void GenerateLivingRoom(int startx, int starty, int width, int height)
     {
+        roomSize.XSize = width;
+        roomSize.YSize = height;
         GenerateWalls(startx, starty);
+        Debug.Log(startx.ToString()+starty+ToString()+width.ToString()+height.ToString());
+
 
         Vector3 TopDoormidliv = new Vector3(startx + width / 2 + 0.5f, starty + height - 0.5f, 0);
         _id = -3;
 
-        CreateDoorAt(new Vector3Int(startx + width / 2, starty + height - 1, 0),"Top"); // 위쪽 중앙에 문 생성
+        CreateDoorAt(new Vector3Int(startx + width / 2, starty + height , 0),"Top"); // 위쪽 중앙에 문 생성
         d = CreateDoorObject("TopDoor", TopDoormidliv, this);
         d.parentRoom = this;
         d.direction = "Top";
@@ -176,23 +188,21 @@ public class Room : MonoBehaviour
         
         
         Vector3 BottomDoormidliv = new Vector3(startx + width / 2 + 0.5f, starty + 0.5f, 0);
-        CreateDoorAt(new Vector3Int(startx + width / 2, starty, 0),"Bottom"); // 아래쪽 중앙에 문 생성
+        CreateDoorAt(new Vector3Int(startx + width / 2, starty-1, 0),"Bottom"); // 아래쪽 중앙에 문 생성
         d = CreateDoorObject("BottomDoor", BottomDoormidliv, this);
         d.parentRoom = this;
         d.direction = "Bottom";
         d.doorpos = BottomDoormidliv;
         doors.Add(d);
-        PlaceFurnitureRandomly();
+        // PlaceFurnitureRandomly();
     }
 
 
     public void GenerateWalls(int startx, int starty)
     {
-
         int x, y;
         for (x = startx-1; x < startx + roomSize.XSize+1; x++) //위아래 벽타일 생성
         {
-
             y = starty + (int)roomSize.YSize+3;  //top 채우기
             if (x == startx-1)
             {
@@ -334,7 +344,7 @@ public class Room : MonoBehaviour
     private Door d;
     private void GenerateDoors(int startX, int startY, int width, int height)
     {
-        if ((startX - 5) / 20 != 0)
+        if ((startX - 5) / mapGeneration.roomGap != 0)
         {
             // 왼쪽(Left) 벽에서 랜덤 y
             int leftY = Random.Range(startY + 1, startY + height - 1);
@@ -347,7 +357,7 @@ public class Room : MonoBehaviour
             doors.Add(d);
             CreateDoorAt(leftDoor,"Left");
         }
-        if ((startX - 5) / 20 != 4)
+        if ((startX - 5) / mapGeneration.roomGap != 4)
         {
 
             // 오른쪽(Right) 벽에서 랜덤 y
@@ -361,7 +371,7 @@ public class Room : MonoBehaviour
             d.doorpos = rightDoormid;
             CreateDoorAt(rightDoor,"Right");
         }
-        if (((startY - 5) / 20 != 0) || ((startX -5)/20 == 2))
+        if (((startY - 5) / mapGeneration.roomGap != 0) || ((startX -5)/mapGeneration.roomGap == 2))
         {
             // 아래쪽(Bottom) 벽에서 랜덤 x
             int bottomX = Random.Range(startX + 1, startX + width - 1);
@@ -375,7 +385,7 @@ public class Room : MonoBehaviour
             CreateDoorAt(bottomDoor,"Bottom");
 
         }
-        if ((startY - 5) / 20 != mapGeneration.numberOfRooms / 5 - 1)
+        if ((startY - 5) / mapGeneration.roomGap != mapGeneration.numberOfRooms / 5 - 1)
         {
             // 위쪽(Top) 벽에서 랜덤 x
             int topX = Random.Range(startX + 1, startX + width - 1);
@@ -476,8 +486,6 @@ public class Room : MonoBehaviour
                 break;
         }
 
-
-
         return doorComponent;
     }
 
@@ -488,11 +496,11 @@ public class Room : MonoBehaviour
         allRooms = RoomManager.Instance.allRoomsV;
         foreach (var pair in allRooms)
         {
-            Debug.Log($"Setting up doors for room at position {pair.Key}");
-            
+            Vector2Int roomkey = pair.Key;
             Room room = pair.Value;
             foreach (Door door in room.doors)
             {
+                door.destinationRoomID = room._id;
                 Vector2Int targetPos = room.gridPosition;
                 switch (door.direction)
                 {

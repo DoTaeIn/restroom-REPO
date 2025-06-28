@@ -93,14 +93,16 @@ MonoBehaviour:
   - {fileID: 554427651000750898, guid: 08951745be69887439aac4da9b7c0e95, type: 3}
   - {fileID: 4248401522237269776, guid: 56055519928a5de4b856394589445d1e, type: 3}
   - {fileID: 5674042471979104706, guid: b7576f337aa08af40b519c2eee98c7eb, type: 3}
-  - {fileID: 7305415704109497234, guid: 4ce97938a0269b5409760177a84a0a35, type: 3}
   - {fileID: 7534811239604444177, guid: 67c0f6bfd1a774f4cbe26d4d9c99ff0c, type: 3}
   - {fileID: 6669067139094412696, guid: b354f71ba3feabe4d8b3cb5b1b9e5446, type: 3}
   - {fileID: 8138254105950692714, guid: 8f6e62655e03999429b71f8d21f624dc, type: 3}
   - {fileID: 5741064311868666478, guid: a7525b2571b8752469b51a15d01bb00c, type: 3}
   - {fileID: 8451224171111512531, guid: 4cd00eb539643e943bcf33e2df5ac094, type: 3}
   - {fileID: 1312944755022732555, guid: 6fb46f2f253fb934799bce65c1ff75dc, type: 3}
+  items: []
+  keyItem: {fileID: 0}
   placed: []
+  distributeAmt: 10
 --- !u!60 &7373491492263683316
 PolygonCollider2D:
   m_ObjectHideFlags: 0

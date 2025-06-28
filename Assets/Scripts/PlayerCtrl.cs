@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,8 +27,8 @@ public class PlayerCtrl : MonoBehaviour
     Furniture furniture;
     public float stamina = 100f;
     public bool caught = false;
+    public Room currentRoom;
     public EnemyCtrl Enemy;
-    
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
@@ -41,6 +42,8 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float throwForce = 100f;
 
     public RoomEvent onMoveToOtherRoom;
+
+    
     public ItemEvent onGotItem;
 
     private void Awake()

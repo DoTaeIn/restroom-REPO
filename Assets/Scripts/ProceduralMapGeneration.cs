@@ -18,6 +18,7 @@ public class ProceduralMapGeneration : MonoBehaviour
     RoomManager roomManager;
     NavMeshSurface surface;
     Room room;
+    public int roomGap = 25;
 
     private void Awake()
     {
@@ -31,8 +32,8 @@ public class ProceduralMapGeneration : MonoBehaviour
 
         for (int i = 0; i < numberOfRooms; i++)
         {
-            int x = (i % 5) * 25 + 5;
-            int y = Mathf.FloorToInt(i / 5) * 25 + 5;
+            int x = (i % 5) * roomGap + 5;
+            int y = Mathf.FloorToInt(i / 5) * roomGap + 5;
 
             if (i != toiletSeed)
             {
@@ -55,11 +56,13 @@ public class ProceduralMapGeneration : MonoBehaviour
             }
         }
 
-        GameObject LivingRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], Vector3.zero, Quaternion.identity);
+        GameObject LivingRoom = Instantiate(roomPrefabs[2], Vector3.zero, Quaternion.identity);
         LivingRoom.name = "LivingRoom";
+ 
         Room livingRoom = LivingRoom.GetComponent<Room>();
         livingRoom.GenerateLivingRoom(35, -20, 30, 20);
         roomManager.RegisterRoom(-3, livingRoom);
+
         livingRoom.SetupDoors();
         
         NavMeshSurface surface = FindFirstObjectByType<NavMeshSurface>();
