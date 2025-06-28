@@ -440,9 +440,7 @@ public class Room : MonoBehaviour
         Dictionary<Vector2Int, Room> allRooms;
         allRooms = RoomManager.Instance.allRoomsV;
         foreach (var pair in allRooms)
-        {
-            Debug.Log($"Setting up doors for room at position {pair.Key}");
-            
+        {            
             Room room = pair.Value;
             foreach (Door door in room.doors)
             {
