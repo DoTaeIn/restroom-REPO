@@ -13,10 +13,11 @@ public class Item : MonoBehaviour
     private int _id;
     [SerializeField] private string name;
     public ItemType type;
+    public Sprite icon;
     
     [Header("Settings")]
     public float damage;
     public float healAmount;
-    public int keyPos; //_XXX -> 1st => 0
+    public int keyPos = 4; //_XXX -> 1st => 0
     public int keyId; //key Num.
 }

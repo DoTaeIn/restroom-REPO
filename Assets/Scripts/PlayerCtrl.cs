@@ -8,6 +8,11 @@ public class RoomEvent : UnityEvent<Room>
     
 }
 
+public class ItemEvent : UnityEvent<Item>
+{
+    
+}
+
 public class PlayerCtrl : MonoBehaviour
 {
     [Header("Player Settings")] 
@@ -17,6 +22,8 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float slowSpeed = 2f;
     bool isHoldingFurniture = false;
+    bool isNearFurniture = false;
+    Furniture furniture;
     public float stamina = 100f;
     public bool caught = false;
 
@@ -33,6 +40,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float throwForce = 10f;
 
     public RoomEvent onMoveToOtherRoom;
+    public ItemEvent onGotItem;
 
     private void Awake()
     {
@@ -49,6 +57,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             Move();
             PickupFurniture();
+            InvestigateFurniture();
         }
         
 
@@ -87,6 +96,26 @@ public class PlayerCtrl : MonoBehaviour
         //Vector3 targetVelocity = new Vector2(0.8f * 10f * _xInput, 0.8f * 10f * _yInput);
        // rb.linearVelocity = Vector3.SmoothDamp(rb.linearVelocity, targetVelocity, ref m_Velocity, 0.05f);
 
+    }
+    
+    void InvestigateFurniture()
+    {
+        if (isNearFurniture)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                holdTime += Time.deltaTime;
+            }
+
+            if (holdTime >= 2f)
+            {
+                if (furniture != null)
+                {
+                    Item item = furniture.GetItem();
+                    onGotItem.Invoke(item);
+                }
+            }
+        }
     }
 
     void PickupFurniture()
@@ -159,6 +188,11 @@ public class PlayerCtrl : MonoBehaviour
                 _holdingFurniture = collision.gameObject;
                 _holdingFurniture.GetComponent<OutlineCtrl>().UpdateOutline(true);
             }
+            else if (collision.GetComponent<Furniture>() != null)
+            {
+                isNearFurniture = true;
+                furniture = collision.GetComponent<Furniture>();
+            }
         }
     }
 
@@ -168,6 +202,12 @@ public class PlayerCtrl : MonoBehaviour
         {
             _holdingFurniture.GetComponent<OutlineCtrl>().UpdateOutline(false);
             _holdingFurniture = null;
+        }
+        
+        if (collision.GetComponent<Furniture>() != null)
+        {
+            isNearFurniture = false;
+            furniture = null;
         }
     }
     

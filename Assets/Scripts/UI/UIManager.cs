@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    PlayerCtrl playerCtrl;
 
     public float maxStamina = 100f;
-    public float currentStamina;
 
-    private StaminaBar staminaBar;
+    [SerializeField] private Slider staminaBar;
 
     [SerializeField] private GameObject inventoryPanel; // 인벤토리 UI 오브젝트
     private bool isInventoryOpen = false;
@@ -17,26 +17,33 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        currentStamina = maxStamina;
-        staminaBar = FindFirstObjectByType<StaminaBar>();
-
+        playerCtrl = FindFirstObjectByType<PlayerCtrl>();
+        inventoryManager = GetComponent<InventoryManager>();
     }
 
     void Start()
     {
         inventoryPanel.SetActive(isInventoryOpen);
-
-
     }
 
+    void OnEnable()
+    {
+        playerCtrl.onGotItem.AddListener(UpdateInventoryUI);
+    }
+
+    void UpdateInventoryUI(Item item)
+    {
+        inventoryManager.AddItem(item);
+    }
+    
     public void staminaplus(bool isPlus)
     {
-        currentStamina += 20f * Time.deltaTime;
+        playerCtrl.stamina += 20f * Time.deltaTime;
     }
 
     public void staminaminus(bool isMinus)
     {
-        currentStamina -= 10f * Time.deltaTime;
+        playerCtrl.stamina -= 10f * Time.deltaTime;
     }
 
 
@@ -49,12 +56,8 @@ public class UIManager : MonoBehaviour
         }
 
         staminaminus(true);
-
-        currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
-        staminaBar.SetStamina(currentStamina, maxStamina);
-
-
-
+        
+        staminaBar.value = playerCtrl.stamina / maxStamina;
 
     }
 
