@@ -75,14 +75,14 @@ public class PlayerCtrl : MonoBehaviour
         
         
         Vector3 moveDirection = new Vector3(_xInput, _yInput, 0).normalized;
-<<<<<<< HEAD
+
         
         rb.linearVelocity = moveDirection * (isHoldingFurniture ? slowSpeed : moveSpeed);
-=======
+
         rb.linearVelocity = moveDirection * moveSpeed;
         //Vector3 targetVelocity = new Vector2(0.8f * 10f * _xInput, 0.8f * 10f * _yInput);
        // rb.linearVelocity = Vector3.SmoothDamp(rb.linearVelocity, targetVelocity, ref m_Velocity, 0.05f);
->>>>>>> origin/ProceduralMap
+
     }
 
     void PickupFurniture()
