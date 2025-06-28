@@ -178,8 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationSprites: []
   parent: {fileID: 0}
-<<<<<<< HEAD
-=======
 --- !u!114 &-3455877605618318718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,4 +194,3 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
->>>>>>> origin/main
