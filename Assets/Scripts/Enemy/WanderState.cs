@@ -27,6 +27,7 @@ public class WanderState : IState
     {
         DetectArea();
         
+        
         if (_enemyCtrl.playerDetected)
         {
             _enemyCtrl.ChangeState(new ChaseState(_enemyCtrl));
@@ -38,6 +39,7 @@ public class WanderState : IState
             _enemyCtrl.ChangeState(new IdleState(_enemyCtrl));
             //SetNewDestination();
         }
+        
     }
 
     public void Exit()

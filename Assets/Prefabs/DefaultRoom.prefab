@@ -50,10 +50,14 @@ MonoBehaviour:
   _furnitureManager: {fileID: 0}
   floorTilemap: {fileID: 0}
   floorTile: {fileID: 11400000, guid: abafd2e6190b143619db92d08d48b932, type: 2}
+  floorTile2: {fileID: 11400000, guid: 71d516db9656a42f5a95f19a96c57850, type: 2}
   wallTilemap: {fileID: 0}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
-  doorPrefab: []
+  wallTile2: {fileID: 11400000, guid: 0c48a3334dace4da2a167bd65b92133d, type: 2}
+  doorPrefab: {fileID: 0}
+  gridPosition: {x: 0, y: 0}
   doorSprite: {fileID: -4344762378372388292, guid: 2a9dd722bbc2f4a11aa981e6a29a67c1, type: 3}
+  doors: []
 --- !u!114 &4715192475238474597
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,8 +20,10 @@ public class Room : MonoBehaviour
     [Header("Tilemap Settings")]
     public Tilemap floorTilemap;
     public TileBase floorTile;
+    public TileBase floorTile2;
     public Tilemap wallTilemap;
     public TileBase wallTile;
+    public TileBase wallTile2;
     public GameObject doorPrefab;
     public Vector2Int gridPosition;
     PolygonCollider2D polygon;
@@ -68,6 +70,8 @@ public class Room : MonoBehaviour
                 return Quaternion.Euler(0f, 0f, 0f);
         }
     }
+
+
 
     public void InitRoom(int id, int startX, int startY)
     {
@@ -198,6 +202,37 @@ public class Room : MonoBehaviour
         GenerateFloors();
     }
 
+
+    public void CreateToilet(int id, int startx, int starty)
+    {
+        roomSize.XSize = 7;
+        roomSize.YSize = 7;
+        roomSize.Position = new Vector2(startx, starty);
+        roomSize.Rotation = Quaternion.identity;
+
+        for (int x = startx; x < startx + roomSize.XSize; x++)
+        {
+            for (int y = starty; y < starty + roomSize.YSize; y++)
+            {
+                // 외곽선만 벽 생성
+                if (x == startx || y == starty || x == startx + roomSize.XSize - 1 || y == starty + roomSize.YSize - 1)
+                {
+                    wallTilemap.SetTile(new Vector3Int(x, y, 0), wallTile2);
+                }
+                else
+                {
+                    // 바닥 타일 생성
+                    floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile2);
+                }
+            }
+        }
+
+        this._id = id;
+        Vector3Int asdasd = new Vector3Int(startx, starty, 0);
+        
+        GenerateDoors(startx, starty, Mathf.RoundToInt(roomSize.XSize), Mathf.RoundToInt(roomSize.YSize));
+
+    }
 
     private void GenerateFloors()
     {

@@ -17,7 +17,6 @@ public class RoomManager : MonoBehaviour
 
     public void RegisterRoom(int id, Room room)
     {
-        Debug.Log(Mathf.FloorToInt(id / 5) + 1);
         allRooms.Add(id, room);
         int x;
         int y;
