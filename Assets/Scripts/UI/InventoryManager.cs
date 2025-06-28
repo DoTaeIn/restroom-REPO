@@ -1,45 +1,59 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private List<Slot> slots;
-    private List<Item> items;
-    private int limit = 5;
-    
+    [SerializeField] private int limit = 5;
+
+    [SerializeField] private List<Item> items = new List<Item>();
 
     public void AddItem(Item item)
     {
-        if(items.Count <= limit)
+        if (items.Count < limit)
         {
             items.Add(item);
+            UpdateUI();
         }
-        
-        UpdateUI();
+        else
+        {
+            Debug.LogWarning("Inventory is full!");
+        }
     }
 
     public void UseItem(Item item)
     {
-        if(items.Contains(item))
-            items.Remove(item);
+        if (items.Remove(item))
+        {
+            UpdateUI();
+        }
+    }
 
-        UpdateUI();
+    public Item GetItem(int index)
+    {
+        Item item = slots[index].item;
+        UseItem(item);
+        return item;
     }
 
     private void UpdateUI()
     {
-        foreach (Slot slot in slots)
+        int itemCount = items.Count;
+        int slotCount = slots.Count;
+
+        for (int i = 0; i < slotCount; i++)
         {
-            if (slots.IndexOf(slot) < items.Count)
+            if (i < itemCount)
             {
-                slot.image.sprite = items[slots.IndexOf(slot)].icon;
-                slot.image.color = Color.white; // Ensure the image is visible
+                slots[i].image.sprite = items[i].icon;
+                slots[i].item = items[i];
+                slots[i].image.color  = Color.white;
             }
             else
             {
-                slot.image.sprite = null;
-                slot.image.color = new Color(0, 0, 0, 0); // Make the image invisible
+                slots[i].image.sprite = null;
+                slots[i].item = null;
+                slots[i].image.color  = new Color(0, 0, 0, 0);
             }
         }
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 142957174069944923}
   - component: {fileID: 5518510890610822556}
   - component: {fileID: 8451224171111512531}
-  - component: {fileID: -5420598231002615762}
+  - component: {fileID: -6254953461772165550}
   m_Layer: 0
   m_Name: storage2
   m_TagString: Untagged
@@ -176,21 +176,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites: []
-  parent: {fileID: 0}
---- !u!208 &-5420598231002615762
-NavMeshObstacle:
+  particle: {fileID: 0}
+  item: {fileID: 0}
+--- !u!114 &-6254953461772165550
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652183402552629874}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.469, y: 1, z: 0.1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

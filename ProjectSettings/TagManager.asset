@@ -13,6 +13,7 @@ TagManager:
   - DoorTilemap
   - Door
   - Toilet
+  - Weapon
   layers:
   - Default
   - TransparentFX

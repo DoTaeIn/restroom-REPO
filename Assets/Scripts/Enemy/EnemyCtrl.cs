@@ -97,7 +97,6 @@ public class EnemyCtrl : MonoBehaviour
     }
     
     
-    
     public void StartAttack()
     {
         if (attackStateFactory.TryGetValue(attackType, out var createState))
