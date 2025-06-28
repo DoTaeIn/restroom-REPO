@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3186654344063970677}
   - component: {fileID: 7305415704109497234}
   - component: {fileID: 7671617644195438439}
+  - component: {fileID: 3571059084655414253}
   m_Layer: 0
   m_Name: tablechair
   m_TagString: Untagged
@@ -210,6 +211,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!208 &3571059084655414253
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3571309553395256448}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4111614081645770062
 GameObject:
   m_ObjectHideFlags: 0

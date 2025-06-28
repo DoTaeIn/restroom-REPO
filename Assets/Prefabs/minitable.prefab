@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8664420329857161046}
   - component: {fileID: 5995794238829865363}
   - component: {fileID: -4309509884217554647}
+  - component: {fileID: 1970812397098811763}
   m_Layer: 0
   m_Name: minitable
   m_TagString: Grabable
@@ -193,3 +194,19 @@ MonoBehaviour:
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   color: {r: 1, g: 1, b: 1, a: 1}
   outlineSize: 1
+--- !u!114 &1970812397098811763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406898164745074077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
