@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8138254105950692714}
   - component: {fileID: 4335639846369575938}
   - component: {fileID: 7202288697211021064}
+  - component: {fileID: 9190892062688998781}
   m_Layer: 0
   m_Name: stove
   m_TagString: Untagged
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSprites: []
+  parent: {fileID: 0}
 --- !u!50 &4335639846369575938
 Rigidbody2D:
   serializedVersion: 5
@@ -176,3 +178,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!208 &9190892062688998781
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686652701434712570}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

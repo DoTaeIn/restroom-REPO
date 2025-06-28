@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2080107322216970866}
   - component: {fileID: 126067920094895310}
   - component: {fileID: 1608453245069368038}
+  - component: {fileID: 3399707155276076451}
   m_Layer: 0
   m_Name: bed_jams
   m_TagString: Untagged
@@ -176,3 +177,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSprites: []
+  parent: {fileID: 0}
+--- !u!208 &3399707155276076451
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131926142308621713}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.96900004, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

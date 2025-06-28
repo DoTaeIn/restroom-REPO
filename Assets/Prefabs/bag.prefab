@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 725742421677324825}
   - component: {fileID: 3811373179501189374}
   - component: {fileID: 1230356144008000232}
+  - component: {fileID: -2115014131044359817}
   m_Layer: 0
   m_Name: bag
   m_TagString: Furniture
@@ -104,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSprites: []
+  parent: {fileID: 0}
 --- !u!50 &725742421677324825
 Rigidbody2D:
   serializedVersion: 5
@@ -190,3 +192,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  outlineSize: 1
+--- !u!208 &-2115014131044359817
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459211058922477275}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.40600002, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

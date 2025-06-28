@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4077336141503022652}
   - component: {fileID: 1328287171719389571}
   - component: {fileID: 3663616413782401143}
+  - component: {fileID: 5998718354411787803}
   m_Layer: 0
   m_Name: bed2_jams
   m_TagString: Untagged
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSprites: []
+  parent: {fileID: 0}
 --- !u!50 &3663616413782401143
 Rigidbody2D:
   serializedVersion: 5
@@ -176,3 +178,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!208 &5998718354411787803
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536375938686131523}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

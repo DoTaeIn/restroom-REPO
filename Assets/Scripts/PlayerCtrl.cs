@@ -18,6 +18,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float slowSpeed = 2f;
     bool isHoldingFurniture = false;
     public float stamina = 100f;
+    public bool caught = false;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -44,8 +45,11 @@ public class PlayerCtrl : MonoBehaviour
 
     private void Update()
     {
-        Move();
-        PickupFurniture();
+        if (!caught)
+        {
+            Move();
+            PickupFurniture();
+        }
         
 
         if (_holdingFurniture != null && isHoldingFurniture)
@@ -166,4 +170,16 @@ public class PlayerCtrl : MonoBehaviour
             _holdingFurniture = null;
         }
     }
+    
+    public void TakeDamage(float damage)
+    {
+        stamina -= damage;
+        if (stamina <= 0)
+        {
+            Debug.Log("Player is dead!");
+            // Handle player death (e.g., reload scene, show game over screen, etc.)
+        }
+    }
+    
+    
 }

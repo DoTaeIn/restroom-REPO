@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8664420329857161046}
   - component: {fileID: 5995794238829865363}
   - component: {fileID: -4309509884217554647}
+  - component: {fileID: -1015384945124000779}
   m_Layer: 0
   m_Name: minitable
   m_TagString: Grabable
@@ -131,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSprites: []
+  parent: {fileID: 0}
 --- !u!61 &5995794238829865363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,3 +194,19 @@ MonoBehaviour:
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   color: {r: 1, g: 1, b: 1, a: 1}
   outlineSize: 1
+--- !u!208 &-1015384945124000779
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406898164745074077}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.31300002, y: 0.344, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
