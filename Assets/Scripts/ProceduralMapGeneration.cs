@@ -15,7 +15,6 @@ public class ProceduralMapGeneration : MonoBehaviour
     public TileBase wallTile;
     public int numberOfRooms = 45;
     public event Action OnMapGenerated;
-    
     RoomManager roomManager;
     NavMeshSurface surface;
     Room room;
@@ -37,7 +36,7 @@ public class ProceduralMapGeneration : MonoBehaviour
 
             if (i != toiletSeed)
             {
-                GameObject roomGO = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], Vector3.zero, Quaternion.identity);
+                GameObject roomGO = Instantiate(roomPrefabs[0], Vector3.zero, Quaternion.identity);
                 Room room = roomGO.GetComponent<Room>();
                 room.InitRoom(i, x, y);
                 roomManager.RegisterRoom(i, room);
@@ -45,12 +44,14 @@ public class ProceduralMapGeneration : MonoBehaviour
             }
             else
             {
-                GameObject Toilet = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], Vector3.zero, Quaternion.identity);
+                GameObject Toilet = Instantiate(roomPrefabs[1], Vector3.zero, Quaternion.identity);
                 Toilet.name = "Toilet";
                 Room toilet = Toilet.GetComponent<Room>();
                 toilet.CreateToilet(i, x, y);
                 roomManager.RegisterRoom(i, toilet);
                 toilet.SetupDoors();
+
+
             }
         }
 
