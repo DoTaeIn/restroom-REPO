@@ -9,7 +9,8 @@ public class ItemEditor : Editor
         Item item = (Item)target;
 
         //example.alwaysVisible = EditorGUILayout.IntField("Always Visible", example.alwaysVisible);
-
+        item.type = item.type = (ItemType)EditorGUILayout.EnumFlagsField("Type", item.type);
+        
         if (item.type == ItemType.Key)
         {
             item.keyPos = EditorGUILayout.IntField("Key Num Pos", item.keyPos);
