@@ -31,8 +31,8 @@ public class ProceduralMapGeneration : MonoBehaviour
             Room room = roomGO.GetComponent<Room>();
 
 
-            int x = (i % 5) * 20 + 5;
-            int y = Mathf.FloorToInt(i / 5) * 20 + 5;
+            int x = (i % 5) * 25 + 5;
+            int y = Mathf.FloorToInt(i / 5) * 25 + 5;
 
             room.InitRoom(i, x, y);
             roomManager.RegisterRoom(i, room);

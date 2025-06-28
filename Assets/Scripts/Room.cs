@@ -21,6 +21,19 @@ public class Room : MonoBehaviour
     public TileBase floorTile;
     public Tilemap wallTilemap;
     public TileBase wallTile;
+    public TileBase wallLeftCornerTile;
+    public TileBase WallRightCornerTile;
+    public TileBase wallBottomTile;
+    public TileBase topWallTile;
+    public TileBase leftWallTile;
+    public TileBase leftnoWallTile;
+    public TileBase rightWallTile;
+    public TileBase rightnoWallTile;
+    public TileBase bottomWallTile;
+    public TileBase leftTopWallTile;
+    public TileBase rightTopWallTile;
+    public TileBase leftBottomWallTile;
+    public TileBase rightBottomWallTile;
     public GameObject doorPrefab;
     public Vector2Int gridPosition;
     PolygonCollider2D polygon;
@@ -70,8 +83,8 @@ public class Room : MonoBehaviour
 
     public void InitRoom(int id, int startX, int startY)
     {
-        roomSize.XSize = Random.Range(10, 12);
-        roomSize.YSize = Random.Range(8, 10);
+        roomSize.XSize = Random.Range(16, 20);
+        roomSize.YSize = Random.Range(12, 16);
         roomSize.Position = new Vector2(startX, startY);
         roomSize.Rotation = Quaternion.identity;
 
@@ -127,18 +140,83 @@ public class Room : MonoBehaviour
 
     public void GenerateWalls(int startx, int starty)
     {
-        for (int x = startx; x < startx + roomSize.XSize; x++)
+
+        int x, y;
+        for (x = startx-1; x < startx + roomSize.XSize+1; x++) //위아래 벽타일 생성
         {
-            for (int y = starty; y < starty + roomSize.YSize; y++)
+
+            y = starty + (int)roomSize.YSize+3;  //top 채우기
+            if (x == startx-1)
             {
-                // 외곽선만 벽 생성
-                if (x == startx || y == starty || x == startx + roomSize.XSize - 1 || y == starty + roomSize.YSize - 1)
-                {
-                    wallTilemap.SetTile(new Vector3Int(x, y, 0), wallTile);
-                }
+                wallTilemap.SetTile(new Vector3Int(x, y, 0), leftTopWallTile);
+            }
+            else if (x == startx + roomSize.XSize)
+            {
+                wallTilemap.SetTile(new Vector3Int(x, y, 0), rightTopWallTile);
+            }
+            else
+            {
+                wallTilemap.SetTile(new Vector3Int(x, y, 0), topWallTile);
+            }
+
+
+            y = starty-1; //bottom 채우기
+            if (x == startx-1)
+            {
+                wallTilemap.SetTile(new Vector3Int(x, y, 0), leftBottomWallTile);
+            }
+            else if (x == startx + roomSize.XSize)
+            {
+                wallTilemap.SetTile(new Vector3Int(x, y, 0), rightBottomWallTile);
+            }
+            else
+            {
+                wallTilemap.SetTile(new Vector3Int(x, y, 0), bottomWallTile);
             }
         }
 
+        for (y = starty; y < starty + roomSize.YSize+1; y++) //좌우 벽타일 생성
+        {
+            x = startx-1;
+            wallTilemap.SetTile(new Vector3Int(x, y, 0), leftWallTile);
+            x = startx + (int)roomSize.XSize;
+            wallTilemap.SetTile(new Vector3Int(x, y, 0), rightWallTile);
+        }
+
+        y = starty + (int)roomSize.YSize;
+        x = startx - 1;
+        wallTilemap.SetTile(new Vector3Int(x, y, 0), wallLeftCornerTile);
+        x = startx + (int)roomSize.XSize;
+        wallTilemap.SetTile(new Vector3Int(x, y, 0), WallRightCornerTile);
+
+
+        for (y = starty+(int)roomSize.YSize+1; y < starty + roomSize.YSize + 3; y++) //좌우 벽타일 생성 (위쪽 줄 없는 벽)
+        {
+            x = startx - 1;
+            wallTilemap.SetTile(new Vector3Int(x, y, 0), leftnoWallTile);
+            x = startx + (int)roomSize.XSize;
+            wallTilemap.SetTile(new Vector3Int(x, y, 0), rightnoWallTile);
+        }
+        for (x = startx; x < startx + roomSize.XSize; x++) //벽 전면 타일 생성
+        {
+            y = starty + (int)roomSize.YSize;
+            wallTilemap.SetTile(new Vector3Int(x, y, 0), wallBottomTile);
+            for (y = starty+(int)roomSize.YSize+1; y < starty+(int)roomSize.YSize+3; y++)
+            {
+
+                wallTilemap.SetTile(new Vector3Int(x, y, 0), wallTile);
+
+            }
+        }
+        
+        for (x = startx; x < startx+roomSize.XSize; x++)
+        {   
+            for (y = starty; y < starty+roomSize.YSize; y++)
+            {
+                // 바닥 타일 생성
+                floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
+            }
+        }
         Vector2[] points = new Vector2[5];
 
         float minX = roomSize.Position.x;
@@ -155,7 +233,7 @@ public class Room : MonoBehaviour
         polygon.pathCount = 1;
         polygon.SetPath(0, points);
 
-        GenerateFloors();
+        
     }
 
 
@@ -163,7 +241,7 @@ public class Room : MonoBehaviour
     {
         for (int x = 0; x < roomSize.XSize; x++)
         {
-            for (int y = 0; y < roomSize.YSize; y++)
+            for (int y = -3; y < roomSize.YSize; y++)
             {
                 // 바닥 타일 생성
                 floorTilemap.SetTile(new Vector3Int((int)roomSize.Position.x + x, (int)roomSize.Position.y + y, 0), floorTile);
@@ -179,8 +257,8 @@ public class Room : MonoBehaviour
         {
             // 왼쪽(Left) 벽에서 랜덤 y
             int leftY = Random.Range(startY + 1, startY + height - 1);
-            Vector3Int leftDoor = new Vector3Int(startX, leftY, 0);
-            Vector3 leftDoormid = new Vector3(startX + 0.5f, leftY + 0.5f, 0);
+            Vector3Int leftDoor = new Vector3Int(startX-1, leftY, 0);
+            Vector3 leftDoormid = new Vector3(startX - 0.5f, leftY + 0.5f, 0);
             d = CreateDoorObject("LeftDoor", leftDoormid, this);
             d.parentRoom = this;
             d.direction = "Left";
@@ -193,8 +271,8 @@ public class Room : MonoBehaviour
 
             // 오른쪽(Right) 벽에서 랜덤 y
             int rightY = Random.Range(startY + 1, startY + height - 1);
-            Vector3Int rightDoor = new Vector3Int(startX + width - 1, rightY, 0);
-            Vector3 rightDoormid = new Vector3(startX + width - 0.5f, rightY + 0.5f, 0);
+            Vector3Int rightDoor = new Vector3Int(startX + width, rightY, 0);
+            Vector3 rightDoormid = new Vector3(startX + width + 0.5f, rightY + 0.5f, 0);
             d = CreateDoorObject("RightDoor", rightDoormid, this);
             d.parentRoom = this;
             d.direction = "Right";
@@ -205,8 +283,8 @@ public class Room : MonoBehaviour
         {
             // 아래쪽(Bottom) 벽에서 랜덤 x
             int bottomX = Random.Range(startX + 1, startX + width - 1);
-            Vector3Int bottomDoor = new Vector3Int(bottomX, startY, 0);
-            Vector3 bottomDoormid = new Vector3(bottomX + 0.5f, startY + 0.5f, 0);
+            Vector3Int bottomDoor = new Vector3Int(bottomX, startY-1, 0);
+            Vector3 bottomDoormid = new Vector3(bottomX + 0.5f, startY - 0.5f, 0);
             d = CreateDoorObject("BottomDoor", bottomDoormid, this);
             d.parentRoom = this;
             d.direction = "Bottom";
@@ -219,7 +297,7 @@ public class Room : MonoBehaviour
             // 위쪽(Top) 벽에서 랜덤 x
             int topX = Random.Range(startX + 1, startX + width - 1);
             Vector3Int topDoor = new Vector3Int(topX, startY + height - 1, 0);
-            Vector3 topDoormid = new Vector3(topX + 0.5f, startY + height - 0.5f, 0);
+            Vector3 topDoormid = new Vector3(topX + 0.5f, startY + height + 0.5f, 0);
             d = CreateDoorObject("TopDoor", topDoormid, this);
             d.parentRoom = this;
             d.direction = "Top";
@@ -247,7 +325,7 @@ public class Room : MonoBehaviour
         if (name == "LeftDoor" || name == "RightDoor")
             door.transform.eulerAngles = new Vector3(0, 0, 0); // Y축 기준 0도 회전
         else
-            door.transform.eulerAngles = new Vector3(0, 0, 90f); // Z축 기준 90도 회전\
+            door.transform.eulerAngles = new Vector3(0, 0, 90f); // Z축 기준 90도 회전
         Door doorComponent = door.AddComponent<Door>();
 
         doorComponent.roomID = _id;

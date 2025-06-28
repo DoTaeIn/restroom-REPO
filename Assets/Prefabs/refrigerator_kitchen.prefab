@@ -105,6 +105,7 @@ MonoBehaviour:
   animationSprites:
   - {fileID: 4539938039932603218, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
   - {fileID: 4654202990439293442, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
+  parent: {fileID: 0}
 --- !u!50 &956624324069815055
 Rigidbody2D:
   serializedVersion: 5
@@ -170,11 +171,11 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 2, y: 4}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2, y: 4}
   m_EdgeRadius: 0
