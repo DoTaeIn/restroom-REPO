@@ -5,28 +5,34 @@ using UnityEngine.Tilemaps;
 public class RoomManager : MonoBehaviour
 {
     public static RoomManager Instance;
-
     public Dictionary<int, Room> allRooms = new();
-    public Room currentRoom;
+    public Dictionary<Vector2Int, Room> allRoomsV = new();
+    public Room room;
 
     void Awake()
     {
-        Instance = this;
+            Instance = this;
     }
 
     public void RegisterRoom(int id, Room room)
     {
-        if (!allRooms.ContainsKey(id))
-            allRooms.Add(id, room);
+        allRooms.Add(id, room);
+        int x = id % 5 + 1; // Assuming a grid of 5 rooms per row
+        int y = Mathf.FloorToInt(id / 5) + 1;
+        room.gridPosition = new Vector2Int(x, y);
+        allRoomsV.Add(room.gridPosition, room);
     }
+
+
+
 
     public void WarpToRoom(int targetRoomID, Vector3 targetPosition)
     {
-        if (allRooms.TryGetValue(targetRoomID, out Room room))
+        if (allRooms.TryGetValue(targetRoomID, out Room room1))
         {
-            currentRoom.gameObject.SetActive(false);
+            room.gameObject.SetActive(false);
             room.gameObject.SetActive(true);
-            currentRoom = room;
+            room = room1;
 
             GameObject player = GameObject.FindWithTag("Player");
             player.transform.position = targetPosition;
