@@ -38,9 +38,11 @@ public class PlayerCtrl : MonoBehaviour
             sr.flipX = false;
         else if (_xInput < 0)
             sr.flipX = true;
-
-        Vector3 targetVelocity = new Vector2(0.8f * 10f * _xInput, 0.8f * 10f * _yInput);
-        rb.linearVelocity = Vector3.SmoothDamp(rb.linearVelocity, targetVelocity, ref m_Velocity, 0.05f);
+        
+        Vector3 moveDirection = new Vector3(_xInput, _yInput, 0).normalized;
+        rb.linearVelocity = moveDirection * moveSpeed;
+        //Vector3 targetVelocity = new Vector2(0.8f * 10f * _xInput, 0.8f * 10f * _yInput);
+       // rb.linearVelocity = Vector3.SmoothDamp(rb.linearVelocity, targetVelocity, ref m_Velocity, 0.05f);
     }
 
     void PickupFurniture()
