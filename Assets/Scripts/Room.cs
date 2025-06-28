@@ -1,4 +1,5 @@
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Data;
 using System.Runtime.CompilerServices;
@@ -124,6 +125,45 @@ public class Room : MonoBehaviour
 
     }
 
+    public void GenerateLivingRoom(int startx, int starty, int width, int height)
+    {
+        for (int x = startx; x < startx + width; x++)
+        {
+            for (int y = starty; y < starty + height; y++)
+            {
+                // 외곽선만 벽 생성
+                if (x == startx || y == starty || x == startx + width - 1 || y == starty + height - 1)
+                {
+                    wallTilemap.SetTile(new Vector3Int(x, y, 0), wallTile);
+                }
+                // 바닥 타일 생성
+                else
+                {
+                    floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
+                }
+            }
+        }
+
+        Vector3 TopDoormidliv = new Vector3(startx + width / 2 + 0.5f, starty + height - 0.5f, 0);
+        _id = -3;
+
+        CreateDoorAt(new Vector3Int(startx + width / 2, starty + height - 1, 0)); // 위쪽 중앙에 문 생성
+        d = CreateDoorObject("TopDoor", TopDoormidliv, this);
+        d.parentRoom = this;
+        d.direction = "Top";
+        d.doorpos = TopDoormidliv;
+        doors.Add(d);
+        
+        
+        Vector3 BottomDoormidliv = new Vector3(startx + width / 2 + 0.5f, starty + 0.5f, 0);
+        CreateDoorAt(new Vector3Int(startx + width / 2, starty, 0)); // 아래쪽 중앙에 문 생성
+        d = CreateDoorObject("BottomDoor", BottomDoormidliv, this);
+        d.parentRoom = this;
+        d.direction = "Bottom";
+        d.doorpos = BottomDoormidliv;
+        doors.Add(d);
+    }
+
 
     public void GenerateWalls(int startx, int starty)
     {
@@ -170,11 +210,12 @@ public class Room : MonoBehaviour
             }
         }
     }
+
     public Sprite doorSprite;
     public List<Door> doors = new List<Door>();
+    private Door d;
     private void GenerateDoors(int startX, int startY, int width, int height)
     {
-        Door d;
         if ((startX - 5) / 20 != 0)
         {
             // 왼쪽(Left) 벽에서 랜덤 y
@@ -184,9 +225,10 @@ public class Room : MonoBehaviour
             d = CreateDoorObject("LeftDoor", leftDoormid, this);
             d.parentRoom = this;
             d.direction = "Left";
+            d.doorpos = leftDoormid;
             doors.Add(d);
-            
-        CreateDoorAt(leftDoor);
+
+            CreateDoorAt(leftDoor);
         }
         if ((startX - 5) / 20 != 4)
         {
@@ -199,9 +241,10 @@ public class Room : MonoBehaviour
             d.parentRoom = this;
             d.direction = "Right";
             doors.Add(d);
-                CreateDoorAt(rightDoor);
+            d.doorpos = rightDoormid;
+            CreateDoorAt(rightDoor);
         }
-        if ((startY - 5) / 20 != 0)
+        if (((startY - 5) / 20 != 0) || ((startX -5)/20 == 2))
         {
             // 아래쪽(Bottom) 벽에서 랜덤 x
             int bottomX = Random.Range(startX + 1, startX + width - 1);
@@ -211,7 +254,8 @@ public class Room : MonoBehaviour
             d.parentRoom = this;
             d.direction = "Bottom";
             doors.Add(d);
-                CreateDoorAt(bottomDoor);
+            d.doorpos = bottomDoormid;
+            CreateDoorAt(bottomDoor);
 
         }
         if ((startY - 5) / 20 != mapGeneration.numberOfRooms / 5 - 1)
@@ -224,12 +268,9 @@ public class Room : MonoBehaviour
             d.parentRoom = this;
             d.direction = "Top";
             doors.Add(d);
-                CreateDoorAt(topDoor);
+            d.doorpos = topDoormid;
+            CreateDoorAt(topDoor);
         }
-
-
-
-
     }
 
     void CreateDoorAt(Vector3Int Door)
@@ -237,7 +278,6 @@ public class Room : MonoBehaviour
         wallTilemap.SetTile(Door, null);
         floorTilemap.SetTile(Door, floorTile);
     }
-
 
     public Door CreateDoorObject(string name, Vector3 worldPosition, Room parent)
     {
@@ -277,9 +317,10 @@ public class Room : MonoBehaviour
     {
         Dictionary<Vector2Int, Room> allRooms;
         allRooms = RoomManager.Instance.allRoomsV;
-
         foreach (var pair in allRooms)
         {
+            Debug.Log($"Setting up doors for room at position {pair.Key}");
+            
             Room room = pair.Value;
             foreach (Door door in room.doors)
             {

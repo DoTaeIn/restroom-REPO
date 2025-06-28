@@ -24,22 +24,23 @@ public class ProceduralMapGeneration : MonoBehaviour
     {
         for (int i = 0; i < numberOfRooms; i++)
         {
-            Vector3 position = new Vector3(0, 0, 0);
-            GameObject roomGO = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], position, Quaternion.identity);
-
+            GameObject roomGO = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], new Vector3(0, 0, 0), Quaternion.identity);
 
             Room room = roomGO.GetComponent<Room>();
-
-
             int x = (i % 5) * 20 + 5;
             int y = Mathf.FloorToInt(i / 5) * 20 + 5;
 
             room.InitRoom(i, x, y);
             roomManager.RegisterRoom(i, room);
             //Debug.Log($"Room {i} position: {x}x{y}");
-
-
         }
+
+        GameObject LivingRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], new Vector3(0, 0, 0), Quaternion.identity);
+        LivingRoom.name = "LivingRoom";
+        Room livingRoom = LivingRoom.GetComponent<Room>();
+        livingRoom.GenerateLivingRoom(35, -20, 30, 20);
+        roomManager.RegisterRoom(-3, livingRoom);
+
 
         room.SetupDoors();
 
