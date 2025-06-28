@@ -6,12 +6,9 @@ TagManager:
   tags:
   - Wall
   - Floor
-<<<<<<< HEAD
   - Furniture
   - Grabable
-=======
   - Door
->>>>>>> origin/ProceduralMap
   layers:
   - Default
   - TransparentFX

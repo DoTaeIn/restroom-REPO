@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4248401522237269776}
   - component: {fileID: 956624324069815055}
   - component: {fileID: 801054608420244088}
+  - component: {fileID: 684396693950228553}
   m_Layer: 0
   m_Name: refrigerator_kitchen
   m_TagString: Untagged
@@ -105,6 +106,7 @@ MonoBehaviour:
   animationSprites:
   - {fileID: 4539938039932603218, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
   - {fileID: 4654202990439293442, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
+  parent: {fileID: 0}
 --- !u!50 &956624324069815055
 Rigidbody2D:
   serializedVersion: 5
@@ -178,3 +180,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!208 &684396693950228553
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552208546416834873}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
