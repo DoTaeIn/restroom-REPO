@@ -1679,6 +1679,7 @@ GameObject:
   - component: {fileID: 1233954142}
   - component: {fileID: 1233954141}
   - component: {fileID: 1233954140}
+  - component: {fileID: 1233954144}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1764,6 +1765,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1233954144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233954139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940a0647e51994896886706b1417f173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 164080683830249723, guid: b48c9f0f7c35ab642b87cd453249190b, type: 3}
+  - {fileID: 174262423298818553, guid: 1f5bc8ce40391e14fad8e12999317d71, type: 3}
+  - {fileID: 3269737441178881970, guid: 67ff57b7e6ca7ce4b8051638cd125906, type: 3}
+  - {fileID: 6066131441325838713, guid: 5eb3964d37ae5364a993c9cad20f6aa0, type: 3}
+  - {fileID: 4638636834284416669, guid: ed112c959d1296a4aa5d185e9b01cc14, type: 3}
+  - {fileID: 3632512321638019791, guid: 356a1a47626375444a9e42fa1f79f701, type: 3}
+  - {fileID: 3778499287436363317, guid: a2a49ae3a3603b54c82211d5cf78a66c, type: 3}
+  - {fileID: 8026003418726733281, guid: 1b26ead05333aaa47a826d33ad8e1d76, type: 3}
+  keyItem: {fileID: 2138512473410820702, guid: 121185d93bd2b43dcb24f0d1dbc40898, type: 3}
+  distributeAmt: 10
 --- !u!1 &1460457687
 GameObject:
   m_ObjectHideFlags: 0

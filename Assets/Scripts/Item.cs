@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
     private int _id;
     [SerializeField] private string name;
     public ItemType type;
+    public Sprite[] iconSwap;
     public Sprite icon;
     
     [Header("Settings")]

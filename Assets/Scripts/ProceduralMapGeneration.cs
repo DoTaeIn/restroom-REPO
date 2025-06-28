@@ -67,6 +67,7 @@ public class ProceduralMapGeneration : MonoBehaviour
         
         NavMeshSurface surface = FindFirstObjectByType<NavMeshSurface>();
         surface.BuildNavMesh();
+        
         OnMapGenerated?.Invoke();
     }
 
