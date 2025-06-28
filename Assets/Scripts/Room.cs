@@ -64,8 +64,8 @@ public class Room : MonoBehaviour
 
     public void InitRoom(int id, int startX, int startY)
     {
-        roomSize.XSize = Random.Range(10, 15);
-        roomSize.YSize = Random.Range(10, 15);
+        roomSize.XSize = Random.Range(10, 12);
+        roomSize.YSize = Random.Range(8, 10);
         roomSize.Position = new Vector2(startX, startY);
         roomSize.Rotation = Quaternion.identity;
 
@@ -77,7 +77,7 @@ public class Room : MonoBehaviour
             bool placed = false;
             int attempts = 0;
 
-            while (!placed && attempts < 10)
+            while (!placed && attempts < 20)
             {
                 Vector2 randomPos = GetRandomPos();
                 Quaternion randomRot = GetRandomRotation();

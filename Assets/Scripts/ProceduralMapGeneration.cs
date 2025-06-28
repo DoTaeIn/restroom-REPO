@@ -34,7 +34,7 @@ public class ProceduralMapGeneration : MonoBehaviour
             
             room.InitRoom(i, x, y);
             roomManager.RegisterRoom(i, room);
-            Debug.Log($"Room {i} position: {x}x{y}");
+            //Debug.Log($"Room {i} position: {x}x{y}");
 
 
             room.Initialize(roomID, x, y);

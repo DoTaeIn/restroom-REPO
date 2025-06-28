@@ -24,6 +24,7 @@ public class Furniture : MonoBehaviour
     [SerializeField] private Sprite[] animationSprites;
     GameObject _item;
     BoxCollider2D _collider;
+    public Transform parent;
 
     private void Awake()
     {

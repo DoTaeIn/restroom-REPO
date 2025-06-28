@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 9132183557024106933}
   - component: {fileID: 725742421677324825}
   - component: {fileID: 3811373179501189374}
+  - component: {fileID: 1230356144008000232}
   m_Layer: 0
   m_Name: bag
-  m_TagString: Untagged
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 0d2979ff6ac27429faf9464feae7440d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -176,3 +177,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.8125}
   m_EdgeRadius: 0
+--- !u!114 &1230356144008000232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459211058922477275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3793dedd5da3b42aa9c03aeb03e582e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}

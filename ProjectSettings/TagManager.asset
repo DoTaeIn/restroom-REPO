@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - Floor
+  - Furniture
+  - Grabable
   layers:
   - Default
   - TransparentFX
