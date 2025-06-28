@@ -113,6 +113,8 @@ public class Room : MonoBehaviour
 
     public void PlaceFurnitureRandomly()
     {
+        int maxFurnitureCount = 4; // 최대 배치할 가구 수
+        int placedFurnitureCount = 0;
         var shuffledFurnitures = new List<Furniture>(_furnitureManager.furnitures);
         for (int i = 0; i < shuffledFurnitures.Count; i++)
         {
@@ -122,6 +124,10 @@ public class Room : MonoBehaviour
 
         foreach (Furniture furniturePrefab in shuffledFurnitures)
         {
+
+            if (placedFurnitureCount >= maxFurnitureCount)
+                break;
+
             bool placed = false;
             int attempts = 0;
 
@@ -154,6 +160,7 @@ public class Room : MonoBehaviour
                     gm.transform.SetParent(transform);
                     _furnitureManager.AddFurniture(gm.GetComponent<Furniture>());
                     placed = true;
+                    placedFurnitureCount++;
                 }
 
                 attempts++;
@@ -163,12 +170,16 @@ public class Room : MonoBehaviour
 
     public void GenerateLivingRoom(int startx, int starty, int width, int height)
     {
+        roomSize.XSize = width;
+        roomSize.YSize = height;
         GenerateWalls(startx, starty);
+        Debug.Log(startx.ToString()+starty+ToString()+width.ToString()+height.ToString());
+
 
         Vector3 TopDoormidliv = new Vector3(startx + width / 2 + 0.5f, starty + height - 0.5f, 0);
         _id = -3;
 
-        CreateDoorAt(new Vector3Int(startx + width / 2, starty + height - 1, 0),"Top"); // 위쪽 중앙에 문 생성
+        CreateDoorAt(new Vector3Int(startx + width / 2, starty + height , 0),"Top"); // 위쪽 중앙에 문 생성
         d = CreateDoorObject("TopDoor", TopDoormidliv, this);
         d.parentRoom = this;
         d.direction = "Top";
@@ -177,13 +188,13 @@ public class Room : MonoBehaviour
         
         
         Vector3 BottomDoormidliv = new Vector3(startx + width / 2 + 0.5f, starty + 0.5f, 0);
-        CreateDoorAt(new Vector3Int(startx + width / 2, starty, 0),"Bottom"); // 아래쪽 중앙에 문 생성
+        CreateDoorAt(new Vector3Int(startx + width / 2, starty-1, 0),"Bottom"); // 아래쪽 중앙에 문 생성
         d = CreateDoorObject("BottomDoor", BottomDoormidliv, this);
         d.parentRoom = this;
         d.direction = "Bottom";
         d.doorpos = BottomDoormidliv;
         doors.Add(d);
-        PlaceFurnitureRandomly();
+        // PlaceFurnitureRandomly();
     }
 
 

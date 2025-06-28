@@ -56,8 +56,9 @@ public class ProceduralMapGeneration : MonoBehaviour
             }
         }
 
-        GameObject LivingRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], Vector3.zero, Quaternion.identity);
+        GameObject LivingRoom = Instantiate(roomPrefabs[2], Vector3.zero, Quaternion.identity);
         LivingRoom.name = "LivingRoom";
+ 
         Room livingRoom = LivingRoom.GetComponent<Room>();
         livingRoom.GenerateLivingRoom(35, -20, 30, 20);
         roomManager.RegisterRoom(-3, livingRoom);
