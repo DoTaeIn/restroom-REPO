@@ -16,7 +16,7 @@ public abstract class AttackState : IState
         // Trigger attack animation
         if(_animator.GetParameter(0).name == "isMad")
             _animator.SetBool("isMad", true);
-        _animator.SetTrigger("Attack");
+        _animator.SetBool("isAttacking", true);
         _enemyCtrl.agent.isStopped = true;
         _enemyCtrl.agent.ResetPath();
         _enemyCtrl.agent.velocity = Vector3.zero;
@@ -36,7 +36,7 @@ public abstract class AttackState : IState
     public void Exit()
     {
         // Reset attack state if needed
-        _animator.ResetTrigger("Attack");
+        _animator.SetBool("isAttacking", false);
         _enemyCtrl.agent.isStopped = false;
     }
     

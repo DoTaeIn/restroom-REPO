@@ -2102,7 +2102,7 @@ MonoBehaviour:
   caught: 0
   holdingPoint: {fileID: 1611968254}
   requiredHoldDuration: 3
-  throwForce: 10
+  throwForce: 100
   onMoveToOtherRoom:
     m_PersistentCalls:
       m_Calls: []

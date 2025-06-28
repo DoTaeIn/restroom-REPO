@@ -37,7 +37,7 @@ public class PlayerCtrl : MonoBehaviour
     
     float holdTime = 0f;
     [SerializeField] float requiredHoldDuration = 3.0f;
-    [SerializeField] float throwForce = 10f;
+    [SerializeField] float throwForce = 100f;
 
     public RoomEvent onMoveToOtherRoom;
     public ItemEvent onGotItem;
@@ -135,15 +135,15 @@ public class PlayerCtrl : MonoBehaviour
         }
         else if (isHoldingFurniture)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.F))
             {
                 holdTime += Time.deltaTime;
                 Debug.Log("Holding Furniture");
             }
-            if (Input.GetKeyUp(KeyCode.E))
+            if (Input.GetKeyUp(KeyCode.F))
             {
                 Debug.Log("Throwing Furniture ; hold time: " + holdTime);
-                if (holdTime >= 0.1f)
+                if (holdTime >= 0.5f)
                 {
                     ThrowFurniture(holdTime);
                 }
@@ -170,9 +170,11 @@ public class PlayerCtrl : MonoBehaviour
         var rb = _holdingFurniture.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
+            _holdingFurniture.GetComponent<Furniture>().isThrown = true;
             Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 dir = (mouseWorld - _holdingFurniture.transform.position).normalized;
-            rb.AddForce(dir * (force / requiredHoldDuration), ForceMode2D.Impulse);
+            Vector2 forceVector = dir * force * holdTime;
+            rb.linearVelocity = forceVector;
             //rb.linearVelocity = dir * throwForce * (force / requiredHoldDuration) * 10f;
         }
 

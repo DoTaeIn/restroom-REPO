@@ -65,7 +65,7 @@ public class WanderState : IState
         int rayCount = 10;
         float range = 5f;
         float halfCone = coneAngle / 2f;
-        Vector2 forward = _enemyCtrl.transform.right;
+        Vector3 lookDir = agent.velocity.normalized;
             
         _enemyCtrl.playerDetected = false;
 
@@ -75,8 +75,8 @@ public class WanderState : IState
             float rad = angle * Mathf.Deg2Rad;
 
             Vector2 dir = new Vector2(
-                forward.x * Mathf.Cos(rad) - forward.y * Mathf.Sin(rad),
-                forward.x * Mathf.Sin(rad) + forward.y * Mathf.Cos(rad)
+                lookDir.x * Mathf.Cos(rad) - lookDir.y * Mathf.Sin(rad),
+                lookDir.x * Mathf.Sin(rad) + lookDir.y * Mathf.Cos(rad)
             );
 
             RaycastHit2D hit = Physics2D.Raycast(_enemyCtrl.transform.position, dir, range, LayerMask.GetMask("Player"));

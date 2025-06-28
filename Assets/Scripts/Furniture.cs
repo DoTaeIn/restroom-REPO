@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,12 +20,15 @@ public class Furniture : MonoBehaviour
 {
     private int _id;
     private string _name;
+
+    public bool isThrown;
     //public GameObject furniturePrefab;
     public SizeSettings FurnitureSize;
     [SerializeField] private Sprite[] animationSprites;
+    [SerializeField] private ParticleSystem particle;
     public Item item;
     BoxCollider2D _collider;
-    public Transform parent;
+    //public Transform parent;
 
     private void Awake()
     {
@@ -55,5 +59,17 @@ public class Furniture : MonoBehaviour
         return null;
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (!other.gameObject.CompareTag("Player") && isThrown)
+        {
+            particle.Play();
+            Invoke("Remove", 0.2f);
+        }
+    }
 
+    void Remove()
+    {
+        Destroy(this.gameObject);
+    }
 }
