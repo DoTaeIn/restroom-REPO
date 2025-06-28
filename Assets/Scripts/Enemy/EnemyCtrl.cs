@@ -20,7 +20,8 @@ public class EnemyCtrl : MonoBehaviour
     public float coneAngle = 60f; // Total angle of the cone
     public int rayCount = 10;     // Number of rays in the cone
     public float range = 5f;
-    public float attackRange;
+    public float detectRange = 5f;
+    public float attackRange = 3f;
     public float attackCooldown = 1f;
     public float stamina = 100f;
     public float grabStrength = 10f;
@@ -32,20 +33,24 @@ public class EnemyCtrl : MonoBehaviour
     
     
     
-    IState currentState;
+    public IState currentState;
     public Animator animator; 
     public NavMeshAgent agent;
+    SpriteRenderer spriteRenderer;
+    Rigidbody rb;
     public bool isAttacking = false;
+    [SerializeField] private GameObject lazer;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         agent = GetComponent<NavMeshAgent>();
         player = FindFirstObjectByType<PlayerCtrl>().transform;
         attackStateFactory = new Dictionary<EnemyAttackType, Func<AttackState>>()
         {
             { EnemyAttackType.Owner, () => new OwnerAttack(this) },
-            //{ EnemyAttackType.Grab, () => new GrabAttackState(this) },
+            { EnemyAttackType.Son, () => new SonAttack(this, lazer) },
             //{ EnemyAttackType.Ranged, () => new RangedAttackState(this) }
         };
         agent.updateRotation = false;
@@ -67,6 +72,11 @@ public class EnemyCtrl : MonoBehaviour
         {
             player = grabPoint;
         }
+
+        bool temp = agent.velocity.magnitude > 0.01f;
+        spriteRenderer.flipX = agent.velocity.x < 0;
+        animator.SetBool("isWalk",  temp );
+        
     }
 
     public void ChangeState(IState newState)
@@ -86,26 +96,9 @@ public class EnemyCtrl : MonoBehaviour
         }
     }
     
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerDetected = true;
-            caught = true;
-            StartAttack();
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerDetected = false;
-            caught = false;
-        }
-    }
     
-    private void StartAttack()
+    
+    public void StartAttack()
     {
         if (attackStateFactory.TryGetValue(attackType, out var createState))
         {

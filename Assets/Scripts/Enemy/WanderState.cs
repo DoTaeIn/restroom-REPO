@@ -79,13 +79,17 @@ public class WanderState : IState
                 forward.x * Mathf.Sin(rad) + forward.y * Mathf.Cos(rad)
             );
 
-            RaycastHit2D hit = Physics2D.Raycast(_enemyCtrl.transform.position, dir, range);
+            RaycastHit2D hit = Physics2D.Raycast(_enemyCtrl.transform.position, dir, range, LayerMask.GetMask("Player"));
             Debug.DrawRay(_enemyCtrl.transform.position, dir * range, Color.red);
 
-            if (hit.collider != null && hit.collider.CompareTag("Player"))
+            if (hit.collider != null )
             {
-                _enemyCtrl.playerDetected = true;
-                break;
+                if(hit.collider.CompareTag("Player"))
+                {
+                    _enemyCtrl.playerDetected = true;
+                    break;
+                }
+                Debug.Log(hit.collider.name);
             }
         }
     }
