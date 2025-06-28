@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using JetBrains.Annotations;
 using System;
+using System.Collections;
+using Unity.AI.Navigation;
 using Random = UnityEngine.Random;
+using NavMeshPlus.Components;
+using NavMeshSurface = NavMeshPlus.Components.NavMeshSurface;
 
 public class ProceduralMapGeneration : MonoBehaviour
 {
     public GameObject[] roomPrefabs;
     public TileBase wallTile;
     public int numberOfRooms = 45;
+    public event Action OnMapGenerated;
     
     RoomManager roomManager;
+    NavMeshSurface surface;
+    Room room;
 
     private void Awake()
     {
@@ -49,7 +56,8 @@ public class ProceduralMapGeneration : MonoBehaviour
 
         }
 
-        
+            int x = (i % 5) * 20 + 5;
+            int y = Mathf.FloorToInt(i / 5) * 20 + 5;
 
         GameObject LivingRoom = Instantiate(roomPrefabs[Random.Range(0, roomPrefabs.Length)], new Vector3(0, 0, 0), Quaternion.identity);
         LivingRoom.name = "LivingRoom";
@@ -58,5 +66,12 @@ public class ProceduralMapGeneration : MonoBehaviour
         roomManager.RegisterRoom(-3, livingRoom);
         livingRoom.SetupDoors();
 
+
+        }
+
+        room.SetupDoors();
+
     }
+    
+    
 }

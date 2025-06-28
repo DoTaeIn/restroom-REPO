@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviour
 
     void Awake()
     {
-            Instance = this;
+        Instance = this;
     }
 
     public void RegisterRoom(int id, Room room)

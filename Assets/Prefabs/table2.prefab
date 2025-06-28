@@ -170,13 +170,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 0.875}
+    oldSize: {x: 4, y: 1.75}
     newSize: {x: 2, y: 0.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 0.875}
+  m_Size: {x: 4, y: 1.75}
   m_EdgeRadius: 0
 --- !u!208 &5018934233148033533
 NavMeshObstacle:

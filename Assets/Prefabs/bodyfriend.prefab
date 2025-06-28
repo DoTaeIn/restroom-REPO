@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5774341697619871064}
   - component: {fileID: 6505524010941943759}
   - component: {fileID: 123701363090263504}
-  - component: {fileID: 345089373150694226}
+  - component: {fileID: 5338363532099069572}
   m_Layer: 0
   m_Name: bodyfriend
   m_TagString: Untagged
@@ -170,27 +170,27 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.6875}
+    oldSize: {x: 2, y: 3.375}
     newSize: {x: 1, y: 1.6875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.6875}
+  m_Size: {x: 2, y: 3.375}
   m_EdgeRadius: 0
---- !u!208 &345089373150694226
-NavMeshObstacle:
+--- !u!114 &5338363532099069572
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8556145155905373364}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.84400004, z: 0.1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
