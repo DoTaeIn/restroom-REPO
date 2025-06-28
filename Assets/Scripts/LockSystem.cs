@@ -24,7 +24,6 @@ public class LockSystem : MonoBehaviour
             int index = i;
             upButtons[i].onClick.AddListener(() => ChangeDigit(index, +1));
             downButtons[i].onClick.AddListener(() => ChangeDigit(index, -1));
-            digitTexts[3].text = "4";
         }
 
         checkButton.onClick.AddListener(CheckPassword);

@@ -29,6 +29,7 @@ public class PlayerCtrl : MonoBehaviour
     public bool caught = false;
     public Room currentRoom;
     public EnemyCtrl Enemy;
+    private UIManager uimanager;
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
@@ -52,6 +53,7 @@ public class PlayerCtrl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        uimanager = FindFirstObjectByType<UIManager>();
     }
 
 
@@ -208,7 +210,7 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (collision.CompareTag("Grabable"))
         {
-            if(collision.GetComponent<OutlineCtrl>() != null)
+            if (collision.GetComponent<OutlineCtrl>() != null)
             {
                 _holdingFurniture = collision.gameObject;
                 _holdingFurniture.GetComponent<OutlineCtrl>().UpdateOutline(true);
@@ -219,6 +221,12 @@ public class PlayerCtrl : MonoBehaviour
                 furniture = collision.GetComponent<Furniture>();
             }
         }
+
+        if (collision.CompareTag("Toilet"))
+        {
+            Debug.Log("touch");
+            uimanager.LockShow();
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -228,11 +236,16 @@ public class PlayerCtrl : MonoBehaviour
             _holdingFurniture.GetComponent<OutlineCtrl>().UpdateOutline(false);
             _holdingFurniture = null;
         }
-        
+
         if (collision.GetComponent<Furniture>() != null)
         {
             isNearFurniture = false;
             furniture = null;
+        }
+        if (collision.CompareTag("Toilet"))
+        {
+            Debug.Log("sdasdfw");
+            uimanager.LockHide();
         }
     }
     
