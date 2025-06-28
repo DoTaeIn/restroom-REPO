@@ -176,7 +176,7 @@ public class Room : MonoBehaviour
         Debug.Log(startx.ToString()+starty+ToString()+width.ToString()+height.ToString());
 
 
-        Vector3 TopDoormidliv = new Vector3(startx + width / 2 + 0.5f, starty + height - 0.5f, 0);
+        Vector3 TopDoormidliv = new Vector3(startx + width / 2 , starty + height , 0);
         _id = -3;
 
         CreateDoorAt(new Vector3Int(startx + width / 2, starty + height , 0),"Top"); // 위쪽 중앙에 문 생성
@@ -187,7 +187,7 @@ public class Room : MonoBehaviour
         doors.Add(d);
         
         
-        Vector3 BottomDoormidliv = new Vector3(startx + width / 2 + 0.5f, starty + 0.5f, 0);
+        Vector3 BottomDoormidliv = new Vector3(startx + width / 2 , starty-1f, 0);
         CreateDoorAt(new Vector3Int(startx + width / 2, starty-1, 0),"Bottom"); // 아래쪽 중앙에 문 생성
         d = CreateDoorObject("BottomDoor", BottomDoormidliv, this);
         d.parentRoom = this;
