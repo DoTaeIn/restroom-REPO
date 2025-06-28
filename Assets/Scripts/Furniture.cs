@@ -22,7 +22,7 @@ public class Furniture : MonoBehaviour
     //public GameObject furniturePrefab;
     public SizeSettings FurnitureSize;
     [SerializeField] private Sprite[] animationSprites;
-    GameObject _item;
+    public Item item;
     BoxCollider2D _collider;
     public Transform parent;
 
@@ -44,6 +44,15 @@ public class Furniture : MonoBehaviour
         bool yOverlap = FurnitureSize.Bottom < other.Top && FurnitureSize.Top > other.Bottom;
 
         return xOverlap && yOverlap;
+    }
+    
+    public Item GetItem()
+    {
+        if (item != null)
+        {
+            return item;
+        }
+        return null;
     }
 
 

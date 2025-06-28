@@ -17,7 +17,6 @@ public abstract class AttackState : IState
         if(_animator.GetParameter(0).name == "isMad")
             _animator.SetBool("isMad", true);
         _animator.SetTrigger("Attack");
-        
         _enemyCtrl.agent.isStopped = true;
         _enemyCtrl.agent.ResetPath();
         _enemyCtrl.agent.velocity = Vector3.zero;
@@ -25,7 +24,7 @@ public abstract class AttackState : IState
     
     public void Update()
     {
-        if (Vector2.Distance(_enemyCtrl.transform.position, _enemyCtrl.player.position) > _enemyCtrl.attackRange)
+        if (Vector2.Distance(_enemyCtrl.transform.position, _enemyCtrl.player.position) > _enemyCtrl.attackRange && !_enemyCtrl.isAttacking)
         {
             _enemyCtrl.ChangeState(new ChaseState(_enemyCtrl));
             return;

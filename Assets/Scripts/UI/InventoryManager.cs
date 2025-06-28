@@ -1,24 +1,46 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private Transform[] slots; // 슬롯 5개
-    [SerializeField] private GameObject itemUIPrefab; // 프리팹
+    [SerializeField] private List<Slot> slots;
+    private List<Item> items;
+    private int limit = 5;
+    
 
-    private int currentIndex = 0;
-
-    public void AddItem(Itemicon item)
+    public void AddItem(Item item)
     {
-        if (currentIndex >= slots.Length)
+        if(items.Count <= limit)
         {
-            Debug.Log("인벤토리 가득 참");
-            return;
+            items.Add(item);
         }
+        
+        UpdateUI();
+    }
 
-        // 프리팹 인스턴스 생성 → 슬롯에 붙임
-        GameObject newItemUI = Instantiate(itemUIPrefab, slots[currentIndex]);
-        newItemUI.GetComponent<ItemUI>().Init(item);
+    public void UseItem(Item item)
+    {
+        if(items.Contains(item))
+            items.Remove(item);
 
-        currentIndex++;
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        foreach (Slot slot in slots)
+        {
+            if (slots.IndexOf(slot) < items.Count)
+            {
+                slot.image.sprite = items[slots.IndexOf(slot)].icon;
+                slot.image.color = Color.white; // Ensure the image is visible
+            }
+            else
+            {
+                slot.image.sprite = null;
+                slot.image.color = new Color(0, 0, 0, 0); // Make the image invisible
+            }
+        }
     }
 }
