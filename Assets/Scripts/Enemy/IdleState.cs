@@ -32,6 +32,11 @@ public class IdleState : IState
     public void Enter()
     {
         //Entering idle state
+        if(_anim.GetBool("isMad"))
+        {
+            _anim.SetBool("isMad", false);
+        }
+        _anim.SetBool("isWalk", false);
     }
 
     public void Update()
@@ -76,7 +81,7 @@ public class IdleState : IState
                 forward.x * Mathf.Sin(rad) + forward.y * Mathf.Cos(rad)
             );
 
-            RaycastHit2D hit = Physics2D.Raycast(_enemyCtrl.transform.position, dir, range);
+            RaycastHit2D hit = Physics2D.Raycast(_enemyCtrl.transform.position, dir, range, LayerMask.GetMask("Player"));
             Debug.DrawRay(_enemyCtrl.transform.position, dir * range, Color.red);
 
             if (hit.collider != null && hit.collider.CompareTag("Player"))
