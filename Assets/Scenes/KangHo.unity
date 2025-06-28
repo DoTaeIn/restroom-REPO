@@ -182,6 +182,63 @@ MonoBehaviour:
   - {fileID: 7566207188384190252, guid: c95cf2f66632b4faa9218852f6c94be0, type: 3}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
   numberOfRooms: 10
+--- !u!1 &466581645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466581647}
+  - component: {fileID: 466581646}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &466581646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466581645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de55401789894a0ab20f73cc2426fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 0
+  _furnitureManager: {fileID: 0}
+  floorTilemap: {fileID: 0}
+  floorTile: {fileID: 0}
+  wallTilemap: {fileID: 0}
+  wallTile: {fileID: 0}
+  doorPrefab: {fileID: 0}
+  gridPosition: {x: 0, y: 0}
+  topDoor1: {fileID: 0}
+  bottomDoor1: {fileID: 0}
+  leftDoor1: {fileID: 0}
+  rightDoor1: {fileID: 0}
+  doorSprite: {fileID: 0}
+--- !u!4 &466581647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466581645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.83907, y: 22.63596, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +508,7 @@ GameObject:
   - component: {fileID: 973959648}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -508,7 +565,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &973959646
@@ -641,7 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0b09189bf0549128cf6e429ebb88eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRoom: {fileID: 0}
+  room: {fileID: 0}
 --- !u!4 &1235459225
 Transform:
   m_ObjectHideFlags: 0
@@ -1059,3 +1116,4 @@ SceneRoots:
   - {fileID: 1235459225}
   - {fileID: 973959646}
   - {fileID: 1526833153}
+  - {fileID: 466581647}
