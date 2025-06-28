@@ -15,6 +15,7 @@ public class Room : MonoBehaviour
     public int _id;
     private bool _hasKey;
     public SizeSettings roomSize;
+
     //SizeSettings _furnitureSize;
     [SerializeField] FurnitureManager _furnitureManager;
 
@@ -37,7 +38,6 @@ public class Room : MonoBehaviour
     public TileBase rightBottomWallTile;
     public TileBase leftBottomWallTile;
     public TileBase wallBottomTile;
-    public TileBase wallTile2;
     public GameObject doorPrefab;
     public Vector2Int gridPosition;
     PolygonCollider2D polygon;
@@ -106,8 +106,20 @@ public class Room : MonoBehaviour
         this._id = id;
         Vector3Int asdasd = new Vector3Int(startX, startY, 0);
         GenerateDoors(startX, startY, Mathf.RoundToInt(roomSize.XSize), Mathf.RoundToInt(roomSize.YSize));
+        PlaceFurnitureRandomly();
 
-        foreach (Furniture furniturePrefab in _furnitureManager.furnitures)
+    }
+
+    public void PlaceFurnitureRandomly()
+    {
+        var shuffledFurnitures = new List<Furniture>(_furnitureManager.furnitures);
+        for (int i = 0; i < shuffledFurnitures.Count; i++)
+        {
+            int rnd = Random.Range(i, shuffledFurnitures.Count);
+            (shuffledFurnitures[i], shuffledFurnitures[rnd]) = (shuffledFurnitures[rnd], shuffledFurnitures[i]);
+        }
+
+        foreach (Furniture furniturePrefab in shuffledFurnitures)
         {
             bool placed = false;
             int attempts = 0;
@@ -125,7 +137,6 @@ public class Room : MonoBehaviour
                     Rotation = randomRot
                 };
 
-
                 bool interferes = false;
                 foreach (Furniture obj in _furnitureManager.placed)
                 {
@@ -135,7 +146,6 @@ public class Room : MonoBehaviour
                         break;
                     }
                 }
-
 
                 if (!interferes)
                 {
@@ -148,27 +158,11 @@ public class Room : MonoBehaviour
                 attempts++;
             }
         }
-
     }
 
     public void GenerateLivingRoom(int startx, int starty, int width, int height)
     {
-        for (int x = startx; x < startx + width; x++)
-        {
-            for (int y = starty; y < starty + height; y++)
-            {
-                // 외곽선만 벽 생성
-                if (x == startx || y == starty || x == startx + width - 1 || y == starty + height - 1)
-                {
-                    wallTilemap.SetTile(new Vector3Int(x, y, 0), wallTile);
-                }
-                // 바닥 타일 생성
-                else
-                {
-                    floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
-                }
-            }
-        }
+        GenerateWalls(startx, starty);
 
         Vector3 TopDoormidliv = new Vector3(startx + width / 2 + 0.5f, starty + height - 0.5f, 0);
         _id = -3;
@@ -188,6 +182,7 @@ public class Room : MonoBehaviour
         d.direction = "Bottom";
         d.doorpos = BottomDoormidliv;
         doors.Add(d);
+        PlaceFurnitureRandomly();
     }
 
 
@@ -296,41 +291,42 @@ public class Room : MonoBehaviour
         roomSize.YSize = 10;
         roomSize.Position = new Vector2(startx, starty);
         roomSize.Rotation = Quaternion.identity;
+        GenerateWalls(startx, starty);  
+        Vector2[] points = new Vector2[5];
 
-        for (int x = startx; x < startx + roomSize.XSize; x++)
-        {
-            for (int y = starty; y < starty + roomSize.YSize; y++)
-            {
-                // 외곽선만 벽 생성
-                if (x == startx || y == starty || x == startx + roomSize.XSize - 1 || y == starty + roomSize.YSize - 1)
-                {
-                    wallTilemap.SetTile(new Vector3Int(x, y, 0), wallTile2);
-                }
-                else
-                {
-                    // 바닥 타일 생성
-                    floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile2);
-                }
-            }
-        }
+        float minX = roomSize.Position.x;
+        float minY = roomSize.Position.y;
+        float maxX = roomSize.Position.x + roomSize.XSize;
+        float maxY = roomSize.Position.y + roomSize.YSize;
+
+        points[0] = new Vector2(minX, minY);
+        points[1] = new Vector2(minX, maxY);
+        points[2] = new Vector2(maxX, maxY);
+        points[3] = new Vector2(maxX, minY);
+        points[4] = points[0]; // Close the loop
+
+        polygon.pathCount = 1;
+        polygon.SetPath(0, points);
 
         this._id = id;
         Vector3Int asdasd = new Vector3Int(startx, starty, 0);
-        
         GenerateDoors(startx, starty, Mathf.RoundToInt(roomSize.XSize), Mathf.RoundToInt(roomSize.YSize));
 
-    }
+        Furniture toiletFurniture = _furnitureManager.furnitures[0]; // 변기만 들어있으니까
 
-    private void GenerateFloors()
-    {
-        for (int x = 0; x < roomSize.XSize; x++)
-        {
-            for (int y = -3; y < roomSize.YSize; y++)
-            {
-                // 바닥 타일 생성
-                floorTilemap.SetTile(new Vector3Int((int)roomSize.Position.x + x, (int)roomSize.Position.y + y, 0), floorTile);
-            }
-        }
+        Vector3 centerPos = new Vector3( //중간에 변기 설치
+            roomSize.Position.x + roomSize.XSize / 2f,
+            roomSize.Position.y + roomSize.YSize / 2f,
+            0
+        );
+
+        Quaternion rot = Quaternion.identity;
+
+        GameObject toiletObj = Instantiate(toiletFurniture.gameObject, centerPos, rot);
+        toiletObj.transform.SetParent(transform);
+        _furnitureManager.AddFurniture(toiletObj.GetComponent<Furniture>());
+
+
     }
 
     public Sprite doorSprite,sideDoorSprite;
