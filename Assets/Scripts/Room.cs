@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -20,11 +22,9 @@ public class Room : MonoBehaviour
     public Tilemap wallTilemap;
     public TileBase wallTile;
     public GameObject doorPrefab;
-
     public Vector2Int gridPosition;
-
-
     PolygonCollider2D polygon;
+    private ProceduralMapGeneration mapGeneration;
 
     private void Awake()
     {
@@ -33,6 +33,7 @@ public class Room : MonoBehaviour
         floorTilemap = GameObject.FindGameObjectWithTag("Floor").GetComponent<Tilemap>();
         polygon = GetComponent<PolygonCollider2D>();
         _furnitureManager = GetComponent<FurnitureManager>();
+        mapGeneration = FindFirstObjectByType<ProceduralMapGeneration>();
     }
 
     private Vector2 GetRandomPos()
@@ -173,47 +174,61 @@ public class Room : MonoBehaviour
     public List<Door> doors = new List<Door>();
     private void GenerateDoors(int startX, int startY, int width, int height)
     {
-        // 아래쪽(Bottom) 벽에서 랜덤 x
-        int bottomX = Random.Range(startX + 1, startX + width - 1);
-        Vector3Int bottomDoor = new Vector3Int(bottomX, startY, 0);
-        Vector3 bottomDoormid = new Vector3(bottomX + 0.5f, startY + 0.5f, 0);
-        Door d = CreateDoorObject("BottomDoor", bottomDoormid, this);
-        d.parentRoom = this;
-        d.direction = "Bottom";
-        doors.Add(d);
-
-
-        // 위쪽(Top) 벽에서 랜덤 x
-        int topX = Random.Range(startX + 1, startX + width - 1);
-        Vector3Int topDoor = new Vector3Int(topX, startY + height - 1, 0);
-        Vector3 topDoormid = new Vector3(topX + 0.5f, startY + height - 0.5f, 0);
-        d = CreateDoorObject("TopDoor", topDoormid, this);
-        d.parentRoom = this;
-        d.direction = "Top";
-        doors.Add(d);
-
-        // 왼쪽(Left) 벽에서 랜덤 y
-        int leftY = Random.Range(startY + 1, startY + height - 1);
-        Vector3Int leftDoor = new Vector3Int(startX, leftY, 0);
-        Vector3 leftDoormid = new Vector3(startX + 0.5f, leftY + 0.5f, 0);
-        d = CreateDoorObject("LeftDoor", leftDoormid, this);
-        d.parentRoom = this;
-        d.direction = "Left";
-        doors.Add(d);
-
-        // 오른쪽(Right) 벽에서 랜덤 y
-        int rightY = Random.Range(startY + 1, startY + height - 1);
-        Vector3Int rightDoor = new Vector3Int(startX + width - 1, rightY, 0);
-        Vector3 rightDoormid = new Vector3(startX + width - 0.5f, rightY + 0.5f, 0);
-        d = CreateDoorObject("RightDoor", rightDoormid, this);
-        d.parentRoom = this;
-        d.direction = "Right";
-        doors.Add(d);
-
-        CreateDoorAt(bottomDoor);
-        CreateDoorAt(topDoor);
+        Door d;
+        if ((startX - 5) / 20 != 0)
+        {
+            // 왼쪽(Left) 벽에서 랜덤 y
+            int leftY = Random.Range(startY + 1, startY + height - 1);
+            Vector3Int leftDoor = new Vector3Int(startX, leftY, 0);
+            Vector3 leftDoormid = new Vector3(startX + 0.5f, leftY + 0.5f, 0);
+            d = CreateDoorObject("LeftDoor", leftDoormid, this);
+            d.parentRoom = this;
+            d.direction = "Left";
+            doors.Add(d);
+            
         CreateDoorAt(leftDoor);
-        CreateDoorAt(rightDoor);
+        }
+        if ((startX - 5) / 20 != 4)
+        {
+
+            // 오른쪽(Right) 벽에서 랜덤 y
+            int rightY = Random.Range(startY + 1, startY + height - 1);
+            Vector3Int rightDoor = new Vector3Int(startX + width - 1, rightY, 0);
+            Vector3 rightDoormid = new Vector3(startX + width - 0.5f, rightY + 0.5f, 0);
+            d = CreateDoorObject("RightDoor", rightDoormid, this);
+            d.parentRoom = this;
+            d.direction = "Right";
+            doors.Add(d);
+                CreateDoorAt(rightDoor);
+        }
+        if ((startY - 5) / 20 != 0)
+        {
+            // 아래쪽(Bottom) 벽에서 랜덤 x
+            int bottomX = Random.Range(startX + 1, startX + width - 1);
+            Vector3Int bottomDoor = new Vector3Int(bottomX, startY, 0);
+            Vector3 bottomDoormid = new Vector3(bottomX + 0.5f, startY + 0.5f, 0);
+            d = CreateDoorObject("BottomDoor", bottomDoormid, this);
+            d.parentRoom = this;
+            d.direction = "Bottom";
+            doors.Add(d);
+                CreateDoorAt(bottomDoor);
+
+        }
+        if ((startY - 5) / 20 != mapGeneration.numberOfRooms / 5 - 1)
+        {
+            // 위쪽(Top) 벽에서 랜덤 x
+            int topX = Random.Range(startX + 1, startX + width - 1);
+            Vector3Int topDoor = new Vector3Int(topX, startY + height - 1, 0);
+            Vector3 topDoormid = new Vector3(topX + 0.5f, startY + height - 0.5f, 0);
+            d = CreateDoorObject("TopDoor", topDoormid, this);
+            d.parentRoom = this;
+            d.direction = "Top";
+            doors.Add(d);
+                CreateDoorAt(topDoor);
+        }
+
+
+
 
     }
 

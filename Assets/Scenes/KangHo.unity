@@ -181,7 +181,7 @@ MonoBehaviour:
   roomPrefabs:
   - {fileID: 7566207188384190252, guid: c95cf2f66632b4faa9218852f6c94be0, type: 3}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
-  numberOfRooms: 10
+  numberOfRooms: 45
 --- !u!1 &466581645
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,11 +219,8 @@ MonoBehaviour:
   wallTile: {fileID: 0}
   doorPrefab: {fileID: 0}
   gridPosition: {x: 0, y: 0}
-  topDoor1: {fileID: 0}
-  bottomDoor1: {fileID: 0}
-  leftDoor1: {fileID: 0}
-  rightDoor1: {fileID: 0}
   doorSprite: {fileID: 0}
+  doors: []
 --- !u!4 &466581647
 Transform:
   m_ObjectHideFlags: 0

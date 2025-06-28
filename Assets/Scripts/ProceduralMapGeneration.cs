@@ -9,7 +9,7 @@ public class ProceduralMapGeneration : MonoBehaviour
 {
     public GameObject[] roomPrefabs;
     public TileBase wallTile;
-    public int numberOfRooms = 10;
+    public int numberOfRooms = 45;
     
     RoomManager roomManager;
     Room room;
