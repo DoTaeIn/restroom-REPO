@@ -32,8 +32,8 @@ public class ProceduralMapGeneration : MonoBehaviour
 
         for (int i = 0; i < numberOfRooms; i++)
         {
-            int x = (i % 5) * 20 + 5;
-            int y = Mathf.FloorToInt(i / 5) * 20 + 5;
+            int x = (i % 5) * 25 + 5;
+            int y = Mathf.FloorToInt(i / 5) * 25 + 5;
 
             if (i != toiletSeed)
             {
