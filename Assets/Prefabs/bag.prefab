@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3811373179501189374}
   - component: {fileID: 1230356144008000232}
   - component: {fileID: 507280862123243663}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bag
   m_TagString: Furniture
   m_Icon: {fileID: 0}
@@ -104,8 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites: []
-  parent: {fileID: 0}
+  particle: {fileID: 0}
+  item: {fileID: 0}
 --- !u!50 &725742421677324825
 Rigidbody2D:
   serializedVersion: 5
@@ -171,7 +173,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8125}
+    oldSize: {x: 2, y: 1.625}
     newSize: {x: 1, y: 0.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9015040465099670356}
   - component: {fileID: 7885968478500297687}
   - component: {fileID: 978479622478312333}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4847,7 +4847,7 @@ GameObject:
   - component: {fileID: 4903997547249864454}
   - component: {fileID: 3646683384513587710}
   - component: {fileID: 2992569146083367105}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: minitable
   m_TagString: Grabable
   m_Icon: {fileID: 0}
@@ -5038,7 +5038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5540079272061787955}
   - component: {fileID: 2727227138197499403}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Throwable_MiniTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5078,4 +5078,3 @@ MonoBehaviour:
   animationSprites: []
   particle: {fileID: 7885968478500297687}
   item: {fileID: 0}
-  parent: {fileID: 0}

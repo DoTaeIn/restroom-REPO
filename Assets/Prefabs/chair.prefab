@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5094202560446920484}
   - component: {fileID: -975357991421546396}
   - component: {fileID: 5586507460944327690}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: chair
   m_TagString: Grabable
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 5504024966740818417}
   - component: {fileID: 4427562871832706334}
   - component: {fileID: 1853295555561435274}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5694546919129822031}
   - component: {fileID: 6669067139094412696}
   - component: {fileID: 8013277974463369038}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: table1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,8 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites: []
-  parent: {fileID: 0}
+  particle: {fileID: 0}
+  item: {fileID: 0}
 --- !u!208 &8013277974463369038
 NavMeshObstacle:
   m_ObjectHideFlags: 0

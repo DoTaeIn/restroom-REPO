@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 816513473654372890}
   - component: {fileID: 3065706818450994445}
   - component: {fileID: 7390393204091430999}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4848,7 +4848,7 @@ GameObject:
   - component: {fileID: 554427651000750898}
   - component: {fileID: -7411116689146024596}
   - component: {fileID: -2743148429349855405}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pot 1
   m_TagString: Grabable
   m_Icon: {fileID: 0}

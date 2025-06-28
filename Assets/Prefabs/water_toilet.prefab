@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4535353363183487517}
   - component: {fileID: 8139284673363295953}
   - component: {fileID: 6462422640715507245}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: water_toilet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,5 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites: []
-  parent: {fileID: 0}
+  particle: {fileID: 0}
+  item: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3774306969473704058}
   - component: {fileID: 3692701887145780801}
   - component: {fileID: -4008490122742617483}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: storage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,8 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites: []
-  parent: {fileID: 0}
+  particle: {fileID: 0}
+  item: {fileID: 0}
 --- !u!61 &3774306969473704058
 BoxCollider2D:
   m_ObjectHideFlags: 0

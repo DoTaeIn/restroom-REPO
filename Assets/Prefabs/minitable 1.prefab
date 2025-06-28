@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5995794238829865363}
   - component: {fileID: -4309509884217554647}
   - component: {fileID: 1970812397098811763}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: minitable 1
   m_TagString: Grabable
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 9092579124245435319}
   - component: {fileID: 5261073119580941165}
   - component: {fileID: 4176502921797046885}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

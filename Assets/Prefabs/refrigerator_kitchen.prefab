@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 956624324069815055}
   - component: {fileID: 801054608420244088}
   - component: {fileID: 684396693950228553}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: refrigerator_kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,10 +103,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites:
   - {fileID: 4539938039932603218, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
   - {fileID: 4654202990439293442, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
-  parent: {fileID: 0}
+  particle: {fileID: 0}
+  item: {fileID: 0}
 --- !u!50 &956624324069815055
 Rigidbody2D:
   serializedVersion: 5

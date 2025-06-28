@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1328287171719389571}
   - component: {fileID: 3663616413782401143}
   - component: {fileID: -1462358780390956554}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bed2_jams
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,8 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites: []
-  parent: {fileID: 0}
+  particle: {fileID: 0}
+  item: {fileID: 0}
 --- !u!50 &3663616413782401143
 Rigidbody2D:
   serializedVersion: 5

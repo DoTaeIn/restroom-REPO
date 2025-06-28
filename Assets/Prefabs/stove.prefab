@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4335639846369575938}
   - component: {fileID: 7202288697211021064}
   - component: {fileID: 9190892062688998781}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: stove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,8 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites: []
-  parent: {fileID: 0}
+  particle: {fileID: 0}
+  item: {fileID: 0}
 --- !u!50 &4335639846369575938
 Rigidbody2D:
   serializedVersion: 5

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6505524010941943759}
   - component: {fileID: 123701363090263504}
   - component: {fileID: 5338363532099069572}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bodyfriend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,8 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites: []
-  parent: {fileID: 0}
+  particle: {fileID: 0}
+  item: {fileID: 0}
 --- !u!50 &6505524010941943759
 Rigidbody2D:
   serializedVersion: 5

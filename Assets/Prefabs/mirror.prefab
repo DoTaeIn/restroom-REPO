@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8539787762450979860}
   - component: {fileID: 2850384809582740576}
   - component: {fileID: -6677387170782384713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,8 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0718288a302401f87613c17e1ebb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThrown: 0
   animationSprites: []
-  parent: {fileID: 0}
+  particle: {fileID: 0}
+  item: {fileID: 0}
 --- !u!114 &-6677387170782384713
 MonoBehaviour:
   m_ObjectHideFlags: 0
