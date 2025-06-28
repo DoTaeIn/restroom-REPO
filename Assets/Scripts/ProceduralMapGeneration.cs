@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using JetBrains.Annotations;
 using System;
+using System.Collections;
+using Unity.AI.Navigation;
 using Random = UnityEngine.Random;
+using NavMeshPlus.Components;
+using NavMeshSurface = NavMeshPlus.Components.NavMeshSurface;
 
 public class ProceduralMapGeneration : MonoBehaviour
 {
     public GameObject[] roomPrefabs;
     public TileBase wallTile;
     public int numberOfRooms = 45;
+    public event Action OnMapGenerated;
     
     RoomManager roomManager;
     Room room;
+    NavMeshSurface surface;
 
     private void Awake()
     {
@@ -38,10 +44,16 @@ public class ProceduralMapGeneration : MonoBehaviour
             roomManager.RegisterRoom(i, room);
             //Debug.Log($"Room {i} position: {x}x{y}");
 
-
+            room.SetupDoors();
         }
+        
+        Debug.Log("All rooms initialized and registered.");
 
-        room.SetupDoors();
-
+        surface = FindFirstObjectByType<NavMeshSurface>();
+        surface.BuildNavMesh();
+        Debug.Log(surface.size.magnitude);
+        OnMapGenerated?.Invoke();
     }
+    
+    
 }

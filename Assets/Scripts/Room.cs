@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -25,6 +26,7 @@ public class Room : MonoBehaviour
     public Vector2Int gridPosition;
     PolygonCollider2D polygon;
     private ProceduralMapGeneration mapGeneration;
+    NavMeshSurface surface;
 
     private void Awake()
     {
@@ -34,7 +36,14 @@ public class Room : MonoBehaviour
         polygon = GetComponent<PolygonCollider2D>();
         _furnitureManager = GetComponent<FurnitureManager>();
         mapGeneration = FindFirstObjectByType<ProceduralMapGeneration>();
+        surface = GameObject.FindGameObjectWithTag("Floor").GetComponent<NavMeshSurface>();
     }
+
+    private void Start()
+    {
+        //surface.BuildNavMesh();
+    }
+    
 
     private Vector2 GetRandomPos()
     {

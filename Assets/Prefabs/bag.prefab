@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 725742421677324825}
   - component: {fileID: 3811373179501189374}
   - component: {fileID: 1230356144008000232}
-  - component: {fileID: -2115014131044359817}
+  - component: {fileID: 507280862123243663}
   m_Layer: 0
   m_Name: bag
   m_TagString: Furniture
@@ -194,19 +194,19 @@ MonoBehaviour:
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   color: {r: 1, g: 1, b: 1, a: 1}
   outlineSize: 1
---- !u!208 &-2115014131044359817
-NavMeshObstacle:
+--- !u!114 &507280862123243663
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4459211058922477275}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.40600002, z: 0.1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

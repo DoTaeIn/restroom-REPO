@@ -48,10 +48,13 @@ public class EnemyCtrl : MonoBehaviour
             //{ EnemyAttackType.Grab, () => new GrabAttackState(this) },
             //{ EnemyAttackType.Ranged, () => new RangedAttackState(this) }
         };
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     private void Start()
     {
+        //agent.enabled = false;
         ChangeState(new IdleState(this));
     }
 
