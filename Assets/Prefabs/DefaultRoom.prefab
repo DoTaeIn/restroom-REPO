@@ -56,20 +56,21 @@ MonoBehaviour:
   wallLeftCornerTile: {fileID: 11400000, guid: 3f9b6d74db603415baab4539377937d3, type: 2}
   WallRightCornerTile: {fileID: 11400000, guid: 8684a9f52301f49a08085ffc77072697, type: 2}
   topWallTile: {fileID: 11400000, guid: 34a1babe40fa84376b4069c839ca8606, type: 2}
-  wallBottomTile: {fileID: 11400000, guid: 3d8a798695874475eb2b78789eb38df5, type: 2}
-  leftnoWallTile: {fileID: 11400000, guid: a818fb778f664408c935f2875d038846, type: 2}
   leftWallTile: {fileID: 11400000, guid: ef86d6eeaab704e90b210cb15553cf33, type: 2}
+  leftnoWallTile: {fileID: 11400000, guid: a818fb778f664408c935f2875d038846, type: 2}
   rightWallTile: {fileID: 11400000, guid: 4268c9442f14f4a4d9101d46bc26626c, type: 2}
   leftTopWallTile: {fileID: 11400000, guid: 0602da3ebb3404189b30c39e2d965334, type: 2}
   rightTopWallTile: {fileID: 11400000, guid: dbb6a32b0b72148e0b9092383000795a, type: 2}
-  bottomWallTile: {fileID: 11400000, guid: 668ec334c72bd4b15bc30a1fa2a951fb, type: 2}
   rightnoWallTile: {fileID: 11400000, guid: 78f4596cb6f4e4569b8990e83cc18409, type: 2}
-  leftBottomWallTile: {fileID: 11400000, guid: d49ee66cfb639434c951900ff66b8a6d, type: 2}
+  bottomWallTile: {fileID: 11400000, guid: 668ec334c72bd4b15bc30a1fa2a951fb, type: 2}
   rightBottomWallTile: {fileID: 11400000, guid: 6cf30bdfdb1c84a18b8d34db19325980, type: 2}
-  gridPosition: {x: 0, y: 0}
-  doorPrefab: {fileID: 0}
+  leftBottomWallTile: {fileID: 11400000, guid: d49ee66cfb639434c951900ff66b8a6d, type: 2}
+  wallBottomTile: {fileID: 11400000, guid: 3d8a798695874475eb2b78789eb38df5, type: 2}
   wallTile2: {fileID: 11400000, guid: 0c48a3334dace4da2a167bd65b92133d, type: 2}
-  doorSprite: {fileID: -4344762378372388292, guid: 2a9dd722bbc2f4a11aa981e6a29a67c1, type: 3}
+  doorPrefab: {fileID: 0}
+  gridPosition: {x: 0, y: 0}
+  doorSprite: {fileID: 4469646481956872474, guid: 7a7fc37a10d99425c9e8f85b36b3d1d1, type: 3}
+  sideDoorSprite: {fileID: 638664970316554363, guid: e4473a804ac25fe409ef35ba41716d4b, type: 3}
   doors: []
 --- !u!114 &4715192475238474597
 MonoBehaviour:
