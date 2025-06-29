@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using Unity.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -12,10 +13,12 @@ public class Door : MonoBehaviour
     public Door connectedDoor; // 워프할 대상 문
     public Vector3 doorpos;
     public PlayerCtrl player;
+    private MiniMapManager minimapmanager;
 
     void Awake()
     {
         player = FindFirstObjectByType<PlayerCtrl>();
+        minimapmanager = FindFirstObjectByType<MiniMapManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -23,7 +26,6 @@ public class Door : MonoBehaviour
         if (collision.collider.CompareTag("Player") && connectedDoor != null)
         {
             Vector3 offset = Vector3.zero;
-
 
             switch (direction)
             {
@@ -43,9 +45,9 @@ public class Door : MonoBehaviour
 
             player.currentRoom = connectedDoor.parentRoom;
 
-            Debug.Log($"Player entered door: {gameObject.name}, warping to {connectedDoor.gameObject.name}");
             collision.transform.position = connectedDoor.transform.position + offset;
-
+            minimapmanager.HighlightRoom(connectedDoor.parentRoom.gridPosition);
+            minimapmanager.FocusOnRoom(connectedDoor.parentRoom.gridPosition);
         }
     }
 }
