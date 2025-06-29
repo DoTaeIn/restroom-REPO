@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -10,10 +11,14 @@ public class GameHandler : MonoBehaviour
     public List<GameObject> enemies;
     ProceduralMapGeneration proceduralMapGeneration;
     public int level = 1;
+    [SerializeField] CinemachineConfiner2D confiner2D;
+    PlayerCtrl playerCtrl;
 
     private void Awake()
     {
         proceduralMapGeneration = FindFirstObjectByType<ProceduralMapGeneration>();
+        //confiner2D = FindFirstObjectByType<CinemachineConfiner2D>();
+        playerCtrl = FindFirstObjectByType<PlayerCtrl>();
     }
 
     private void OnEnable()
@@ -57,7 +62,10 @@ public class GameHandler : MonoBehaviour
                 Debug.LogWarning("Could not find valid NavMesh position for enemy.");
             }
         }
+    }
 
-        
+    private void Update()
+    {
+        confiner2D.BoundingShape2D = playerCtrl.currentRoom.polygon;
     }
 }
