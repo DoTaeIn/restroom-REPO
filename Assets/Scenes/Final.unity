@@ -1323,7 +1323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &420085746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1533,6 +1533,8 @@ MonoBehaviour:
   ButtonCloseGroup: {fileID: 0}
   itemImage: {fileID: 0}
   itemNameText: {fileID: 0}
+  endingScreens: []
+  endingImage: {fileID: 0}
   inventoryManager: {fileID: 453612862}
   locksystem: {fileID: 0}
 --- !u!114 &453612864
@@ -2166,7 +2168,6 @@ GameObject:
   - component: {fileID: 763348116}
   - component: {fileID: 763348115}
   - component: {fileID: 763348114}
-  - component: {fileID: 763348113}
   m_Layer: 5
   m_Name: UpButton0
   m_TagString: Untagged
@@ -2193,18 +2194,6 @@ RectTransform:
   m_AnchoredPosition: {x: -61.45923, y: 35.5}
   m_SizeDelta: {x: 15.399, y: 15}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &763348113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763348111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 397a1bd1b2367104ba459ff7cab9ca4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &763348114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2370,6 +2359,7 @@ MonoBehaviour:
   - {fileID: 4324957783047228116, guid: 197c401027df84a7b9d96457ac0783bf, type: 3}
   level: 1
   confiner2D: {fileID: 0}
+  ending: 0
 --- !u!4 &837348496
 Transform:
   m_ObjectHideFlags: 0
@@ -3120,7 +3110,7 @@ MonoBehaviour:
   - {fileID: 6488453967714028512, guid: 257b10b16b38099469daff019ad13c2e, type: 3}
   - {fileID: 7566207188384190252, guid: 1b59cac32e1a4c04eb1ba2bcd953faeb, type: 3}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
-  numberOfRooms: 45
+  numberOfRooms: 25
   roomGap: 25
   toiletSeed: 0
 --- !u!156049354 &1430840890

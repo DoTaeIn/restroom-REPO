@@ -60,7 +60,7 @@ public class PlayerCtrl : MonoBehaviour
 
     private void Awake()
     {
-        this.transform.position = new Vector3(50, -10, 0);
+        this.transform.position = new Vector3(60, -15, 0);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();

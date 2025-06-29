@@ -63,7 +63,7 @@ public class ProceduralMapGeneration : MonoBehaviour
         LivingRoom.name = "LivingRoom";
 
         Room livingRoom = LivingRoom.GetComponent<Room>();
-        livingRoom.GenerateLivingRoom(35, -20, 30, 20);
+        livingRoom.GenerateLivingRoom(45, -25, 30, 20);
         roomManager.RegisterRoom(-3, livingRoom);
 
         livingRoom.SetupDoors();
