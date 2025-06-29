@@ -8,6 +8,7 @@ using Unity.AI.Navigation;
 using Random = UnityEngine.Random;
 using NavMeshPlus.Components;
 using NavMeshSurface = NavMeshPlus.Components.NavMeshSurface;
+using UnityEditor.Experimental.GraphView;
 
 public class ProceduralMapGeneration : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ProceduralMapGeneration : MonoBehaviour
     public TileBase wallTile;
     public int numberOfRooms = 45;
     public event Action OnMapGenerated;
+    private MiniMapManager minimapmanager;
     RoomManager roomManager;
     NavMeshSurface surface;
     Room room;
@@ -23,8 +25,9 @@ public class ProceduralMapGeneration : MonoBehaviour
     private void Awake()
     {
         roomManager = FindFirstObjectByType<RoomManager>();
+        minimapmanager = FindFirstObjectByType<MiniMapManager>();
     }
-    
+
 
     void Start()
     {
@@ -58,16 +61,18 @@ public class ProceduralMapGeneration : MonoBehaviour
 
         GameObject LivingRoom = Instantiate(roomPrefabs[2], Vector3.zero, Quaternion.identity);
         LivingRoom.name = "LivingRoom";
- 
+
         Room livingRoom = LivingRoom.GetComponent<Room>();
         livingRoom.GenerateLivingRoom(35, -20, 30, 20);
         roomManager.RegisterRoom(-3, livingRoom);
 
         livingRoom.SetupDoors();
-        
+
         NavMeshSurface surface = FindFirstObjectByType<NavMeshSurface>();
         surface.BuildNavMesh();
         OnMapGenerated?.Invoke();
+        
+        minimapmanager.BuildMiniMap(RoomManager.Instance.allRoomsV);
     }
 
     
