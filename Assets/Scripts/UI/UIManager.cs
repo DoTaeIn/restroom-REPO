@@ -1,6 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+
+
 
 public class UIManager : MonoBehaviour
 {
@@ -17,19 +22,27 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject ButtonCloseGroup;
     [SerializeField] private Image itemImage;
     [SerializeField] private Text itemNameText;
-
+    [SerializeField] private List<Sprite> endingScreens;
+    public Image endingImage;
+    GameHandler gameHandler;
+    
     private bool isInventoryOpen = false;
     private bool isLockOpen = false;
 
     public InventoryManager inventoryManager;
     public LockSystem locksystem;
     private Item tmep;
+    
+    
 
     void Awake()
     {
         playerCtrl = FindFirstObjectByType<PlayerCtrl>();
         inventoryManager = GetComponent<InventoryManager>();
         locksystem = GetComponent<LockSystem>();
+        gameHandler = FindFirstObjectByType<GameHandler>();
+        
+        gameHandler.endingEvent.AddListener(ShowEnding);
     }
 
     void Start()
@@ -75,6 +88,28 @@ public class UIManager : MonoBehaviour
         tmep = null;
     }
 
+    void ShowEnding(EndingType endingType)
+    {
+        endingImage.transform.parent.gameObject.SetActive(true);
+        switch (endingType)
+        {
+            case EndingType.Caught:
+                endingImage.sprite = endingScreens[0];
+                break;
+            case EndingType.Death:
+                endingImage.sprite = endingScreens[1];
+                break;
+            case EndingType.Weapon:
+                endingImage.sprite = endingScreens[2];
+                break;
+            case EndingType.Escape:
+                endingImage.sprite = endingScreens[3];
+                break;
+        }
+
+        StartCoroutine("MoveCoroutine");
+    }
+    
     void UpdateInventoryUI(Item item)
     {
         inventoryManager.AddItem(item);
@@ -118,4 +153,20 @@ public class UIManager : MonoBehaviour
         lockPanel.SetActive(false);
     }
 
+    
+    private IEnumerator MoveCoroutine()
+    {
+        Vector2 endPos = endingImage.GetComponent<RectTransform>().anchoredPosition + Vector2.up * 100f;
+        float elapsed = 0f;
+
+        while (elapsed < 4f)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / 4f);
+            endingImage.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(endingImage.GetComponent<RectTransform>().anchoredPosition, endPos, t);
+            yield return null;
+        }
+
+        endingImage.GetComponent<RectTransform>().anchoredPosition = endPos;
+    }
 }

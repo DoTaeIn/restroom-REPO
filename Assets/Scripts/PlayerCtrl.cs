@@ -41,7 +41,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] private Transform ItemHoldPoint;
     private InventoryManager inventory;
     public Dictionary<UnityEngine.Object, float> damageSources = new Dictionary<UnityEngine.Object, float>();
-    
+    GameHandler gameHandler;
     GameObject _holdingItem;
     GameObject _holdingFurniture;
     [SerializeField] Transform holdingPoint;
@@ -64,6 +64,7 @@ public class PlayerCtrl : MonoBehaviour
         anim = GetComponent<Animator>();
         uimanager = FindFirstObjectByType<UIManager>();
         inventory = FindFirstObjectByType<InventoryManager>();
+        gameHandler = FindFirstObjectByType<GameHandler>();
     }
 
 
@@ -297,7 +298,7 @@ public class PlayerCtrl : MonoBehaviour
         if (stamina <= 0)
         {
             Debug.Log("Player is dead!");
-            // Handle player death (e.g., reload scene, show game over screen, etc.)
+            gameHandler.handleGameOver(0);
         }
     }
 
