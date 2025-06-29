@@ -62,7 +62,7 @@ public class OwnerAttack : AttackState
             if (Vector2.Distance(enemy.transform.position, enemy.player.transform.position) <= enemy.attackRange)
             {
                 Debug.Log("Enemy grabs and damages player!");
-                enemy.player.GetComponent<PlayerCtrl>()?.TakeDamage(10); // Assuming PlayerCtrl has TakeDamage()
+                enemy.player.GetComponent<PlayerCtrl>()?.TakeDamage(10, enemy); // Assuming PlayerCtrl has TakeDamage()
                 hasDealtDamage = true;
             }
         }

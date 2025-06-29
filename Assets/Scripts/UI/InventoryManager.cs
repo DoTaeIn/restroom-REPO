@@ -1,12 +1,27 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    GameHandler gameHandler;
     [SerializeField] private List<Slot> slots;
     [SerializeField] private int limit = 5;
 
     [SerializeField] private List<Item> items = new List<Item>();
+
+    private int itemUseAmt = 0;
+
+    private void Awake()
+    {
+        gameHandler = FindFirstObjectByType<GameHandler>();
+    }
+
+    private void Start()
+    {
+        itemUseAmt = 0;
+        
+    }
 
     public void AddItem(Item item)
     {
@@ -23,8 +38,16 @@ public class InventoryManager : MonoBehaviour
 
     public void UseItem(Item item)
     {
+        if(itemUseAmt >= 4)
+            gameHandler.handleGameOver(itemUseAmt);
+        
+        if(item.type == ItemType.Weapon)
+            itemUseAmt++;
+        
+        
         if (items.Remove(item))
         {
+            
             UpdateUI();
         }
     }

@@ -4,8 +4,21 @@ using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
+public enum EndingType
+{
+    Escape,
+    Death,
+    Weapon,
+    Caught
+}
+
+public class EndingEvent : UnityEvent<EndingType>
+{
+    
+}
 public class GameHandler : MonoBehaviour
 {
     public List<GameObject> enemies;
@@ -13,10 +26,15 @@ public class GameHandler : MonoBehaviour
     public int level = 1;
     [SerializeField] CinemachineConfiner2D confiner2D;
     PlayerCtrl playerCtrl;
+    public EndingType ending;
+    UIManager uiManager;
+    public EndingEvent endingEvent;
+    
 
     private void Awake()
     {
         proceduralMapGeneration = FindFirstObjectByType<ProceduralMapGeneration>();
+        uiManager = FindFirstObjectByType<UIManager>();
         //confiner2D = FindFirstObjectByType<CinemachineConfiner2D>();
         playerCtrl = FindFirstObjectByType<PlayerCtrl>();
     }
@@ -67,5 +85,46 @@ public class GameHandler : MonoBehaviour
     private void Update()
     {
         confiner2D.BoundingShape2D = playerCtrl.currentRoom.polygon;
+    }
+
+    public void handleGameOver(float useAmt)
+    {
+        float itemDamage = 0;
+        float enemyDamage = 0;
+        
+        if(useAmt >= 4)
+        {
+            ending = EndingType.Weapon;
+            return;
+        }
+
+        for (int i = 0; i < playerCtrl.damageSources.Keys.Count; i++)
+        {
+            UnityEngine.Object source = playerCtrl.damageSources.Keys.ToList()[i];
+            if (source.GetType() == typeof(Item))
+            {
+                itemDamage += playerCtrl.damageSources[source];
+            }
+            else
+            {
+                enemyDamage += playerCtrl.damageSources[source];
+            }
+        }
+
+        if(itemDamage < 100f && enemyDamage < 100f)
+        {
+            ending = EndingType.Escape;
+            return;
+        }
+        else if (itemDamage > enemyDamage)
+        {
+            ending = EndingType.Death;
+        }
+        else
+        {
+            ending = EndingType.Caught;
+        }
+        
+        endingEvent.Invoke(ending);
     }
 }

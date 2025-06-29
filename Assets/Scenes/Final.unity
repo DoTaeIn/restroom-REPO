@@ -1533,6 +1533,8 @@ MonoBehaviour:
   ButtonCloseGroup: {fileID: 0}
   itemImage: {fileID: 0}
   itemNameText: {fileID: 0}
+  endingScreens: []
+  endingImage: {fileID: 0}
   inventoryManager: {fileID: 453612862}
   locksystem: {fileID: 0}
 --- !u!114 &453612864
@@ -2370,6 +2372,7 @@ MonoBehaviour:
   - {fileID: 4324957783047228116, guid: 197c401027df84a7b9d96457ac0783bf, type: 3}
   level: 1
   confiner2D: {fileID: 0}
+  ending: 0
 --- !u!4 &837348496
 Transform:
   m_ObjectHideFlags: 0
@@ -3120,7 +3123,7 @@ MonoBehaviour:
   - {fileID: 6488453967714028512, guid: 257b10b16b38099469daff019ad13c2e, type: 3}
   - {fileID: 7566207188384190252, guid: 1b59cac32e1a4c04eb1ba2bcd953faeb, type: 3}
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
-  numberOfRooms: 45
+  numberOfRooms: 25
   roomGap: 25
   toiletSeed: 0
 --- !u!156049354 &1430840890
