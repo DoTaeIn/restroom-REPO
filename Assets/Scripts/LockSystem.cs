@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class LockSystem : MonoBehaviour
 {
@@ -13,6 +15,12 @@ public class LockSystem : MonoBehaviour
     public Image lockImage;             // 락 오브젝트의 Image 컴포넌트
     public Sprite lockedSprite;         // 자물쇠 잠김 이미지
     public Sprite unlockedSprite;       // 자물쇠 풀림 이미지
+    TotalFurnitures totalFurnitures;
+
+    private void Awake()
+    {
+        totalFurnitures = FindFirstObjectByType<TotalFurnitures>();
+    }
 
     void Start()
     {
@@ -41,6 +49,7 @@ public class LockSystem : MonoBehaviour
             correctPassword[i] = Random.Range(0, 10);
         }
 
+        totalFurnitures.SetPassword(correctPassword);
         Debug.Log($"정답 비밀번호: {string.Join("", correctPassword)}");
     }
 

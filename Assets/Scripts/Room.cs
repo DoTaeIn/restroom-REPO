@@ -41,7 +41,7 @@ public class Room : MonoBehaviour
     public TileBase wallBottomTile;
     public GameObject doorPrefab;
     public Vector2Int gridPosition;
-    PolygonCollider2D polygon;
+    public PolygonCollider2D polygon;
     private ProceduralMapGeneration mapGeneration;
     NavMeshSurface surface;
 
@@ -275,22 +275,6 @@ public class Room : MonoBehaviour
                 floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
             }
         }
-        Vector2[] points = new Vector2[5];
-
-        float minX = roomSize.Position.x;
-        float minY = roomSize.Position.y;
-        float maxX = roomSize.Position.x + roomSize.XSize;
-        float maxY = roomSize.Position.y + roomSize.YSize;
-
-        points[0] = new Vector2(minX, minY);
-        points[1] = new Vector2(minX, maxY);
-        points[2] = new Vector2(maxX, maxY);
-        points[3] = new Vector2(maxX, minY);
-        points[4] = points[0]; // Close the loop
-
-        polygon.pathCount = 1;
-        polygon.SetPath(0, points);
-
         
     }
 
@@ -302,21 +286,7 @@ public class Room : MonoBehaviour
         roomSize.Position = new Vector2(startx, starty);
         roomSize.Rotation = Quaternion.identity;
         GenerateWalls(startx, starty);  
-        Vector2[] points = new Vector2[5];
 
-        float minX = roomSize.Position.x;
-        float minY = roomSize.Position.y;
-        float maxX = roomSize.Position.x + roomSize.XSize;
-        float maxY = roomSize.Position.y + roomSize.YSize;
-
-        points[0] = new Vector2(minX, minY);
-        points[1] = new Vector2(minX, maxY);
-        points[2] = new Vector2(maxX, maxY);
-        points[3] = new Vector2(maxX, minY);
-        points[4] = points[0]; // Close the loop
-
-        polygon.pathCount = 1;
-        polygon.SetPath(0, points);
 
         this._id = id;
         Vector3Int asdasd = new Vector3Int(startx, starty, 0);
@@ -398,6 +368,29 @@ public class Room : MonoBehaviour
             d.doorpos = topDoormid;
             CreateDoorAt(topDoor,"Top");
         }
+        
+        Vector2[] points = new Vector2[5];
+
+        float minX = roomSize.Position.x;
+        float minY = roomSize.Position.y;
+        float maxX = roomSize.Position.x + roomSize.XSize;
+        float maxY = roomSize.Position.y + roomSize.YSize;
+        
+        float wallDown  = 1f;  // 바닥 아래로 1칸
+        float wallUp    = 3f;  // 바닥 위로 3칸
+        float extMinY   = minY - wallDown;
+        float extMaxY   = maxY + wallUp;
+        float extMinX   = minX - 1f;  // 좌우 벽 1칸
+        float extMaxX   = maxX + 1f;
+
+        points[0] = new Vector2(extMinX, extMinY);
+        points[1] = new Vector2(extMinX, extMaxY);
+        points[2] = new Vector2(extMaxX, extMaxY);
+        points[3] = new Vector2(extMaxX, extMinY);
+        points[4] = points[0]; // Close the loop
+
+        polygon.pathCount = 1;
+        polygon.SetPath(0, points);
     }
 
     void CreateDoorAt(Vector3Int Door, string direction)

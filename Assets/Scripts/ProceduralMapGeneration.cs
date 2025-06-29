@@ -14,7 +14,7 @@ public class ProceduralMapGeneration : MonoBehaviour
 {
     public GameObject[] roomPrefabs;
     public TileBase wallTile;
-    public int numberOfRooms = 45;
+    public int numberOfRooms = 20;
     public event Action OnMapGenerated;
     private MiniMapManager minimapmanager;
     RoomManager roomManager;
@@ -28,10 +28,10 @@ public class ProceduralMapGeneration : MonoBehaviour
         minimapmanager = FindFirstObjectByType<MiniMapManager>();
     }
 
-
+    public int toiletSeed;
     void Start()
     {
-        int toiletSeed = Random.Range(30, numberOfRooms);
+        toiletSeed = Random.Range(numberOfRooms/2, numberOfRooms);
 
         for (int i = 0; i < numberOfRooms; i++)
         {
@@ -70,6 +70,7 @@ public class ProceduralMapGeneration : MonoBehaviour
 
         NavMeshSurface surface = FindFirstObjectByType<NavMeshSurface>();
         surface.BuildNavMesh();
+        
         OnMapGenerated?.Invoke();
         
         minimapmanager.BuildMiniMap(RoomManager.Instance.allRoomsV);

@@ -14,11 +14,13 @@ public class Door : MonoBehaviour
     public Vector3 doorpos;
     public PlayerCtrl player;
     private MiniMapManager minimapmanager;
+    private ProceduralMapGeneration proceduralMapGeneration;
 
     void Awake()
     {
         player = FindFirstObjectByType<PlayerCtrl>();
         minimapmanager = FindFirstObjectByType<MiniMapManager>();
+        proceduralMapGeneration = FindFirstObjectByType<ProceduralMapGeneration>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,6 +50,10 @@ public class Door : MonoBehaviour
             collision.transform.position = connectedDoor.transform.position + offset;
             minimapmanager.HighlightRoom(connectedDoor.parentRoom.gridPosition);
             minimapmanager.FocusOnRoom(connectedDoor.parentRoom.gridPosition);
+            if (connectedDoor.parentRoom._id == proceduralMapGeneration.toiletSeed)
+            {
+                minimapmanager.ReplaceRoomIcon(new Vector2Int(proceduralMapGeneration.toiletSeed % 5 + 1, proceduralMapGeneration.toiletSeed/5 + 1));
+            }
         }
     }
 }

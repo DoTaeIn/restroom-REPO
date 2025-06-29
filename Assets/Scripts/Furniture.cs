@@ -22,6 +22,8 @@ public class Furniture : MonoBehaviour
     private string _name;
 
     public bool isThrown;
+
+    public bool isAquired;
     //public GameObject furniturePrefab;
     public SizeSettings FurnitureSize;
     [SerializeField] private Sprite[] animationSprites;
@@ -52,6 +54,7 @@ public class Furniture : MonoBehaviour
     
     public Item GetItem()
     {
+        isAquired = true;
         if (item != null)
         {
             return item;

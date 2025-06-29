@@ -6,14 +6,16 @@ using System.Reflection;
 public class MiniMapManager : MonoBehaviour
 {
     public GameObject roomIconPrefab;  // Image 프리팹
+    public GameObject specialRoomIconPrefab;
+
     public RectTransform miniMapParent; // MiniMapPanel 등
 
     public int gridWidth = 5;
     public int gridHeight = 5;
-    public float iconSpacing = 50f;
+    public float iconSpacing = 40f;
     void Awake()
     {
-        iconSpacing = 50f;
+        iconSpacing = 40f;
     }
 
     private Dictionary<Vector2Int, GameObject> miniRoomIcons = new();
@@ -35,12 +37,31 @@ public class MiniMapManager : MonoBehaviour
         HighlightRoom(new Vector2Int(3, 0));
         FocusOnRoom(new Vector2Int(3, 0));
     }
+     public void ReplaceRoomIcon(Vector2Int gridPos)
+    {
+        if ( miniRoomIcons.TryGetValue(gridPos, out GameObject oldIcon))
+        {
+            // 위치 저장 후 기존 아이콘 제거
+            Vector2 anchoredPos = oldIcon.GetComponent<RectTransform>().anchoredPosition;
+            Destroy(oldIcon);
+
+            // 새 프리팹 생성 및 등록
+            GameObject newIcon = Instantiate(specialRoomIconPrefab, miniMapParent);
+            newIcon.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
+
+             miniRoomIcons[gridPos] = newIcon;
+        }
+        else
+        {
+            Debug.LogWarning($"MiniMap: No icon found at position {gridPos}");
+        }
+    }
 
      public void FocusOnRoom(Vector2Int currentRoomPos)
     {
         // 현재 방을 중심에 오도록 미니맵 패널을 반대로 이동시킴
         Vector2 offset = new Vector2(
-            (currentRoomPos.x)  * iconSpacing,
+            (currentRoomPos.x) * iconSpacing,
             (currentRoomPos.y) * iconSpacing
         );
 

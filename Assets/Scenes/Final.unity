@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1529610641}
+  item: {fileID: 0}
 --- !u!1 &57968250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1510,8 @@ MonoBehaviour:
   - {fileID: 1344359623}
   - {fileID: 586110819}
   - {fileID: 913209618}
+  limit: 5
+  items: []
 --- !u!114 &453612863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,6 +1528,11 @@ MonoBehaviour:
   staminaBar: {fileID: 1148967581}
   inventoryPanel: {fileID: 1670169341}
   lockPanel: {fileID: 420085745}
+  itemPanel: {fileID: 0}
+  ButtonChooseGroup: {fileID: 0}
+  ButtonCloseGroup: {fileID: 0}
+  itemImage: {fileID: 0}
+  itemNameText: {fileID: 0}
   inventoryManager: {fileID: 453612862}
   locksystem: {fileID: 0}
 --- !u!114 &453612864
@@ -1627,6 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomIconPrefab: {fileID: 818721946783679161, guid: c2379b92f822bbd478400f7b712b34a7, type: 3}
+  specialRoomIconPrefab: {fileID: 1205686744541854406, guid: 0dda2c0bab2688c47b6ceca1d1896e4b, type: 3}
   miniMapParent: {fileID: 1123821766}
   gridWidth: 5
   gridHeight: 5
@@ -1721,6 +1730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1793137424}
+  item: {fileID: 0}
 --- !u!1 &587441583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,14 +1961,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   slowSpeed: 2
+  isNearFurniture: 0
   stamina: 100
   caught: 0
   currentRoom: {fileID: 0}
   Enemy: {fileID: 0}
+  ItemHoldPoint: {fileID: 0}
   holdingPoint: {fileID: 1599336623}
   requiredHoldDuration: 3
   throwForce: 100
   onMoveToOtherRoom:
+    m_PersistentCalls:
+      m_Calls: []
+  onGotItem:
+    m_PersistentCalls:
+      m_Calls: []
+  onUseItem:
     m_PersistentCalls:
       m_Calls: []
 --- !u!212 &587441591
@@ -2351,6 +2369,7 @@ MonoBehaviour:
   - {fileID: 7012096183265171027, guid: d2de4d5f4f88e4972889071ece6b6fef, type: 3}
   - {fileID: 4324957783047228116, guid: 197c401027df84a7b9d96457ac0783bf, type: 3}
   level: 1
+  confiner2D: {fileID: 0}
 --- !u!4 &837348496
 Transform:
   m_ObjectHideFlags: 0
@@ -2552,6 +2571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1537196147}
+  item: {fileID: 0}
 --- !u!224 &913209619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3064,6 +3084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1964543556}
+  item: {fileID: 0}
 --- !u!1 &1430840888
 GameObject:
   m_ObjectHideFlags: 0
@@ -3101,6 +3122,7 @@ MonoBehaviour:
   wallTile: {fileID: 11400000, guid: d94cbfd1cdb61402d97d8e120a4cf547, type: 2}
   numberOfRooms: 45
   roomGap: 25
+  toiletSeed: 0
 --- !u!156049354 &1430840890
 Grid:
   m_ObjectHideFlags: 0
@@ -4095,6 +4117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 855245988}
+  item: {fileID: 0}
 --- !u!1 &1878241157
 GameObject:
   m_ObjectHideFlags: 0
@@ -4525,8 +4548,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 776, y: 395}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 747, y: 337}
+  m_SizeDelta: {x: 162.5035, y: 162.5035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041249925
 MonoBehaviour:
@@ -4704,10 +4727,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 587441584}
-  - {fileID: 837348496}
-  - {fileID: 1430840891}
-  - {fileID: 453612867}
-  - {fileID: 452609948}
-  - {fileID: 221749013}
   - {fileID: 1714224097}
+  - {fileID: 1430840891}
+  - {fileID: 221749013}
+  - {fileID: 452609948}
+  - {fileID: 837348496}
+  - {fileID: 453612867}
   - {fileID: 898110944}

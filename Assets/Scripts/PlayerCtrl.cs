@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,6 +10,7 @@ public class RoomEvent : UnityEvent<Room>
     
 }
 
+[System.Serializable]
 public class ItemEvent : UnityEvent<Item>
 {
     
@@ -16,6 +18,7 @@ public class ItemEvent : UnityEvent<Item>
 
 public class PlayerCtrl : MonoBehaviour
 {
+    //TODO: LivingRoom Confiner2D
     [Header("Player Settings")] 
     private float _xInput;
     private float _yInput;
@@ -23,7 +26,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float slowSpeed = 2f;
     bool isHoldingFurniture = false;
-    bool isNearFurniture = false;
+    [SerializeField] bool isNearFurniture = false;
     Furniture furniture;
     public float stamina = 100f;
     public bool caught = false;
@@ -33,6 +36,9 @@ public class PlayerCtrl : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
+    private Item temp;
+    [SerializeField] private Transform ItemHoldPoint;
+    private InventoryManager inventory;
     
     GameObject _holdingItem;
     GameObject _holdingFurniture;
@@ -42,10 +48,11 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float requiredHoldDuration = 3.0f;
     [SerializeField] float throwForce = 100f;
 
-    public RoomEvent onMoveToOtherRoom;
+    public RoomEvent onMoveToOtherRoom = new RoomEvent();
 
     
-    public ItemEvent onGotItem;
+    public ItemEvent onGotItem = new ItemEvent();
+    public ItemEvent onUseItem = new ItemEvent();
 
     private void Awake()
     {
@@ -54,11 +61,13 @@ public class PlayerCtrl : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         uimanager = FindFirstObjectByType<UIManager>();
+        inventory = FindFirstObjectByType<InventoryManager>();
     }
 
 
     private void Update()
     {
+        Mathf.Clamp(stamina, 0f, 100f);
         if (!caught)
         {
             Move();
@@ -68,7 +77,9 @@ public class PlayerCtrl : MonoBehaviour
 
         if (caught)
         {
+            rb.linearVelocity = Vector2.zero;
             Shake();
+            
         }
         
 
@@ -76,6 +87,21 @@ public class PlayerCtrl : MonoBehaviour
             _holdingFurniture.transform.localPosition = new Vector3(0, 0, 1);
         
         Mathf.Clamp(holdTime, 0f, requiredHoldDuration);
+        
+        for (int i = 1; i <= 5; i++)
+        {
+            // 숫자키 상단 알파벳 키 (Alpha1, Alpha2 …) 를 체크
+            if (Input.GetKeyDown(KeyCode.Alpha0 + i))
+            {
+                Debug.Log(i);
+                useItem(i);
+            }
+            // (옵션) 숫자패드로도 받고 싶으면
+            if (Input.GetKeyDown(KeyCode.Keypad0 + i))
+            {
+                useItem(i);
+            }
+        }
     }
 
     private float movementX;
@@ -113,17 +139,20 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (isNearFurniture)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKey(KeyCode.E))
             {
+                Debug.Log("Loading Furniture!");
                 holdTime += Time.deltaTime;
             }
 
             if (holdTime >= 2f)
             {
-                if (furniture != null)
+                if (furniture != null && !furniture.isAquired)
                 {
+                    Debug.Log("Got Furniture!");
                     Item item = furniture.GetItem();
                     onGotItem.Invoke(item);
+                    holdTime = 0f;
                 }
             }
         }
@@ -210,16 +239,18 @@ public class PlayerCtrl : MonoBehaviour
     {
         if (collision.CompareTag("Grabable"))
         {
+            
             if (collision.GetComponent<OutlineCtrl>() != null)
             {
                 _holdingFurniture = collision.gameObject;
                 _holdingFurniture.GetComponent<OutlineCtrl>().UpdateOutline(true);
             }
-            else if (collision.GetComponent<Furniture>() != null)
-            {
-                isNearFurniture = true;
-                furniture = collision.GetComponent<Furniture>();
-            }
+        }
+        
+        if (collision.GetComponent<Furniture>() != null)
+        {
+            isNearFurniture = true;
+            furniture = collision.GetComponent<Furniture>();
         }
 
         if (collision.CompareTag("Toilet"))
@@ -251,13 +282,52 @@ public class PlayerCtrl : MonoBehaviour
     
     public void TakeDamage(float damage)
     {
-        stamina -= damage;
+        stamina += damage;
         if (stamina <= 0)
         {
             Debug.Log("Player is dead!");
             // Handle player death (e.g., reload scene, show game over screen, etc.)
         }
     }
+
+
+    void useItem(int num)
+    {
+        Item item = inventory.GetItem(num-1);
+        if (item != null)
+        {
+            if (item.type == ItemType.Weapon)
+            {
+                GameObject gm = Instantiate(item.gameObject);
+                gm.transform.SetParent(holdingPoint);
+                
+                gm.transform.localPosition = Vector3.zero;
+                
+                StartCoroutine(Swing(gm.transform, 90f, 0.2f));
+            }
+
+            if (item.type == ItemType.Heal)
+            {
+                Debug.Log("Player is healing");
+                onUseItem.Invoke(item);
+            }
+        }
+        
+    }
     
-    
+    IEnumerator Swing(Transform weapon, float swingAngle = 90f, float duration = 0.1f)
+    {
+        float half = duration * 0.5f;
+        // swing out
+        for (float t = 0; t < half; t += Time.deltaTime)
+        {
+            float a = Mathf.Lerp(0, swingAngle, t / half);
+            weapon.localRotation = Quaternion.Euler(0,0,a);
+            yield return null;
+        }
+        weapon.localRotation = Quaternion.identity;
+        
+        yield return new WaitForSecondsRealtime(duration);
+        Destroy(weapon.gameObject);
+    }
 }
