@@ -9,6 +9,7 @@ public class TotalFurnitures : MonoBehaviour
     private ProceduralMapGeneration proceduralMapGeneration;
     public List<Item> items;
     public Item keyItem;
+    private int[] passValues;
     
     public int distributeAmt = 10;
     private string password;
@@ -27,7 +28,7 @@ public class TotalFurnitures : MonoBehaviour
     
     public void SetPassword(int[] pass)
     {
-        password = pass.ToString();
+        passValues = pass;
     }
 
     void AddFurnitureManager()
@@ -41,7 +42,7 @@ public class TotalFurnitures : MonoBehaviour
             .OrderBy(_ => UnityEngine.Random.value)
             .ToList();
 
-        List<char> passChar = password.ToCharArray().ToList();
+        //List<char> passChar = password.ToCharArray().ToList();
 
         for (int i = 0; i < totalFurnitures.Count; i++)
         {
@@ -57,7 +58,7 @@ public class TotalFurnitures : MonoBehaviour
                 newItem.type  = ItemType.Key;
                     
                 int idx = i < 4 ? i : UnityEngine.Random.Range(0, 4);
-                newItem.keyId  = passChar[idx] - '0';
+                newItem.keyId  = passValues[idx];
                 newItem.keyPos = idx;
                 newItem.name   = "Key " + idx;
                 Debug.Log($"Key is in: {furniture.name}");

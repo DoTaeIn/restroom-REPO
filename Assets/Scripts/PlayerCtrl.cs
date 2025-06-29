@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -51,6 +52,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] float throwForce = 100f;
 
     public RoomEvent onMoveToOtherRoom = new RoomEvent();
+    ProceduralMapGeneration proceduralMapGen;
 
     
     public ItemEvent onGotItem = new ItemEvent();
@@ -65,12 +67,24 @@ public class PlayerCtrl : MonoBehaviour
         uimanager = FindFirstObjectByType<UIManager>();
         inventory = FindFirstObjectByType<InventoryManager>();
         gameHandler = FindFirstObjectByType<GameHandler>();
+        proceduralMapGen = FindFirstObjectByType<ProceduralMapGeneration>();
+        proceduralMapGen.OnMapGenerated += FocusLivingRoom;
+    }
+
+    private void OnDisable()
+    {
+        proceduralMapGen.OnMapGenerated -= FocusLivingRoom;
     }
 
 
+    void FocusLivingRoom()
+    {
+        currentRoom = FindObjectsByType<Room>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).ToList().Find(x => x.gameObject.name == "LivingRoom");
+    }
+
     private void Update()
     {
-        Mathf.Clamp(stamina, 0f, 100f);
+        stamina = Mathf.Clamp(stamina, 0f, 100f);
         if (!caught)
         {
             Move();
@@ -311,7 +325,8 @@ public class PlayerCtrl : MonoBehaviour
             if (item.type == ItemType.Weapon)
             {
                 GameObject gm = Instantiate(item.gameObject);
-                gm.transform.SetParent(holdingPoint);
+                gm.transform.SetParent(ItemHoldPoint);
+                gm.transform.localScale = new Vector3(1, 1, 1);
                 
                 gm.transform.localPosition = Vector3.zero;
                 
@@ -321,6 +336,11 @@ public class PlayerCtrl : MonoBehaviour
             if (item.type == ItemType.Heal)
             {
                 Debug.Log("Player is healing");
+                onUseItem.Invoke(item);
+            }
+
+            if (item.type == ItemType.Key)
+            {
                 onUseItem.Invoke(item);
             }
         }

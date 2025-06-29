@@ -41,15 +41,13 @@ public class UIManager : MonoBehaviour
         inventoryManager = GetComponent<InventoryManager>();
         locksystem = GetComponent<LockSystem>();
         gameHandler = FindFirstObjectByType<GameHandler>();
-        
-        gameHandler.endingEvent.AddListener(ShowEnding);
     }
 
     void Start()
     {
         inventoryPanel.SetActive(isInventoryOpen);
         lockPanel.SetActive(isLockOpen);
-
+        gameHandler.endingEvent.AddListener(ShowEnding);
     }
 
     void OnEnable()
@@ -60,10 +58,25 @@ public class UIManager : MonoBehaviour
 
     void UseItemUI(Item item)
     {
-        tmep = item;
-        itemPanel.SetActive(true);
-        itemImage.sprite = tmep.icon;
-        itemNameText.text = tmep.name + "다! 먹어볼까?";
+        if (item.type == ItemType.Key)
+        {
+            tmep = item;
+            itemPanel.SetActive(true);
+            ButtonChooseGroup.SetActive(false);
+            ButtonCloseGroup.SetActive(true);
+            itemImage.sprite = tmep.icon;
+            itemNameText.text = tmep.keyPos + 1 + "번째 비밀번호는 " + tmep.keyId;
+        }
+        else
+        {
+            tmep = item;
+            itemPanel.SetActive(true);
+            ButtonChooseGroup.SetActive(true);
+            ButtonCloseGroup.SetActive(false);
+            itemImage.sprite = tmep.icon;
+            itemNameText.text = tmep.name + "다! 먹어볼까?";
+        }
+        
     }
 
     public void Consume()
@@ -156,13 +169,14 @@ public class UIManager : MonoBehaviour
     
     private IEnumerator MoveCoroutine()
     {
-        Vector2 endPos = endingImage.GetComponent<RectTransform>().anchoredPosition + Vector2.up * 100f;
+        Time.timeScale = 0;
+        Vector2 endPos = endingImage.GetComponent<RectTransform>().anchoredPosition + Vector2.up * 200f;
         float elapsed = 0f;
 
-        while (elapsed < 4f)
+        while (elapsed < 10f)
         {
             elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / 4f);
+            float t = Mathf.Clamp01(elapsed / 10f);
             endingImage.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(endingImage.GetComponent<RectTransform>().anchoredPosition, endPos, t);
             yield return null;
         }

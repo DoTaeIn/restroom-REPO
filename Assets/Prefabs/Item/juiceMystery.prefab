@@ -103,11 +103,13 @@ MonoBehaviour:
   name: 
   type: 2
   iconSwap:
-  - {fileID: 7146542492868712535, guid: 83005642dd7659d4abd4919d67fe9908, type: 3}
   - {fileID: 5161988427769946183, guid: 0e76a223606366847a0143cfed7f6938, type: 3}
+  - {fileID: 7146542492868712535, guid: 83005642dd7659d4abd4919d67fe9908, type: 3}
   icon: {fileID: 3240237292021481034, guid: 10e86ac213c8e6d45b682dec550604e8, type: 3}
   damage: 0
-  healAmount: 0
-  itemNames: []
+  healAmount: 20
+  itemNames:
+  - "\uD3EC\uB3C4\uC8FC\uC2A4"
+  - "\uD478\uC8FC\uC2A4"
   keyPos: 4
   keyId: 0

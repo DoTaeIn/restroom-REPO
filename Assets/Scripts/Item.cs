@@ -44,19 +44,23 @@ public class Item : MonoBehaviour
     {
         bool isBad = UnityEngine.Random.Range(0, 1) < 0.5f;
         
-        if (isBad)
+        if (isBad && iconSwap.Length > 0)
         {
             icon = iconSwap[0];
             name = itemNames[0];
-            return healAmount;
+            return -healAmount;
             Debug.Log("Consumed a bad item!");
         }
-        else
+        else if(!isBad && iconSwap.Length > 0)
         {
             icon = iconSwap[1];
             name = itemNames[1];
-            return -healAmount;
+            return healAmount;
             Debug.Log("Consumed a good item!");
+        }
+        else
+        {
+            return damage;
         }
     }
 }

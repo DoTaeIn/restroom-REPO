@@ -49,6 +49,7 @@ public class OwnerAttack : AttackState
         {
             enemy.isAttacking = true;
             enemy.animator.SetTrigger("GrabAttack");
+            enemy.player.Enemy = enemy;
             attackTimer = 0f;
             hasDealtDamage = false;
             enemy.agent.ResetPath(); // Stop moving while attacking

@@ -28,7 +28,7 @@ public class GameHandler : MonoBehaviour
     PlayerCtrl playerCtrl;
     public EndingType ending;
     UIManager uiManager;
-    public EndingEvent endingEvent;
+    public EndingEvent endingEvent = new EndingEvent();
     
 
     private void Awake()
@@ -114,7 +114,6 @@ public class GameHandler : MonoBehaviour
         if(itemDamage < 100f && enemyDamage < 100f)
         {
             ending = EndingType.Escape;
-            return;
         }
         else if (itemDamage > enemyDamage)
         {

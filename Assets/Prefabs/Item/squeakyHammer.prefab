@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -5850341714508953107, guid: 65cfed261e36be74983442f4588d2dae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   damage: 0
   healAmount: 0
+  itemNames: []
   keyPos: 4
   keyId: 0
 --- !u!61 &-1119801693362155278

@@ -107,6 +107,9 @@ MonoBehaviour:
   - {fileID: -5640333817661249397, guid: 2a269b9b16e7aad44afaae05821d2cb0, type: 3}
   icon: {fileID: -2864988582401164376, guid: be313f48f4e847f4aa4a365f5b5a1559, type: 3}
   damage: 0
-  healAmount: 0
+  healAmount: 10
+  itemNames:
+  - "\uBCC0\uBE44\uC57D"
+  - "\uC124\uC0AC\uC57D"
   keyPos: 4
   keyId: 0
