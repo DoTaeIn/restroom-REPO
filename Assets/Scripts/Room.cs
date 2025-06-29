@@ -111,6 +111,9 @@ public class Room : MonoBehaviour
 
     }
 
+    float minDistanceFromDoor = 5f;
+    public List<Transform> doorList;
+
     public void PlaceFurnitureRandomly()
     {
         int maxFurnitureCount = 4; // 최대 배치할 가구 수
@@ -156,6 +159,19 @@ public class Room : MonoBehaviour
 
                 if (!interferes)
                 {
+                    foreach (Transform door in doorList)  // ← doorList는 문 Transform들의 리스트
+                    {
+                        float distance = Vector3.Distance(door.position, randomPos);
+                        if (distance < minDistanceFromDoor)
+                        {
+                            interferes = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!interferes)
+                {
                     GameObject gm = Instantiate(furniturePrefab.gameObject, randomPos, randomRot);
                     gm.transform.SetParent(transform);
                     _furnitureManager.AddFurniture(gm.GetComponent<Furniture>());
@@ -174,7 +190,6 @@ public class Room : MonoBehaviour
         roomSize.YSize = height;
         GenerateWalls(startx, starty);
         Debug.Log(startx.ToString()+starty+ToString()+width.ToString()+height.ToString());
-
 
         Vector3 TopDoormidliv = new Vector3(startx + width / 2 , starty + height , 0);
         _id = -3;
@@ -325,6 +340,7 @@ public class Room : MonoBehaviour
             d.direction = "Left";
             d.doorpos = leftDoormid;
             doors.Add(d);
+            doorList.Add(d.transform);
             CreateDoorAt(leftDoor,"Left");
         }
         if ((startX - 5) / mapGeneration.roomGap != 4)
@@ -339,6 +355,8 @@ public class Room : MonoBehaviour
             d.direction = "Right";
             doors.Add(d);
             d.doorpos = rightDoormid;
+                        doorList.Add(d.transform);
+
             CreateDoorAt(rightDoor,"Right");
         }
         if (((startY - 5) / mapGeneration.roomGap != 0) || ((startX -5)/mapGeneration.roomGap == 2))
@@ -352,6 +370,8 @@ public class Room : MonoBehaviour
             d.direction = "Bottom";
             doors.Add(d);
             d.doorpos = bottomDoormid;
+                        doorList.Add(d.transform);
+
             CreateDoorAt(bottomDoor,"Bottom");
 
         }
@@ -366,6 +386,8 @@ public class Room : MonoBehaviour
             d.direction = "Top";
             doors.Add(d);
             d.doorpos = topDoormid;
+                        doorList.Add(d.transform);
+
             CreateDoorAt(topDoor,"Top");
         }
         
