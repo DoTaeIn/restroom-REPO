@@ -42,7 +42,7 @@ public class Item : MonoBehaviour
 
     public float Consume()
     {
-        bool isBad = UnityEngine.Random.Range(0, 1) < 0.5f;
+        bool isBad = UnityEngine.Random.value < 0.5f;
         
         if (isBad && iconSwap.Length > 0)
         {

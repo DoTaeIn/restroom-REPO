@@ -107,16 +107,16 @@ public class UIManager : MonoBehaviour
         switch (endingType)
         {
             case EndingType.Caught:
-                endingImage.sprite = endingScreens[0];
+                endingImage.sprite = endingScreens[3];
                 break;
             case EndingType.Death:
-                endingImage.sprite = endingScreens[1];
+                endingImage.sprite = endingScreens[0];
                 break;
             case EndingType.Weapon:
                 endingImage.sprite = endingScreens[2];
                 break;
             case EndingType.Escape:
-                endingImage.sprite = endingScreens[3];
+                endingImage.sprite = endingScreens[1];
                 break;
         }
 
@@ -176,7 +176,7 @@ public class UIManager : MonoBehaviour
         while (elapsed < 10f)
         {
             elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / 10f);
+            float t = Mathf.Clamp01(elapsed / 3f);
             endingImage.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(endingImage.GetComponent<RectTransform>().anchoredPosition, endPos, t);
             yield return null;
         }

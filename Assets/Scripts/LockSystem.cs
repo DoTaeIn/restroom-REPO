@@ -16,10 +16,14 @@ public class LockSystem : MonoBehaviour
     public Sprite lockedSprite;         // 자물쇠 잠김 이미지
     public Sprite unlockedSprite;       // 자물쇠 풀림 이미지
     TotalFurnitures totalFurnitures;
+    UIManager uiManager;
+    GameHandler gameHandler;
 
     private void Awake()
     {
         totalFurnitures = FindFirstObjectByType<TotalFurnitures>();
+        uiManager = FindFirstObjectByType<UIManager>();
+        gameHandler = FindFirstObjectByType<GameHandler>();
     }
 
     void Start()
@@ -81,11 +85,12 @@ public class LockSystem : MonoBehaviour
 
     public void PasswordCorrect()
     {
-        Debug.Log("비밀번호가 일치합니다!");
         if (lockImage != null && unlockedSprite != null)
         {
             lockImage.sprite = unlockedSprite;
         }
+
+        gameHandler.handleGameOver(0);
     }
     
 }

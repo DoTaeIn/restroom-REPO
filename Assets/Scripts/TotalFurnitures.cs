@@ -9,7 +9,7 @@ public class TotalFurnitures : MonoBehaviour
     private ProceduralMapGeneration proceduralMapGeneration;
     public List<Item> items;
     public Item keyItem;
-    private int[] passValues;
+    private int[] passValues = new int[4];
     
     public int distributeAmt = 10;
     private string password;

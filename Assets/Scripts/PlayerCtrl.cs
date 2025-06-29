@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -46,6 +47,10 @@ public class PlayerCtrl : MonoBehaviour
     GameObject _holdingItem;
     GameObject _holdingFurniture;
     [SerializeField] Transform holdingPoint;
+    [SerializeField] SpriteRenderer keySpriteRenderer;
+    [SerializeField] TextMesh keyText;
+    private List<(UnityEngine.Object hitter, float damage)> itemHits 
+        = new List<(UnityEngine.Object, float)>();
     
     float holdTime = 0f;
     [SerializeField] float requiredHoldDuration = 3.0f;
@@ -69,6 +74,11 @@ public class PlayerCtrl : MonoBehaviour
         gameHandler = FindFirstObjectByType<GameHandler>();
         proceduralMapGen = FindFirstObjectByType<ProceduralMapGeneration>();
         proceduralMapGen.OnMapGenerated += FocusLivingRoom;
+    }
+
+    private void Start()
+    {
+        keyText.GetComponent<Renderer>().sortingOrder = 31;
     }
 
     private void OnDisable()
@@ -118,6 +128,22 @@ public class PlayerCtrl : MonoBehaviour
             {
                 useItem(i);
             }
+        }
+
+        if (isNearFurniture && !isHoldingFurniture && furniture != null && !furniture.isAquired)
+        {
+            
+            keySpriteRenderer.gameObject.SetActive(true);
+            keyText.text = "E";
+        }
+        else if (caught)
+        {
+            keySpriteRenderer.gameObject.SetActive(true);
+            keyText.text = "␣";
+        }
+        else
+        {
+            keySpriteRenderer.gameObject.SetActive(false);
         }
     }
 
@@ -308,11 +334,23 @@ public class PlayerCtrl : MonoBehaviour
     public void TakeDamage(float damage, UnityEngine.Object hitter)
     {
         stamina += damage;
-        damageSources.Add(hitter, damage);
         if (stamina <= 0)
         {
             Debug.Log("Player is dead!");
             gameHandler.handleGameOver(0);
+        }
+        
+        if (hitter is Item)
+        {
+            itemHits.Add((hitter, damage));
+        }
+        else
+        {
+            
+            if (damageSources.ContainsKey(hitter))
+                damageSources[hitter] += damage;
+            else
+                damageSources.Add(hitter, damage);
         }
     }
 
