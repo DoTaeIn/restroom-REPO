@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
     public void Consume()
     {
         float damage = tmep.Consume();
-        playerCtrl.TakeDamage(damage);
+        playerCtrl.TakeDamage(damage, tmep);
         itemImage.sprite = tmep.icon;
         itemNameText.text = tmep.name + "였다.";
         ButtonChooseGroup.SetActive(false);

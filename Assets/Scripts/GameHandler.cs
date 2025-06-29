@@ -68,4 +68,28 @@ public class GameHandler : MonoBehaviour
     {
         confiner2D.BoundingShape2D = playerCtrl.currentRoom.polygon;
     }
+
+    public void handleGameOver()
+    {
+        float itemDamage = 0;
+        float enemyDamage = 0;
+
+        for (int i = 0; i < playerCtrl.damageSources.Keys.Count; i++)
+        {
+            UnityEngine.Object source = playerCtrl.damageSources.Keys.ToList()[i];
+            if (source.GetType() == typeof(Item))
+            {
+                itemDamage += playerCtrl.damageSources[source];
+            }
+            else
+            {
+                enemyDamage += playerCtrl.damageSources[source];
+            }
+        }
+
+        if (itemDamage > enemyDamage)
+        {
+            
+        }
+    }
 }

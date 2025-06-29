@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,13 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private int limit = 5;
 
     [SerializeField] private List<Item> items = new List<Item>();
+
+    private int itemUseAmt = 0;
+
+    private void Start()
+    {
+        itemUseAmt = 0;
+    }
 
     public void AddItem(Item item)
     {
@@ -25,6 +33,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (items.Remove(item))
         {
+            itemUseAmt++;
             UpdateUI();
         }
     }

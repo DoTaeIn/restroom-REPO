@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -39,6 +40,7 @@ public class PlayerCtrl : MonoBehaviour
     private Item temp;
     [SerializeField] private Transform ItemHoldPoint;
     private InventoryManager inventory;
+    public Dictionary<UnityEngine.Object, float> damageSources = new Dictionary<UnityEngine.Object, float>();
     
     GameObject _holdingItem;
     GameObject _holdingFurniture;
@@ -165,6 +167,8 @@ public class PlayerCtrl : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 anim.SetTrigger("isRasing");
+                anim.SetBool("isHolding", true);
+                anim.SetBool("isThrowing", true);
                 isHoldingFurniture = true;
                 _holdingFurniture.transform.SetParent(holdingPoint);
                 _holdingFurniture.transform.localPosition = Vector3.zero;
@@ -185,7 +189,11 @@ public class PlayerCtrl : MonoBehaviour
                 Debug.Log("Throwing Furniture ; hold time: " + holdTime);
                 if (holdTime >= 0.5f)
                 {
+                    anim.SetBool("isHolding", false);
+                    anim.SetBool("isThrowing", true);
                     ThrowFurniture(holdTime);
+                    anim.SetBool("isThrowing", false);
+
                 }
                 // Drop if released before throw duration
                 //DropFurniture();
@@ -194,6 +202,8 @@ public class PlayerCtrl : MonoBehaviour
             if (Input.GetKey(KeyCode.Q))
             {
                 _holdingFurniture.transform.SetParent(null);
+                anim.SetBool("isHolding", false);
+                anim.SetBool("isThrowing", false);
             }
         }
     }
@@ -280,9 +290,10 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
     
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, UnityEngine.Object hitter)
     {
         stamina += damage;
+        damageSources.Add(hitter, damage);
         if (stamina <= 0)
         {
             Debug.Log("Player is dead!");
